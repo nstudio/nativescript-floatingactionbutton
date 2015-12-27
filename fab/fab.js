@@ -1,4 +1,11 @@
-﻿var color = require("color");
+﻿/***************************************************************
+ * Made for the {N} community by Brad Martin @BradWayneMartin
+ * https://twitter.com/BradWayneMartin
+ * https://github.com/bradmartin 
+ * Pull requests are welcome. Enjoy!  
+ **************************************************************/
+
+var color = require("color");
 var app = require("application");
 var utils = require("utils/utils");
 
@@ -10,7 +17,6 @@ exports.creatingFab = function (args) {
 
             // Get ref to the placeholder
             var fabPlaceholder = args.object.parent.getViewById("nativeScriptFabButton");
-            console.log(fabPlaceholder);
 
             // Construct the native FAB button
             var fab = new android.support.design.widget.FloatingActionButton(app.android.currentContext);
@@ -40,7 +46,7 @@ exports.creatingFab = function (args) {
                 var rColor = new color.Color(rippleColor);
                 fab.setRippleColor(rColor.android);
             }
-            
+
             fab.show();
 
             args.view = fab;
