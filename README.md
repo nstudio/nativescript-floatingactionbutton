@@ -22,6 +22,25 @@ XML widget to create the Material Design Floating Action Button for Android Nati
 
 ```
 
+##### Notes*
+The **backColor** property will set the backgroundColor of the FAB
+
+The **rippleColor** property will set the ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices
+
+Currently the **icon** needs to be an image in the App_Resources folder.
+PRs welcome to enhance the icon/image functionality.
+
+
+####CSS
+I recommend the following CSS class styles.
+You might also want to add 
+```
+
+height: 70;
+horizontal-align: right;
+vertical-align: bottom;
+```
+
 ####JS
 
 ```
