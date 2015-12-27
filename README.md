@@ -2,7 +2,7 @@
 XML widget to create the Material Design Floating Action Button for Android NativeScript apps
 
 ## Installation
-`npm install nativescript-floating_action_button`
+`npm install nativescript-floatingactionbutton`
 
 
 ## Usage
