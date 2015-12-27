@@ -10,7 +10,7 @@ XML widget to create the Material Design Floating Action Button for Android Nati
 
 ## Usage
 
-####XML 
+#### XML 
 ```
 
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
@@ -34,7 +34,7 @@ Currently the **icon** needs to be an image in the App_Resources folder.
 PRs welcome to enhance the icon/image functionality.
 
 
-####CSS
+#### CSS
 I recommend the following CSS styles.
 ```
 
@@ -43,7 +43,7 @@ horizontal-align: right;
 vertical-align: bottom;
 ```
 
-####JS
+#### JS
 
 ```
 
