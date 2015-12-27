@@ -6,8 +6,8 @@ XML widget to create the Material Design Floating Action Button for Android Nati
 
 ### Screenshot
 FAB
----------------
-![FAB](/fab.png)
+--------------- | -----------
+![FAB](/fab.png) | 
 
 ## Usage
 
