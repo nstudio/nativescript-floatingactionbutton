@@ -19,13 +19,14 @@
      }
 
      FloatingActionButton.prototype._createUI = function () {
+
          this._android = new android.support.design.widget.FloatingActionButton(this._context);
 
          if(this.rippleColor)
             this._android.setRippleColor(this.rippleColor.android);
 
-         if(this.backgroundColor)
-            this._android.setBackgroundTintList(android.content.res.ColorStateList.valueOf(this.backgroundColor.android));
+         if(this.backColor)
+            this._android.setBackgroundTintList(android.content.res.ColorStateList.valueOf(this.backColor.android));
 
         if(this.icon){
           var res = utils.ad.getApplicationContext().getResources();
@@ -33,7 +34,7 @@
             var identifier = res.getIdentifier(this.icon, 'drawable', utils.ad.getApplication().getPackageName());
             var bitmapDrawable = res.getDrawable(identifier);
             this._android.setImageDrawable(bitmapDrawable);
-          } 
+          }
         }
 
          var that = new WeakRef(this);
@@ -59,6 +60,6 @@
 
      return FloatingActionButton;
 
- })(common.FloatingActionButton);
+ })(common.Fab);
 
- exports.FloatingActionButton = FloatingActionButton;
+ exports.Fab = FloatingActionButton;

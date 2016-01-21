@@ -1,3 +1,9 @@
 dependencies {
-     compile 'com.android.support:design:23.1.1'
+      def suppotVer = "22.2.0";
+
+      if(project.hasProperty("supportVersion")) {
+       suppotVer = supportVersion
+      }
+
+     compile "com.android.support:design:$suppotVer"
 }

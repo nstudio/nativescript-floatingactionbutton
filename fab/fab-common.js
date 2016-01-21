@@ -18,12 +18,12 @@ var FloatingActionButton = (function (_super) {
         }
     });
 
-    Object.defineProperty(FloatingActionButton.prototype, "backgroundColor", {
+    Object.defineProperty(FloatingActionButton.prototype, "backColor", {
         get: function () {
-            return this.backgroundColorProperty;
+            return this.backColorProperty;
         },
         set: function(value){
-            this.backgroundColorProperty = new color.Color(value);
+            this.backColorProperty = new color.Color(value);
         }
     });
 
@@ -39,4 +39,4 @@ var FloatingActionButton = (function (_super) {
     return FloatingActionButton;
 })(view.View);
 
-exports.FloatingActionButton = FloatingActionButton;
+exports.Fab = FloatingActionButton;
