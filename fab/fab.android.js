@@ -1,9 +1,10 @@
-﻿/***************************************************************
- * Made for the {N} community by Brad Martin @BradWayneMartin
+﻿/**************************************************************************************
+ * Made for the {N} community by Brad Martin @BradWayneMartin                           
+ * Thanks to Lazaro Danillo for his contributions - https://github.com/lazaromenezes    
  * https://twitter.com/BradWayneMartin
  * https://github.com/bradmartin
  * Pull requests are welcome. Enjoy!
- **************************************************************/
+ *************************************************************************************/
 
  var common = require("./fab-common");
  var utils = require("utils/utils");
