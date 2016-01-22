@@ -22,6 +22,12 @@
     "Thorum"
   ],
   "author": "Brad Martin <bradmartin0905@gmail.com> (https://github.com/bradmartin)",
+  "contributors": [
+    {
+      "name": "Lázaro Danillo",
+      "url": "https://github.com/lazaromenezes"
+    }
+  ],
   "license": "Apache-2.0",
   "bugs": "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
   "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton"
