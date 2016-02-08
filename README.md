@@ -15,7 +15,7 @@ XML widget to create the Material Design Floating Action Button for Android Nati
 #### XML
 ```XML
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:FAB="nativescript-floatingactionbutton/fab">
+      xmlns:FAB="nativescript-floatingactionbutton">
     <FAB:fab tap="fabTap"
              icon="ic_add_white"
              backColor="#ff4081"
