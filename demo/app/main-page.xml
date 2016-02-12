@@ -6,10 +6,10 @@
         <StackLayout>
             <grid-layout rows="auto, *" id="main-content">
                 <label text="Native FAB down there..." class="title" row="0" />
-                
+
                 <FAB:fab tap="fabTap"
                          row="1"
-                         icon="ic_add_white"
+                         icon="res://ic_add_white"
                          backColor="#ff4081"
                          rippleColor="#f1f1f1"
                          class="fab-button" />
