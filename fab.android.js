@@ -1,13 +1,13 @@
 ﻿/**************************************************************************************
- * Made for the {N} community by Brad Martin @BradWayneMartin                           
- * Thanks to Lazaro Danillo for his contributions - https://github.com/lazaromenezes    
+ * Made for the {N} community by Brad Martin @BradWayneMartin
+ * Thanks to Lazaro Danillo for his contributions - https://github.com/lazaromenezes
  * https://twitter.com/BradWayneMartin
  * https://github.com/bradmartin
  * Pull requests are welcome. Enjoy!
  *************************************************************************************/
 
  var common = require("./fab-common");
- var utils = require("utils/utils");
+ var ImageSource = require("image-source");
 
  require("utils/module-merge").merge(common, module.exports);
 
@@ -30,12 +30,17 @@
              this._android.setBackgroundTintList(android.content.res.ColorStateList.valueOf(this.backColor.android));
 
         if(this.icon){
-          var res = utils.ad.getApplicationContext().getResources();
-          if(res){
-            var identifier = res.getIdentifier(this.icon, 'drawable', utils.ad.getApplication().getPackageName());
-            var bitmapDrawable = res.getDrawable(identifier);
-            this._android.setImageDrawable(bitmapDrawable);
+          iconDrawable = null;
+
+          if(ImageSource.isFileOrResourcePath(this.icon))
+            iconDrawable = ImageSource.fromFileOrResource(this.icon);
+          else{
+            var drawableId = android.content.res.Resources.getSystem().getIdentifier(this.icon, "drawable", "android");
+            iconDrawable = android.content.res.Resources.getSystem().getDrawable(drawableId);
           }
+
+          if(iconDrawable != null)
+            this._android.setImageDrawable(iconDrawable);
         }
 
          var that = new WeakRef(this);
