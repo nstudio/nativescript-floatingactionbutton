@@ -202,3 +202,6 @@ FakesAssemblies/
 .vs
 .vs/
 nativescript-fab.sln
+
+# Demo application build files
+demo/platforms/*
