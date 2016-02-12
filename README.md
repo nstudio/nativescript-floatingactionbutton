@@ -55,8 +55,7 @@ Attribute to set the ripple color on lollipop devices, it will fill the FAB on p
 
 **icon** - required
 
-Attribute to specify which icon to use for the FAB button. Currently this needs to be an image in the App_Resources folder.
-PRs welcome to enhance the icon/image functionality.
+Attribute to specify which icon to use for the FAB button, supports the same image source options that NativeScript images support.
 
 ### Contributors
 
