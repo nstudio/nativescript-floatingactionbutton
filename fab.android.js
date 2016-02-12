@@ -32,15 +32,15 @@
         if(this.icon){
           iconDrawable = null;
 
-          if(ImageSource.isFileOrResourcePath(this.icon))
+          if(ImageSource.isFileOrResourcePath(this.icon)){
             iconDrawable = ImageSource.fromFileOrResource(this.icon);
+            this._android.setImageBitmap(iconDrawable.android);
+          }
           else{
             var drawableId = android.content.res.Resources.getSystem().getIdentifier(this.icon, "drawable", "android");
             iconDrawable = android.content.res.Resources.getSystem().getDrawable(drawableId);
-          }
-
-          if(iconDrawable != null)
             this._android.setImageDrawable(iconDrawable);
+          }
         }
 
          var that = new WeakRef(this);

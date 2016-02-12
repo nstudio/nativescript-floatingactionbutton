@@ -12,12 +12,27 @@ XML widget to create the Material Design Floating Action Button for Android Nati
 
 ## Usage
 
+### For using with a custom resource
+
 #### XML
 ```XML
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       xmlns:FAB="nativescript-floatingactionbutton">
     <FAB:fab tap="fabTap"
-             icon="ic_add_white"
+             icon="res://ic_add_white"
+             backColor="#ff4081"
+             rippleColor="#f1f1f1"
+             class="fab-button" />
+</Page>
+```
+### For using with an android built-in resource
+
+#### XML
+```XML
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      xmlns:FAB="nativescript-floatingactionbutton">
+    <FAB:fab tap="fabTap"
+             icon="ic_menu_camera"
              backColor="#ff4081"
              rippleColor="#f1f1f1"
              class="fab-button" />
@@ -59,4 +74,4 @@ Attribute to specify which icon to use for the FAB button, supports the same ima
 
 ### Contributors
 
-- Lázaro Danillo [lazaromenezes](https://github.com/lazaromenezes)
+- Lï¿½zaro Danillo [lazaromenezes](https://github.com/lazaromenezes)
