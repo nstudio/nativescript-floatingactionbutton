@@ -12,30 +12,21 @@ XML widget to create the Material Design Floating Action Button for Android Nati
 
 ## Usage
 
-### For using with a custom resource
-
 #### XML
+##### **NOTE** The sample XML here will position the FAB on top of the ListView. There is no need for absolute positioning.
 ```XML
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       xmlns:FAB="nativescript-floatingactionbutton">
-    <FAB:fab tap="fabTap"
-             icon="res://ic_add_white"
-             backColor="#ff4081"
-             rippleColor="#f1f1f1"
-             class="fab-button" />
-</Page>
-```
-### For using with an android built-in resource
-
-#### XML
-```XML
-<Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:FAB="nativescript-floatingactionbutton">
-    <FAB:fab tap="fabTap"
-             icon="ic_menu_camera"
-             backColor="#ff4081"
-             rippleColor="#f1f1f1"
-             class="fab-button" />
+    <grid-layout rows="auto, *, auto">
+        <list-view row="1">                            
+            <list-view.itemTemplate>
+                <label text="Hello" />                            
+            </list-view.itemTemplate>                            
+        </list-view>
+        <android row="1">
+	        <FAB:fab tap="fabTap" icon="ic_menu_camera"  backColor="#ff4081"  rippleColor="#f1f1f1" class="fab-button" />                        
+        </android>  
+   </grid-layout>
 </Page>
 ```
 
