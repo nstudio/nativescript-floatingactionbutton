@@ -30,7 +30,7 @@
              this._android.setBackgroundTintList(android.content.res.ColorStateList.valueOf(this.backColor.android));
 
         if(this.icon){
-          iconDrawable = null;
+          var iconDrawable = null;
 
           if(ImageSource.isFileOrResourcePath(this.icon)){
             iconDrawable = ImageSource.fromFileOrResource(this.icon);
