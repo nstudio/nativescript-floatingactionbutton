@@ -2,7 +2,7 @@
   "name": "nativescript-floatingactionbutton",
   "version": "0.1.81",
   "description": "A NativeScript plugin to provide an XML widget to implement the Material Design Floating Action Button in an Android app.",
-   "main": "fab.js",
+  "main": "fab.js",
   "nativescript": {
     "platforms": {
       "android": "1.5.0",
@@ -33,5 +33,8 @@
   ],
   "license": "Apache-2.0",
   "bugs": "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
-  "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton"
+  "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton",
+  "dependencies": {
+    "tns-core-modules": "^1.6.0"
+  }
 }

@@ -8,7 +8,7 @@
 
  var common = require("./fab-common");
  var ImageSource = require("image-source");
- var style = require("ui/styling");
+var style = require("ui/styling/style");
 
  require("utils/module-merge").merge(common, module.exports);
 
@@ -57,8 +57,8 @@ function getNativeColorValue(view) {
 
     return fab.backgroundColor;
 }
-
-var changedHandler = new style.stylers.StylePropertyChangedHandler(setColor, resetColor, getNativeColorValue);
+debugger;
+var changedHandler = new style.StylePropertyChangedHandler(setColor, resetColor, getNativeColorValue);
 
 // register the handler for the color property on the NumberPicker type
-style.stylers.registerHandler(style.properties.colorProperty, changedHandler, "FloatingActionButton");
+style.registerHandler(style.properties.colorProperty, changedHandler, "FloatingActionButton");
