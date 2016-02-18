@@ -2,7 +2,10 @@
 	"nativescript": {
 		"id": "org.nativescript.floatingactionbutton",
 		"tns-android": {
-			"version": "1.5.1"
+			"version": "1.6.0"
+		},
+		"tns-ios": {
+			"version": "1.6.0"
 		}
 	},
 	"dependencies": {

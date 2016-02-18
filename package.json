@@ -5,7 +5,8 @@
    "main": "fab.js",
   "nativescript": {
     "platforms": {
-      "android": "1.5.0"
+      "android": "1.5.0",
+      "ios": "1.5.0"
     }
   },
   "repository": {
@@ -19,6 +20,7 @@
     "FAB",
     "floating-action-button",
     "android",
+    "ios",
     "bradmartin",
     "Thorum"
   ],
