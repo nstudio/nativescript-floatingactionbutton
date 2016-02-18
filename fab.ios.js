@@ -70,9 +70,26 @@ var FloatingActionButtonStyler = (function () {
         return fab.buttonColor;
     };
     
+    // WIDTH\HEIGHT
+    FloatingActionButtonStyler.setSizeProperty = function (view, newValue) {
+        var fab = view.ios;
+        fab.size = newValue;
+    };
+    FloatingActionButtonStyler.resetSizeProperty = function (view, nativeValue) {
+        var fab = view.ios;
+        fab.size = nativeValue;
+    };
+    FloatingActionButtonStyler.getNativeSizeValue = function (view) {
+        var fab = view.ios;
+        return fab.size;
+    };
+    
     FloatingActionButtonStyler.registerHandlers = function () {
         style.registerHandler(style.colorProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setColorProperty, FloatingActionButtonStyler.resetColorProperty, FloatingActionButtonStyler.getNativeColorValue), "FloatingActionButton");
         style.registerHandler(style.backgroundColorProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setBackgroundColorProperty, FloatingActionButtonStyler.resetBackgroundColorProperty, FloatingActionButtonStyler.getNativeBackgroundColorValue), "FloatingActionButton");
+        style.registerHandler(style.backgroundInternalProperty, style.ignorePropertyHandler, "FloatingActionButton");
+        style.registerHandler(style.widthProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setSizeProperty, FloatingActionButtonStyler.resetSizeProperty, FloatingActionButtonStyler.getNativeSizeValue), "FloatingActionButton");
+        style.registerHandler(style.heightProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setSizeProperty, FloatingActionButtonStyler.resetSizeProperty, FloatingActionButtonStyler.getNativeSizeValue), "FloatingActionButton");
     };
     return FloatingActionButtonStyler;
 })();

@@ -16,11 +16,11 @@ button {
 }
 
 .fab-button {
-    height: 50;
-    width: 50;
+    height: 75;
+    width: 75;
     margin: 15;
     horizontal-align: right;
-    vertical-align: bottom;
+    vertical-align: top;
     color: #FFF;
     background-color: #ff4081;
 }
