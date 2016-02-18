@@ -26,28 +26,32 @@ XML widget to create the Material Design Floating Action Button for Android Nati
                 <label text="{{ name }}" textWrap="true" fontSize="18" margin="20" />
             </list-view.itemTemplate>
         </list-view>
-        <android row="1">
             <FAB:fab tap="fabTap"
-                             row="1"
-                             icon="res://ic_add_white"
-                             backColor="#ff4081"
-                             rippleColor="#f1f1f1"
-                             class="fab-button" />
-        </android>
+                     row="1"
+                     icon="res://ic_add_white"
+                     backColor="#ff4081"
+                     rippleColor="#f1f1f1"
+                     class="fab-button" />
     </grid-layout>
 </Page>
 ```
+PLEASE NOTE: The fab is on the same **row number** as the listview 
+***
 
 #### CSS
 I recommend the following CSS styles.
 ```CSS
 .fab-button {
     height: 70;
-    horizontal-align: right;
-    vertical-align: bottom;
     margin: 15;
+    horizontal-align: right; /* Android Only */
+    vertical-align: bottom; /* Android Only */
+    background-color: #ff4081;  /* iOS Only */
+    color: #fff;  /* iOS Only */
 }
 ```
+
+***
 
 #### JS
 
@@ -58,19 +62,26 @@ function fabTap(args) {
 exports.fabTap = fabTap;
 ```
 
-#### Attributes
+***
+
+## Attributes
 **backColor** - optional
 
-Attribute to specify the background color of the FAB
+Background color of the FAB
 
-**rippleColor** - optional
-
-Attribute to set the ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices
-
+### Android Specific Attributes
 **icon** - required
 
-Attribute to specify which icon to use for the FAB button, supports the same image source options that NativeScript images support.
+Icon to use for the FAB button, supports the same image source options that NativeScript images support.
+
+**rippleColor**  - optional
+
+Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices
+
+
+
 
 ### Contributors
 
 - L�zaro Danillo [lazaromenezes](https://github.com/lazaromenezes)
+- Steve McNiven-Scott [sitefinitysteve](https://github.com/sitefinitysteve) - iOS
