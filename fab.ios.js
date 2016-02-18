@@ -103,6 +103,7 @@ FloatingActionButtonStyler.registerHandlers();
 
 
 /* SETUP PROPERTIES */
+//Background Color
 function onBackColorPropertyChanged(data) {
     if(color.Color.isValid(data.newValue)){
         var fab = data.object;
@@ -110,3 +111,12 @@ function onBackColorPropertyChanged(data) {
     }
 }
 common.Fab.backColorProperty.metadata.onSetNativeValue = onBackColorPropertyChanged;
+
+//Icon
+function onIconPropertyChanged(data) {
+    if(ImageSource.isFileOrResourcePath(data.newValue)){
+        //Cocoapod doesn't support this yet afaik
+        //var newImage = ImageSource.fromFileOrResource(data.newValue);
+    }
+}
+common.Fab.iconProperty.metadata.onSetNativeValue = onIconPropertyChanged;
