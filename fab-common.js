@@ -1,8 +1,9 @@
 var view = require("ui/core/view");
 var color = require("color");
+var dObservable = require("ui/core/dependency-observable");
+var proxy = require("ui/core/proxy");
 
 var FloatingActionButton = (function (_super) {
-
     global.__extends(FloatingActionButton, _super);
 
     function FloatingActionButton() {
@@ -20,22 +21,26 @@ var FloatingActionButton = (function (_super) {
 
     Object.defineProperty(FloatingActionButton.prototype, "backColor", {
         get: function () {
-            return this.backColorProperty;
+            return this._getValue(FloatingActionButton.backColorProperty);
         },
-        set: function(value){
-            this.backColorProperty = new color.Color(value);
+        set: function (value) {
+            this._setValue(FloatingActionButton.backColorProperty, value);
         }
     });
 
     Object.defineProperty(FloatingActionButton.prototype, "icon", {
         get: function () {
-            return this.iconProperty;
+            return this._getValue(FloatingActionButton.iconProperty);
         },
-        set: function(value){
-            this.iconProperty = value;
+        set: function (value) {
+            this._setValue(FloatingActionButton.iconProperty, value);
         }
     });
 
+    //Expose for iOS
+    FloatingActionButton.backColorProperty = new dObservable.Property("backColor", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
+    FloatingActionButton.iconProperty = new dObservable.Property("icon", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
+    
     return FloatingActionButton;
 })(view.View);
 

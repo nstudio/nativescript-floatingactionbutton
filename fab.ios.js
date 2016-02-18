@@ -12,9 +12,12 @@ var ImageSource = require("image-source");
 var stateChanged = require("ui/core/control-state-change");
 var style = require("ui/styling/style");
 var utils = require("utils/utils");
+var color = require("color");
 var enums = require("ui/enums");
 
- require("utils/module-merge").merge(common, module.exports);
+
+
+require("utils/module-merge").merge(common, module.exports);
 
 var FloatingActionButton = (function (_super) {
     global.__extends(FloatingActionButton, _super);
@@ -25,6 +28,7 @@ var FloatingActionButton = (function (_super) {
 
         var button = KCFloatingActionButton.alloc().init();
         this._ios = button;
+        
     }
     
     Object.defineProperty(FloatingActionButton.prototype, "ios", {
@@ -39,6 +43,7 @@ var FloatingActionButton = (function (_super) {
 
 exports.Fab = FloatingActionButton;
 
+/* SETUP CSS */
 var FloatingActionButtonStyler = (function () {
     function FloatingActionButtonStyler() {
     }
@@ -95,3 +100,13 @@ var FloatingActionButtonStyler = (function () {
 })();
 exports.FloatingActionButtonStyler = FloatingActionButtonStyler;
 FloatingActionButtonStyler.registerHandlers();
+
+
+/* SETUP PROPERTIES */
+function onBackColorPropertyChanged(data) {
+    if(color.Color.isValid(data.newValue)){
+        var fab = data.object;
+        fab.ios.buttonColor = new color.Color(data.newValue).ios;
+    }
+}
+common.Fab.backColorProperty.metadata.onSetNativeValue = onBackColorPropertyChanged;
