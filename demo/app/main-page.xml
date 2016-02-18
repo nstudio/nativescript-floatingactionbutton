@@ -11,11 +11,6 @@
         </list-view>
         <FAB:fab
                 id="fabButton"
-                tap="fabTap"
-                row="1"
-                icon="res://ic_add_white"
-                backColor="#ff4081"
-                rippleColor="#f1f1f1"
                 class="fab-button" />
 
     </grid-layout>
