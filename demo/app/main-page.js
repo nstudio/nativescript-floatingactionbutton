@@ -11,8 +11,7 @@ var users = [
     { name: 'Lance' },
     { name: 'Johnson' },
     { name: 'William' },
-    { name: 'Franklin' },
-    { name: 'Napoleon' },
+    { name: 'Franklin' }
 ];
 var viewModel = new observable.Observable({
     users: users
@@ -28,9 +27,9 @@ function pageLoaded(args) {
         }
     }
     page.bindingContext = viewModel;
-    
-    var button = page.getViewById("fabButton");
-    debugger;
-    page.ios.view.addSubview(button.ios);
 }
 exports.pageLoaded = pageLoaded;
+
+exports.fabTap = function(args){
+    alert("FAB TAP")
+}

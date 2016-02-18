@@ -4,11 +4,15 @@
  * https://twitter.com/BradWayneMartin
  * https://github.com/bradmartin
  * Pull requests are welcome. Enjoy!
+ * Cocoapod via: https://cocoapods.org/pods/KCFloatingActionButton by Lee Sun-hyoup
  *************************************************************************************/
 
- var common = require("./fab-common");
- var ImageSource = require("image-source");
+var common = require("./fab-common");
+var ImageSource = require("image-source");
+var stateChanged = require("ui/core/control-state-change");
 var style = require("ui/styling/style");
+var utils = require("utils/utils");
+var enums = require("ui/enums");
 
  require("utils/module-merge").merge(common, module.exports);
 
@@ -18,9 +22,9 @@ var FloatingActionButton = (function (_super) {
     function FloatingActionButton() {
         var _this = this;
         _super.call(this);
-        var size = CGRectMake(0, 0, 50, 50);
-        this._ios = MNFloatingActionButton.alloc().initWithFrame(size);
 
+        var button = KCFloatingActionButton.alloc().init();
+        this._ios = button;
     }
     
     Object.defineProperty(FloatingActionButton.prototype, "ios", {
@@ -28,37 +32,49 @@ var FloatingActionButton = (function (_super) {
             return this._ios;
         }
     });
-    
+
     return FloatingActionButton;
     
 })(common.Fab);
 
 exports.Fab = FloatingActionButton;
- 
-// this function is called when the `color` Style property changes on a `NumberPicker` instance 
-function setColor(view, value) {
-    var fab = view.ios;
 
-    // value is UIColor, so we may apply it directly
-    fab.backgroundColor = value;
-}
-
-// this function is called when the `color` Style property changes and the new value is `undefined`
-function resetColor(view, value) {
-    var fab = view.ios;
-
-    // value is native UIColor, so apply it directly
-    fab.backgroundColor = value;
-}
-
-// this function is called when the `Styler` is about to reset the `color` property to its default (original) value.
-function getNativeColorValue(view) {
-    var fab = view.ios;
-
-    return fab.backgroundColor;
-}
-debugger;
-var changedHandler = new style.StylePropertyChangedHandler(setColor, resetColor, getNativeColorValue);
-
-// register the handler for the color property on the NumberPicker type
-style.registerHandler(style.properties.colorProperty, changedHandler, "FloatingActionButton");
+var FloatingActionButtonStyler = (function () {
+    function FloatingActionButtonStyler() {
+    }
+    // COLOR
+    FloatingActionButtonStyler.setColorProperty = function (view, newValue) {
+        var fab = view.ios;
+        fab.plusColor = newValue;
+    };
+    FloatingActionButtonStyler.resetColorProperty = function (view, nativeValue) {
+        var fab = view.ios;
+        fab.plusColor = nativeValue;
+    };
+    FloatingActionButtonStyler.getNativeColorValue = function (view) {
+        var fab = view.ios;
+        return fab.plusColor;
+    };
+    
+    // BACKGROUND COLOR
+    FloatingActionButtonStyler.setBackgroundColorProperty = function (view, newValue) {
+        var fab = view.ios;
+        fab.buttonColor = newValue;
+    };
+    FloatingActionButtonStyler.resetBackgroundColorProperty = function (view, nativeValue) {
+        var fab = view.ios;
+        fab.buttonColor = nativeValue;
+    };
+    FloatingActionButtonStyler.getNativeBackgroundColorValue = function (view) {
+        var fab = view.ios;
+        return fab.buttonColor;
+    };
+    
+    FloatingActionButtonStyler.registerHandlers = function () {
+        style.registerHandler(style.colorProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setColorProperty, FloatingActionButtonStyler.resetColorProperty, FloatingActionButtonStyler.getNativeColorValue), "FloatingActionButton");
+        style.registerHandler(style.backgroundColorProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setBackgroundColorProperty, FloatingActionButtonStyler.resetBackgroundColorProperty, FloatingActionButtonStyler.getNativeBackgroundColorValue), "FloatingActionButton");
+    };
+    return FloatingActionButtonStyler;
+})();
+exports.FloatingActionButtonStyler = FloatingActionButtonStyler;
+FloatingActionButtonStyler.registerHandlers();
