@@ -29,20 +29,20 @@
          if (this.backColor)
              this._android.setBackgroundTintList(android.content.res.ColorStateList.valueOf(this.backColor.android));
 
-        if(this.icon){
-          var iconDrawable = null;
+         if (this.icon) {
+             var iconDrawable = null;
 
-          if(ImageSource.isFileOrResourcePath(this.icon)){
-            iconDrawable = ImageSource.fromFileOrResource(this.icon);
-            if(iconDrawable != null)
-              this._android.setImageBitmap(iconDrawable.android);
-          }
-          else{
-            var drawableId = android.content.res.Resources.getSystem().getIdentifier(this.icon, "drawable", "android");
-            iconDrawable = android.content.res.Resources.getSystem().getDrawable(drawableId);
-            this._android.setImageDrawable(iconDrawable);
-          }
-        }
+             if (ImageSource.isFileOrResourcePath(this.icon)) {
+                 iconDrawable = ImageSource.fromFileOrResource(this.icon);
+                 if (iconDrawable != null)
+                     this._android.setImageBitmap(iconDrawable.android);
+             }
+             else {
+                 var drawableId = android.content.res.Resources.getSystem().getIdentifier(this.icon, "drawable", "android");
+                 iconDrawable = android.content.res.Resources.getSystem().getDrawable(drawableId);
+                 this._android.setImageDrawable(iconDrawable);
+             }
+         }
 
          var that = new WeakRef(this);
 
