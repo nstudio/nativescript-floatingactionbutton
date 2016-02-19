@@ -8,7 +8,8 @@ XML widget to create the Material Design Floating Action Button for Android Nati
 
 ### Screenshot
 ---------------
-![FAB Screenshot](screens/fab.png)
+![FAB Android Screenshot](screens/android.png)
+![FAB iOS Screenshot](screens/ios.png)
 
 ## Usage
 
@@ -26,51 +27,55 @@ XML widget to create the Material Design Floating Action Button for Android Nati
                 <label text="{{ name }}" textWrap="true" fontSize="18" margin="20" />
             </list-view.itemTemplate>
         </list-view>
-        <android row="1">
             <FAB:fab tap="fabTap"
-                             row="1"
-                             icon="res://ic_add_white"
-                             backColor="#ff4081"
-                             rippleColor="#f1f1f1"
-                             class="fab-button" />
-        </android>
+                     row="1"
+                     icon="res://ic_add_white"
+                     rippleColor="#f1f1f1"
+                     class="fab-button" />
     </grid-layout>
 </Page>
 ```
+PLEASE NOTE: The fab is on the same **row number** as the listview 
+***
 
 #### CSS
 I recommend the following CSS styles.
 ```CSS
 .fab-button {
     height: 70;
-    horizontal-align: right;
-    vertical-align: bottom;
     margin: 15;
+    background-color: #ff4081; 
+    horizontal-align: right; /* Android Only */
+    vertical-align: bottom; /* Android Only */
+    color: #fff;  /* iOS Only */
 }
 ```
+
+***
 
 #### JS
 
 ```JS
-function fabTap(args) {
+exports.fabTap = function(args) {
     console.log('tapped');
 }
-exports.fabTap = fabTap;
 ```
 
-#### Attributes
-**backColor** - optional
+***
 
-Attribute to specify the background color of the FAB
+## Attributes
+| Property   |      Android      |  iOS | Description | Note |
+|----------|:-------------:|------:|--|--|
+| backColor |  X | X | Sets the background color of the button | None
+| icon |    X   |   | Supports the same image source options that NativeScript images support | Required on android
+| rippleColor | X |     |Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
 
-**rippleColor** - optional
 
-Attribute to set the ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices
-
-**icon** - required
-
-Attribute to specify which icon to use for the FAB button, supports the same image source options that NativeScript images support.
+## iOS Notes
+Since iOS doesn't have a native FAB, we're using the amazing [KCFloatingActionButton](https://cocoapods.org/pods/KCFloatingActionButton) by [Lee Sun-Hyoup](https://github.com/kciter)
+As of this publish, it does not yet support images, however this is an Issue open. 
 
 ### Contributors
 
 - L�zaro Danillo [lazaromenezes](https://github.com/lazaromenezes)
+- Steve McNiven-Scott [sitefinitysteve](https://github.com/sitefinitysteve) - iOS
