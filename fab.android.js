@@ -7,7 +7,9 @@
  *************************************************************************************/
 
  var common = require("./fab-common");
- var color = require("color");
+var style = require("ui/styling/style");
+var utils = require("utils/utils");
+var color = require("color");
  var ImageSource = require("image-source");
 
  require("utils/module-merge").merge(common, module.exports);
@@ -50,6 +52,37 @@
  })(common.Fab);
 
  exports.Fab = FloatingActionButton;
+ 
+ 
+/* SETUP CSS */
+var FloatingActionButtonStyler = (function () {
+    function FloatingActionButtonStyler() {
+    }
+    // BACKGROUND COLOR
+    FloatingActionButtonStyler.setBackgroundColorProperty = function (view, newValue) {
+        debugger;
+        var fab = view.android;
+        fab.setBackgroundTintList(android.content.res.ColorStateList.valueOf(newValue));
+    };
+    FloatingActionButtonStyler.resetBackgroundColorProperty = function (view, nativeValue) {
+        debugger;
+        var fab = view.android;
+        fab.setBackgroundTintList(android.content.res.ColorStateList.valueOf(nativeValue));
+    };
+    FloatingActionButtonStyler.getNativeBackgroundColorValue = function (view) {
+        debugger;
+        var fab = view.android;
+        return fab.getBackgroundTintList();
+    };
+    
+    FloatingActionButtonStyler.registerHandlers = function () {
+        style.registerHandler(style.backgroundColorProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setBackgroundColorProperty, FloatingActionButtonStyler.resetBackgroundColorProperty, FloatingActionButtonStyler.getNativeBackgroundColorValue), "FloatingActionButton");
+        style.registerHandler(style.backgroundInternalProperty, style.ignorePropertyHandler, "FloatingActionButton");
+    };
+    return FloatingActionButtonStyler;
+})();
+exports.FloatingActionButtonStyler = FloatingActionButtonStyler;
+FloatingActionButtonStyler.registerHandlers();
  
  /* SETUP PROPERTIES */
 //Background Color
