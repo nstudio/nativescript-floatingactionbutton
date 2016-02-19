@@ -1,5 +1,5 @@
 # NativeScript-FloatingActionButton
-XML widget to create the Material Design Floating Action Button for Android NativeScript apps
+XML widget to create the Material Design Floating Action Button for NativeScript apps.
 
 [Material Design Floating Action Button Spec](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
 
