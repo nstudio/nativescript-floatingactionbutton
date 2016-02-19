@@ -64,11 +64,12 @@ exports.fabTap = function(args) {
 ***
 
 ## Attributes
+
 | Property   |      Android      |  iOS | Description | Note |
-|----------|:-------------:|------:|--|--|
-| backColor |  X | X | Sets the background color of the button | None
-| icon |    X   |   | Supports the same image source options that NativeScript images support | Required on android
-| rippleColor | X |     |Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
+|------------|-------------------|------|-------------|------|
+| backColor  |         X         | X    | Sets the background color of the button | None
+| icon       |         X         |      | Supports the same image source options that NativeScript images support | Required on android
+| rippleColor|         X         |      | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
 
 
 ## iOS Notes
