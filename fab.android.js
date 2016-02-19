@@ -34,7 +34,8 @@
 
           if(ImageSource.isFileOrResourcePath(this.icon)){
             iconDrawable = ImageSource.fromFileOrResource(this.icon);
-            this._android.setImageBitmap(iconDrawable.android);
+            if(iconDrawable != null)
+              this._android.setImageBitmap(iconDrawable.android);
           }
           else{
             var drawableId = android.content.res.Resources.getSystem().getIdentifier(this.icon, "drawable", "android");
