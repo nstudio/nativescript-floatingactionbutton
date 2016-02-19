@@ -71,6 +71,12 @@ exports.fabTap = function(args) {
 | icon       |         X         |      | Supports the same image source options that NativeScript images support | Required on android
 | rippleColor|         X         |      | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
 
+## NativeScript Compatibility
+
+| NativeScript Version | FloatingActionButton Plugin Version |
+|----------------------|-------------------------------------|
+| 1.6                  | 2.+                                 |
+| 1.5                  | 1.91                                |  
 
 ## iOS Notes
 Since iOS doesn't have a native FAB, we're using the amazing [KCFloatingActionButton](https://cocoapods.org/pods/KCFloatingActionButton) by [Lee Sun-Hyoup](https://github.com/kciter)
@@ -78,5 +84,5 @@ As of this publish, it does not yet support images, however this is an Issue ope
 
 ### Contributors
 
-- L�zaro Danillo [lazaromenezes](https://github.com/lazaromenezes)
+- Lázaro Danillo [lazaromenezes](https://github.com/lazaromenezes)
 - Steve McNiven-Scott [sitefinitysteve](https://github.com/sitefinitysteve) - iOS
