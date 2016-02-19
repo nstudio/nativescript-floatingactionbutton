@@ -7,6 +7,7 @@
  *************************************************************************************/
 
  var common = require("./fab-common");
+ var color = require("color");
  var ImageSource = require("image-source");
 
  require("utils/module-merge").merge(common, module.exports);
@@ -22,26 +23,6 @@
      FloatingActionButton.prototype._createUI = function () {
 
          this._android = new android.support.design.widget.FloatingActionButton(this._context);
-
-         if(this.rippleColor)
-            this._android.setRippleColor(this.rippleColor.android);
-
-         if (this.backColor)
-             this._android.setBackgroundTintList(android.content.res.ColorStateList.valueOf(this.backColor.android));
-
-        if(this.icon){
-          var iconDrawable = null;
-
-          if(ImageSource.isFileOrResourcePath(this.icon)){
-            iconDrawable = ImageSource.fromFileOrResource(this.icon);
-            this._android.setImageBitmap(iconDrawable.android);
-          }
-          else{
-            var drawableId = android.content.res.Resources.getSystem().getIdentifier(this.icon, "drawable", "android");
-            iconDrawable = android.content.res.Resources.getSystem().getDrawable(drawableId);
-            this._android.setImageDrawable(iconDrawable);
-          }
-        }
 
          var that = new WeakRef(this);
 
@@ -69,3 +50,42 @@
  })(common.Fab);
 
  exports.Fab = FloatingActionButton;
+ 
+ /* SETUP PROPERTIES */
+//Background Color
+function onBackColorPropertyChanged(data) {
+    if(color.Color.isValid(data.newValue)){
+        var fab = data.object;
+        var droidColor = new color.Color(data.newValue).android;
+        fab.android.setBackgroundTintList(android.content.res.ColorStateList.valueOf(droidColor));
+    }
+}
+common.Fab.backColorProperty.metadata.onSetNativeValue = onBackColorPropertyChanged;
+
+//Icon
+function onIconPropertyChanged(data) {
+    var fab = data.object;
+    var icon = data.newValue;
+    var iconDrawable = null;
+
+    if(ImageSource.isFileOrResourcePath(icon)){
+        iconDrawable = ImageSource.fromFileOrResource(icon);
+        fab.android.setImageBitmap(iconDrawable.android);
+    }
+    else{
+        var drawableId = android.content.res.Resources.getSystem().getIdentifier(icon, "drawable", "android");
+        iconDrawable = android.content.res.Resources.getSystem().getDrawable(drawableId);
+        fab.android.setImageDrawable(iconDrawable);
+    }
+}
+common.Fab.iconProperty.metadata.onSetNativeValue = onIconPropertyChanged;
+
+//Ripple Color
+function onRippleColorPropertyChanged(data) {
+    if(color.Color.isValid(data.newValue)){
+        var fab = data.object;
+        var droidColor = new color.Color(data.newValue).android;
+        fab.android.setRippleColor(droidColor);
+    }
+}
+common.Fab.rippleColorProperty.metadata.onSetNativeValue = onRippleColorPropertyChanged;

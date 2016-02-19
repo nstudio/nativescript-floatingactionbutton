@@ -12,10 +12,10 @@ var FloatingActionButton = (function (_super) {
 
     Object.defineProperty(FloatingActionButton.prototype, "rippleColor", {
         get: function () {
-            return this.rippleColorProperty;
+            return this._getValue(FloatingActionButton.rippleColorProperty);
         },
-        set: function(value){
-            this.rippleColorProperty = new color.Color(value);
+        set: function (value) {
+            this._setValue(FloatingActionButton.rippleColorProperty, value);
         }
     });
 
@@ -37,9 +37,9 @@ var FloatingActionButton = (function (_super) {
         }
     });
 
-    //Expose for iOS
     FloatingActionButton.backColorProperty = new dObservable.Property("backColor", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
     FloatingActionButton.iconProperty = new dObservable.Property("icon", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
+    FloatingActionButton.rippleColorProperty = new dObservable.Property("rippleColor", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
     
     return FloatingActionButton;
 })(view.View);
