@@ -39,7 +39,7 @@ PLEASE NOTE: The fab is on the same **row number** as the listview
 ***
 
 #### CSS
-I recommend the following CSS styles.
+Recommended CSS styles.
 ```CSS
 .fab-button {
     height: 70;
