@@ -1,5 +1,5 @@
 # NativeScript-FloatingActionButton
-XML widget to create the Material Design Floating Action Button for Android NativeScript apps
+XML widget to create the Material Design Floating Action Button for NativeScript apps
 
 [Material Design Floating Action Button Spec](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
 
@@ -72,8 +72,9 @@ exports.fabTap = function(args) {
 
 
 ## iOS Notes
-Since iOS doesn't have a native FAB, we're using the amazing [KCFloatingActionButton](https://cocoapods.org/pods/KCFloatingActionButton) by [Lee Sun-Hyoup](https://github.com/kciter)
+- Since iOS doesn't have a native FAB, we're using the amazing [KCFloatingActionButton](https://cocoapods.org/pods/KCFloatingActionButton) by [Lee Sun-Hyoup](https://github.com/kciter)
 As of this publish, it does not yet support images, however this is an Issue open. 
+- Requires XCode CommandLineTools 7.1 to build, [the Cocoapod tanks when using 7.2](https://github.com/NativeScript/nativescript-cli/issues/1521)
 
 ### Contributors
 
