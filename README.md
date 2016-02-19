@@ -8,7 +8,8 @@ XML widget to create the Material Design Floating Action Button for Android Nati
 
 ### Screenshot
 ---------------
-![FAB Screenshot](screens/fab.png)
+![FAB Android Screenshot](screens/android.png)
+![FAB iOS Screenshot](screens/ios.png)
 
 ## Usage
 
@@ -29,7 +30,6 @@ XML widget to create the Material Design Floating Action Button for Android Nati
             <FAB:fab tap="fabTap"
                      row="1"
                      icon="res://ic_add_white"
-                     backColor="#ff4081"
                      rippleColor="#f1f1f1"
                      class="fab-button" />
     </grid-layout>
@@ -44,9 +44,9 @@ I recommend the following CSS styles.
 .fab-button {
     height: 70;
     margin: 15;
+    background-color: #ff4081; 
     horizontal-align: right; /* Android Only */
     vertical-align: bottom; /* Android Only */
-    background-color: #ff4081;  /* iOS Only */
     color: #fff;  /* iOS Only */
 }
 ```
@@ -56,30 +56,24 @@ I recommend the following CSS styles.
 #### JS
 
 ```JS
-function fabTap(args) {
+exports.fabTap = function(args) {
     console.log('tapped');
 }
-exports.fabTap = fabTap;
 ```
 
 ***
 
 ## Attributes
-**backColor** - optional
-
-Background color of the FAB
-
-### Android Specific Attributes
-**icon** - required
-
-Icon to use for the FAB button, supports the same image source options that NativeScript images support.
-
-**rippleColor**  - optional
-
-Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices
+| Property   |      Android      |  iOS | Description | Note |
+|----------|:-------------:|------:|--|--|
+| backColor |  X | X | Sets the background color of the button | None
+| icon |    X   |   | Supports the same image source options that NativeScript images support | Required on android
+| rippleColor | X |     |Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
 
 
-
+## iOS Notes
+Since iOS doesn't have a native FAB, we're using the amazing [KCFloatingActionButton](https://cocoapods.org/pods/KCFloatingActionButton) by [Lee Sun-Hyoup](https://github.com/kciter)
+As of this publish, it does not yet support images, however this is an Issue open. 
 
 ### Contributors
 

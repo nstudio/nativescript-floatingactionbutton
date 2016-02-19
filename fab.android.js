@@ -60,17 +60,14 @@ var FloatingActionButtonStyler = (function () {
     }
     // BACKGROUND COLOR
     FloatingActionButtonStyler.setBackgroundColorProperty = function (view, newValue) {
-        debugger;
         var fab = view.android;
         fab.setBackgroundTintList(android.content.res.ColorStateList.valueOf(newValue));
     };
     FloatingActionButtonStyler.resetBackgroundColorProperty = function (view, nativeValue) {
-        debugger;
         var fab = view.android;
         fab.setBackgroundTintList(android.content.res.ColorStateList.valueOf(nativeValue));
     };
     FloatingActionButtonStyler.getNativeBackgroundColorValue = function (view) {
-        debugger;
         var fab = view.android;
         return fab.getBackgroundTintList();
     };
