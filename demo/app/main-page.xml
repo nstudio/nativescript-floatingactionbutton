@@ -15,6 +15,7 @@
                 icon="res://ic_add_white"
                 tap="fabTap"
                 backColor="#ff4081"
+                rippleColor="blue"
                 class="fab-button" />
     </grid-layout>
 </Page>

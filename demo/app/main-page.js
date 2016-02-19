@@ -1,5 +1,6 @@
 var app = require("application");
 var observable = require("data/observable");
+var observableArrayModule = require("data/observable-array");
 var platformModule = require("platform");
 var color = require("color");
   
@@ -14,7 +15,7 @@ var users = [
     { name: 'Franklin' }
 ];
 var viewModel = new observable.Observable({
-    users: users
+    users: new observableArrayModule.ObservableArray(users)
 });
 
 function pageLoaded(args) {
@@ -31,5 +32,5 @@ function pageLoaded(args) {
 exports.pageLoaded = pageLoaded;
 
 exports.fabTap = function(args){
-    alert("FAB TAP")
+    viewModel.users.push({ name: "Gary"});
 }
