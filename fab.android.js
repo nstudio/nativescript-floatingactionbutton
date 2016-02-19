@@ -101,12 +101,19 @@ function onIconPropertyChanged(data) {
 
     if(ImageSource.isFileOrResourcePath(icon)){
         iconDrawable = ImageSource.fromFileOrResource(icon);
-        fab.android.setImageBitmap(iconDrawable.android);
-    }
-    else{
+        if (iconDrawable) {
+            fab.android.setImageBitmap(iconDrawable.android);
+        } else {
+            console.log("The icon: " + icon + " was not found. Check your XML icon property.");
+        }
+    } else {
         var drawableId = android.content.res.Resources.getSystem().getIdentifier(icon, "drawable", "android");
         iconDrawable = android.content.res.Resources.getSystem().getDrawable(drawableId);
-        fab.android.setImageDrawable(iconDrawable);
+        if (iconDrawabele) {
+            fab.android.setImageDrawable(iconDrawable);
+        } else {
+            console.log("The icon: " + icon + " was not found. Check your XML icon property.");
+        }
     }
 }
 common.Fab.iconProperty.metadata.onSetNativeValue = onIconPropertyChanged;
@@ -117,6 +124,8 @@ function onRippleColorPropertyChanged(data) {
         var fab = data.object;
         var droidColor = new color.Color(data.newValue).android;
         fab.android.setRippleColor(droidColor);
+    } else {
+        console.log("The ripple color: " + data.newValue + " is invalid.");
     }
 }
 common.Fab.rippleColorProperty.metadata.onSetNativeValue = onRippleColorPropertyChanged;
