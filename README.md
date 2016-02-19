@@ -79,8 +79,9 @@ exports.fabTap = function(args) {
 | 1.5                  | 1.91                                |  
 
 ## iOS Notes
-Since iOS doesn't have a native FAB, we're using the amazing [KCFloatingActionButton](https://cocoapods.org/pods/KCFloatingActionButton) by [Lee Sun-Hyoup](https://github.com/kciter)
+- Since iOS doesn't have a native FAB, we're using the amazing [KCFloatingActionButton](https://cocoapods.org/pods/KCFloatingActionButton) by [Lee Sun-Hyoup](https://github.com/kciter)
 As of this publish, it does not yet support images, however this is an Issue open. 
+- Requires XCode CommandLineTools 7.1 to build, [the Cocoapod tanks when using 7.2](https://github.com/NativeScript/nativescript-cli/issues/1521)
 
 ### Contributors
 
