@@ -1,1 +1,1 @@
-pod 'KCFloatingActionButton'
+pod 'MNFloatingActionButton', '~> 0.1'

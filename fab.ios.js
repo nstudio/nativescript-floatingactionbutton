@@ -5,7 +5,7 @@
  * https://twitter.com/BradWayneMartin
  * https://github.com/bradmartin
  * Pull requests are welcome. Enjoy!
- * Cocoapod via: https://cocoapods.org/pods/KCFloatingActionButton by Lee Sun-hyoup
+ * Cocoapod via: http://cocoapods.org/pods/MNFloatingActionButton by Matt Nydam
  *************************************************************************************/
 
 var common = require("./fab-common");
@@ -27,7 +27,10 @@ var FloatingActionButton = (function (_super) {
         var _this = this;
         _super.call(this);
 
-        var button = KCFloatingActionButton.alloc().init();
+        var button = MNFloatingActionButton.alloc().init();
+        
+        button.animationScale = 0.95;
+        
         this._ios = button;
         
     }
@@ -48,50 +51,39 @@ exports.Fab = FloatingActionButton;
 var FloatingActionButtonStyler = (function () {
     function FloatingActionButtonStyler() {
     }
-    // COLOR
-    FloatingActionButtonStyler.setColorProperty = function (view, newValue) {
-        var fab = view.ios;
-        fab.plusColor = newValue;
-    };
-    FloatingActionButtonStyler.resetColorProperty = function (view, nativeValue) {
-        var fab = view.ios;
-        fab.plusColor = nativeValue;
-    };
-    FloatingActionButtonStyler.getNativeColorValue = function (view) {
-        var fab = view.ios;
-        return fab.plusColor;
-    };
     
     // BACKGROUND COLOR
     FloatingActionButtonStyler.setBackgroundColorProperty = function (view, newValue) {
         var fab = view.ios;
-        fab.buttonColor = newValue;
+        fab.backgroundColor = newValue;
     };
     FloatingActionButtonStyler.resetBackgroundColorProperty = function (view, nativeValue) {
         var fab = view.ios;
-        fab.buttonColor = nativeValue;
+        fab.backgroundColor = nativeValue;
     };
     FloatingActionButtonStyler.getNativeBackgroundColorValue = function (view) {
         var fab = view.ios;
-        return fab.buttonColor;
+        return fab.backgroundColor;
     };
     
     // WIDTH\HEIGHT
     FloatingActionButtonStyler.setSizeProperty = function (view, newValue) {
         var fab = view.ios;
-        fab.size = newValue;
+        fab.bounds.size.width = newValue;
+        fab.bounds.size.height = newValue;
+
+        centerIcon(view, newValue); //move image back to center
     };
     FloatingActionButtonStyler.resetSizeProperty = function (view, nativeValue) {
         var fab = view.ios;
-        fab.size = nativeValue;
+        fab.bounds.size.width = nativeValue;
     };
     FloatingActionButtonStyler.getNativeSizeValue = function (view) {
         var fab = view.ios;
-        return fab.size;
+        return fab.bounds.size.width;
     };
     
     FloatingActionButtonStyler.registerHandlers = function () {
-        style.registerHandler(style.colorProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setColorProperty, FloatingActionButtonStyler.resetColorProperty, FloatingActionButtonStyler.getNativeColorValue), "FloatingActionButton");
         style.registerHandler(style.backgroundColorProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setBackgroundColorProperty, FloatingActionButtonStyler.resetBackgroundColorProperty, FloatingActionButtonStyler.getNativeBackgroundColorValue), "FloatingActionButton");
         style.registerHandler(style.backgroundInternalProperty, style.ignorePropertyHandler, "FloatingActionButton");
         style.registerHandler(style.widthProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setSizeProperty, FloatingActionButtonStyler.resetSizeProperty, FloatingActionButtonStyler.getNativeSizeValue), "FloatingActionButton");
@@ -108,16 +100,47 @@ FloatingActionButtonStyler.registerHandlers();
 function onBackColorPropertyChanged(data) {
     if(color.Color.isValid(data.newValue)){
         var fab = data.object;
-        fab.ios.buttonColor = new color.Color(data.newValue).ios;
+        fab.ios.backgroundColor = new color.Color(data.newValue).ios;
     }
 }
 common.Fab.backColorProperty.metadata.onSetNativeValue = onBackColorPropertyChanged;
 
 //Icon
 function onIconPropertyChanged(data) {
-    if(ImageSource.isFileOrResourcePath(data.newValue)){
-        //Cocoapod doesn't support this yet afaik
-        //var newImage = ImageSource.fromFileOrResource(data.newValue);
+    var fab = data.object;
+    var icon = data.newValue;
+    var iconDrawable = null;
+
+    if(ImageSource.isFileOrResourcePath(icon)){
+        iconDrawable = ImageSource.fromFileOrResource(icon);
+        
+        //Kill the old Image, cocoapod doesn't support changing it yet
+        var button = fab.ios.subviews[0];     
+        var oldBadImageView = button.subviews[0];
+        oldBadImageView.removeFromSuperview();
+        oldBadImageView.dealloc();
+        
+        var newImageView = null;
+        
+        //Set the new one    
+        if (iconDrawable) {
+            newImageView = UIImageView.alloc().initWithImage(iconDrawable.ios);
+        } else {
+            //Default image
+            var defaultImage = ImageSource.fromBase64("iVBORw0KGgoAAAANSUhEUgAAAJAAAACQAQAAAADPPd8VAAAAAnRSTlMAAHaTzTgAAAAqSURBVHgBY6AMjIJRYP9n0AuNCo0KMf+HgwPDTmgoRMeo0KgQRWAUjAIABsnZRR7bYyUAAAAASUVORK5CYII=");
+            newImageView = UIImageView.alloc().initWithImage(defaultImage.ios);
+            newImageView.frame = CGRectMake(0, 0, 40, 40); //resize
+        }
+        
+        button.addSubview(newImageView);
     }
 }
 common.Fab.iconProperty.metadata.onSetNativeValue = onIconPropertyChanged;
+
+function centerIcon(fab, newValue) {
+    var button = fab.ios.subviews[0];     
+    var imageView = button.subviews[0];
+    
+    imageView.center = CGPointMake(newValue  / 2, 
+                                   newValue / 2);
+}
