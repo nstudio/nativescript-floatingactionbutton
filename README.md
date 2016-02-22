@@ -45,9 +45,8 @@ I recommend the following CSS styles.
     height: 70;
     margin: 15;
     background-color: #ff4081; 
-    horizontal-align: right; /* Android Only */
-    vertical-align: bottom; /* Android Only */
-    color: #fff;  /* iOS Only */
+    horizontal-align: right;
+    vertical-align: bottom;
 }
 ```
 
@@ -67,14 +66,13 @@ exports.fabTap = function(args) {
 | Property   |      Android      |  iOS | Description | Note |
 |----------|:-------------:|------:|--|--|
 | backColor |  X | X | Sets the background color of the button | None
-| icon |    X   |   | Supports the same image source options that NativeScript images support | Required on android
+| icon |    X   |  X | Supports the same image source options that NativeScript images support | Required on android
 | rippleColor | X |     |Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
 
 
 ## iOS Notes
-- Since iOS doesn't have a native FAB, we're using the amazing [KCFloatingActionButton](https://cocoapods.org/pods/KCFloatingActionButton) by [Lee Sun-Hyoup](https://github.com/kciter)
+- Since iOS doesn't have a native FAB, we're using the amazing [MNFloatingActionButton](http://cocoapods.org/pods/MNFloatingActionButton) by [Matt Nydam](https://github.com/mattnydam)
 As of this publish, it does not yet support images, however this is an Issue open. 
-- Requires XCode CommandLineTools 7.1 to build, [the Cocoapod tanks when using 7.2](https://github.com/NativeScript/nativescript-cli/issues/1521)
 
 ### Contributors
 
