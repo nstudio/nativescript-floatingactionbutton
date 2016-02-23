@@ -30,7 +30,6 @@ var FloatingActionButton = (function (_super) {
         var button = MNFloatingActionButton.alloc().init();
         
         button.animationScale = 0.95;
-        
         this._ios = button;
         
     }
@@ -111,29 +110,28 @@ function onIconPropertyChanged(data) {
     var icon = data.newValue;
     var iconDrawable = null;
 
+    //Kill the old Image, cocoapod doesn't support changing it yet
+    var button = fab.ios.subviews[0];     
+    var oldBadImageView = button.subviews[0];
+    oldBadImageView.removeFromSuperview();
+    var newImageView = null;
+    
     if(ImageSource.isFileOrResourcePath(icon)){
         iconDrawable = ImageSource.fromFileOrResource(icon);
-        
-        //Kill the old Image, cocoapod doesn't support changing it yet
-        var button = fab.ios.subviews[0];     
-        var oldBadImageView = button.subviews[0];
-        oldBadImageView.removeFromSuperview();
-        oldBadImageView.dealloc();
-        
-        var newImageView = null;
-        
+
         //Set the new one    
         if (iconDrawable) {
             newImageView = UIImageView.alloc().initWithImage(iconDrawable.ios);
-        } else {
-            //Default image
-            var defaultImage = ImageSource.fromBase64("iVBORw0KGgoAAAANSUhEUgAAAJAAAACQAQAAAADPPd8VAAAAAnRSTlMAAHaTzTgAAAAqSURBVHgBY6AMjIJRYP9n0AuNCo0KMf+HgwPDTmgoRMeo0KgQRWAUjAIABsnZRR7bYyUAAAAASUVORK5CYII=");
-            newImageView = UIImageView.alloc().initWithImage(defaultImage.ios);
-            newImageView.frame = CGRectMake(0, 0, 40, 40); //resize
-        }
-        
-        button.addSubview(newImageView);
+        } 
+    }else{
+        //Default image
+        var defaultImage = ImageSource.fromBase64("iVBORw0KGgoAAAANSUhEUgAAAJAAAACQAQAAAADPPd8VAAAAAnRSTlMAAHaTzTgAAAAqSURBVHgBY6AMjIJRYP9n0AuNCo0KMf+HgwPDTmgoRMeo0KgQRWAUjAIABsnZRR7bYyUAAAAASUVORK5CYII=");
+        newImageView = UIImageView.alloc().initWithImage(defaultImage.ios);
+        newImageView.frame = CGRectMake(0, 0, 40, 40); //resize
+       
     }
+    
+    button.addSubview(newImageView);
 }
 common.Fab.iconProperty.metadata.onSetNativeValue = onIconPropertyChanged;
 
