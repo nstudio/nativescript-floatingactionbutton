@@ -110,17 +110,14 @@ function onIconPropertyChanged(data) {
     var icon = data.newValue;
     var iconDrawable = null;
 
-    //Kill the old Image, cocoapod doesn't support changing it yet
-    var button = fab.ios.subviews[0];     
-    var oldBadImageView = button.subviews[0];
-    oldBadImageView.removeFromSuperview();
+
     var newImageView = null;
     
     if(ImageSource.isFileOrResourcePath(icon)){
         iconDrawable = ImageSource.fromFileOrResource(icon);
 
         //Set the new one    
-        if (iconDrawable) {
+        if (iconDrawable !== null) {
             newImageView = UIImageView.alloc().initWithImage(iconDrawable.ios);
         } 
     }else{
@@ -130,8 +127,16 @@ function onIconPropertyChanged(data) {
         newImageView.frame = CGRectMake(0, 0, 40, 40); //resize
        
     }
+
+    if(newImageView !== null){
+        //Kill the old Image, cocoapod doesn't support changing it yet
+        var button = fab.ios.subviews[0];     
+        var oldBadImageView = button.subviews[0];
+        oldBadImageView.removeFromSuperview();
     
-    button.addSubview(newImageView);
+        //Add the new guy
+        button.addSubview(newImageView);
+    }
 }
 common.Fab.iconProperty.metadata.onSetNativeValue = onIconPropertyChanged;
 
