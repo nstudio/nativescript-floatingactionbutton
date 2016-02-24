@@ -53,8 +53,8 @@ var ImageSource = require("image-source");
  })(common.Fab);
 
  exports.Fab = FloatingActionButton;
- 
- 
+
+
 /* SETUP CSS */
 var FloatingActionButtonStyler = (function () {
     function FloatingActionButtonStyler() {
@@ -72,7 +72,7 @@ var FloatingActionButtonStyler = (function () {
         var fab = view.android;
         return fab.getBackgroundTintList();
     };
-    
+
     FloatingActionButtonStyler.registerHandlers = function () {
         style.registerHandler(style.backgroundColorProperty, new style.StylePropertyChangedHandler(FloatingActionButtonStyler.setBackgroundColorProperty, FloatingActionButtonStyler.resetBackgroundColorProperty, FloatingActionButtonStyler.getNativeBackgroundColorValue), "FloatingActionButton");
         style.registerHandler(style.backgroundInternalProperty, style.ignorePropertyHandler, "FloatingActionButton");
@@ -81,7 +81,7 @@ var FloatingActionButtonStyler = (function () {
 })();
 exports.FloatingActionButtonStyler = FloatingActionButtonStyler;
 FloatingActionButtonStyler.registerHandlers();
- 
+
  /* SETUP PROPERTIES */
 //Background Color
 function onBackColorPropertyChanged(data) {
@@ -109,7 +109,7 @@ function onIconPropertyChanged(data) {
     } else {
         var drawableId = android.content.res.Resources.getSystem().getIdentifier(icon, "drawable", "android");
         iconDrawable = android.content.res.Resources.getSystem().getDrawable(drawableId);
-        if (iconDrawabele) {
+        if (iconDrawable) {
             fab.android.setImageDrawable(iconDrawable);
         } else {
             console.log("The icon: " + icon + " was not found. Check your XML icon property.");
