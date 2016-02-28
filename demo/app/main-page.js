@@ -12,6 +12,14 @@ var users = [
     { name: 'Lance' },
     { name: 'Johnson' },
     { name: 'William' },
+    { name: 'Franklin' },
+    { name: 'Billy Bob' },
+    { name: 'Tweeder' }, 
+    { name: 'Mox' },
+    { name: 'Coach' },
+    { name: 'Lance' },
+    { name: 'Johnson' },
+    { name: 'William' },
     { name: 'Franklin' }
 ];
 var viewModel = new observable.Observable({
@@ -32,5 +40,5 @@ function pageLoaded(args) {
 exports.pageLoaded = pageLoaded;
 
 exports.fabTap = function(args){
-    viewModel.users.push({ name: "Gary"});
+    viewModel.users.unshift({ name: "Gary"}); 
 }
