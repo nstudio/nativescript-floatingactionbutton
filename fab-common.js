@@ -3,7 +3,8 @@ var color = require("color");
 var frameModule = require("ui/frame");
 var dObservable = require("ui/core/dependency-observable");
 var proxy = require("ui/core/proxy");
-
+var swipeLoaded = false;
+    
 var FloatingActionButton = (function (_super) {
     global.__extends(FloatingActionButton, _super);
 
@@ -11,34 +12,41 @@ var FloatingActionButton = (function (_super) {
         _super.call(this);
     }
     
+
     FloatingActionButton.prototype.onLoaded = function () {
         _super.prototype.onLoaded.call(this);
-        var fab = this;
-        var viewToAttachTo = this.hideOnSwipeOfView;
-        var swipeItem = this.page.getViewById(viewToAttachTo);
-        
-        if(swipeItem !== undefined){
-            var duration = (this.hideAnimationDuration == undefined) ? 300 : this.hideAnimationDuration;
-            
-            //Wire up action
-            swipeItem.on("swipe", function (args) {
- 
-            //if scrolling down (swipe up) --  hide FAB
-            if (args.direction === 4) {
-                    fab.animate({
-                        translate: { x: 0, y: 200 },
-                        opacity: 0,
-                        duration: duration
+
+        if(swipeLoaded === false){
+            var fab = this;
+            var viewToAttachTo = this.hideOnSwipeOfView;
+            if(viewToAttachTo !== undefined){
+                var swipeItem = this.page.getViewById(viewToAttachTo);
+
+                if(swipeItem !== undefined){
+                    console.log("Wiring up swipe");
+                    var duration = (this.hideAnimationDuration == undefined) ? 300 : this.hideAnimationDuration;
+                    swipeItem.on("swipe", function (args) { 
+                        //Swipe up
+                        if (args.direction === 4) {
+                            fab.animate({
+                                translate: { x: 0, y: 200 },
+                                opacity: 0,
+                                duration: duration
+                            });
+                        } 
+                        //Swipe Down
+                        else if (args.direction === 8) {
+                            fab.animate({
+                                translate: { x: 0, y: 0 },
+                                opacity: 1,
+                                duration: duration
+                            });
+                        };  
                     });
-                } //if scrolling up (swipe down) -- show FAB
-                else if (args.direction === 8) {
-                    fab.animate({
-                        translate: { x: 0, y: 0 },
-                        opacity: 1,
-                        duration: duration
-                    });
-                };  
-            });
+                    
+                    swipeLoaded = true;
+                }
+            }
         }
     };
 
@@ -76,6 +84,5 @@ var FloatingActionButton = (function (_super) {
     
     return FloatingActionButton;
 })(view.View);
-
 
 exports.Fab = FloatingActionButton;
