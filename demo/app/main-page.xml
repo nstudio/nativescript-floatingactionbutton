@@ -4,7 +4,7 @@
         <ActionBar title="Native FAB" backgroundColor="#3F51B5" color="#fff" />
     </Page.actionBar>
     <grid-layout rows="auto, *">
-        <list-view row="1" items="{{ users }}">
+        <list-view id="userList" row="1" items="{{ users }}">
             <list-view.itemTemplate>
                 <label text="{{ name }}" textWrap="true" fontSize="15" margin="20" />
             </list-view.itemTemplate>
@@ -15,6 +15,7 @@
                 icon="res://ic_add_white"
                 tap="fabTap"
                 rippleColor="#ffffff"
-                class="fab-button" />
+                class="fab-button"
+                hideOnSwipeOfView="userList" />
     </grid-layout>
 </Page>

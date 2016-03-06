@@ -69,7 +69,15 @@ exports.fabTap = function(args) {
 | backColor  |         X         | X    | Sets the background color of the button | None
 | icon       |         X         | X     | Supports the same image source options that NativeScript images support | Required on android
 | rippleColor|         X         |      | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
-                 
+| hideOnSwipeOfView|         X         |   X   | Directs the fab to animate itself in and out on scroll | Pass it the name of the view to monitor for a scroll event example: hideOnSwipeOfView="userListView"
+| hideAnimationDuration|         X         |   X   | How many milliseconds it takes for the button to hide. | Default of not set: 300ms
+
+## NativeScript Compatibility
+
+| NativeScript Version | FloatingActionButton Plugin Version |
+|----------------------|-------------------------------------|
+| 1.6                  | 2.+                                 |
+| 1.5                  | 1.91                                |  
 
 ## iOS Notes
 - We're using [MNFloatingActionButton](http://cocoapods.org/pods/MNFloatingActionButton) by [Matt Nydam](https://github.com/mattnydam)
