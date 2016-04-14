@@ -112,7 +112,6 @@ function onIconPropertyChanged(data) {
 
 
     var newImageView = null;
-    
     if(ImageSource.isFileOrResourcePath(icon)){
         iconDrawable = ImageSource.fromFileOrResource(icon);
 
@@ -123,8 +122,8 @@ function onIconPropertyChanged(data) {
     }else{
         //Default image
         var defaultImage = ImageSource.fromBase64("iVBORw0KGgoAAAANSUhEUgAAAJAAAACQAQAAAADPPd8VAAAAAnRSTlMAAHaTzTgAAAAqSURBVHgBY6AMjIJRYP9n0AuNCo0KMf+HgwPDTmgoRMeo0KgQRWAUjAIABsnZRR7bYyUAAAAASUVORK5CYII=");
+
         newImageView = UIImageView.alloc().initWithImage(defaultImage.ios);
-        newImageView.frame = CGRectMake(0, 0, 40, 40); //resize
        
     }
 
@@ -143,7 +142,10 @@ common.Fab.iconProperty.metadata.onSetNativeValue = onIconPropertyChanged;
 function centerIcon(fab, newValue) {
     var button = fab.ios.subviews[0];     
     var imageView = button.subviews[0];
+
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.frame = CGRectMake(0, 0, imageView.frame.size.width, newValue / 2); //resize
     
-    imageView.center = CGPointMake(newValue  / 2, 
+    imageView.center = CGPointMake(newValue / 2, 
                                    newValue / 2);
 }

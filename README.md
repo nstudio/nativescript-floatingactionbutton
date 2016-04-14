@@ -71,6 +71,7 @@ exports.fabTap = function(args) {
 | rippleColor|         X         |      | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
 | hideOnSwipeOfView|         X         |   X   | Directs the fab to animate itself in and out on scroll | Pass it the name of the view to monitor for a scroll event example: hideOnSwipeOfView="userListView"
 | hideAnimationDuration|         X         |   X   | How many milliseconds it takes for the button to hide. | Default if not set: 300ms
+| swipeAnimation|         X         |   X   | slideDown, slideUp, slideLeft, slideRight, scale | Default is slideDown
 
 ## NativeScript Compatibility
 
@@ -81,6 +82,13 @@ exports.fabTap = function(args) {
 
 ## iOS Notes
 - We're using [MNFloatingActionButton](http://cocoapods.org/pods/MNFloatingActionButton) by [Matt Nydam](https://github.com/mattnydam)
+- Width\Height are requried properties
+- icon is a required property, if left as empty string default will be shown
+
+## Release Notes ##
+### 2.2.0 ###
+* Scale iOS images to 1/2 height
+* swipeAnimation property added to define animations for the FAB
 
 ### Contributors
 

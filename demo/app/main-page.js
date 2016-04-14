@@ -3,6 +3,7 @@ var observable = require("data/observable");
 var observableArrayModule = require("data/observable-array");
 var platformModule = require("platform");
 var color = require("color");
+var fab;
   
 var users = [
     { name: 'Billy Bob' },
@@ -36,9 +37,14 @@ function pageLoaded(args) {
         }
     }
     page.bindingContext = viewModel;
+    fab = page.getViewById("fabButton");
 }
 exports.pageLoaded = pageLoaded;
 
 exports.fabTap = function(args){
     viewModel.users.unshift({ name: "Gary"}); 
+}
+
+exports.onAnimateUp = function(args){
+    fab.swipeAnimation = "slideUp";
 }

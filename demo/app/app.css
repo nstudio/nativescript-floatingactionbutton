@@ -15,7 +15,7 @@ button {
     horizontal-align: center;
 }
 
-.fab-button {
+.fab-button-bottom {
     height: 50;
     width: 50;
     margin: 15;
@@ -23,4 +23,12 @@ button {
     vertical-align: bottom;
     color: #FFF;
     background-color: #ff4081;
+}
+
+.options{
+    background-color: #f0f0f0;
+}
+
+.options Button{
+    font-size: 14;
 }

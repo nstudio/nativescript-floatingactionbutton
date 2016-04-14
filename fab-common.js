@@ -3,48 +3,84 @@ var color = require("color");
 var frameModule = require("ui/frame");
 var dObservable = require("ui/core/dependency-observable");
 var proxy = require("ui/core/proxy");
-var swipeLoaded = false;
-    
+
 var FloatingActionButton = (function (_super) {
     global.__extends(FloatingActionButton, _super);
 
     function FloatingActionButton() {
         _super.call(this);
+        
+        this.swipeEventAttached = false;
+        
+        this.getDurationDefault = function(animationType){
+            switch(animationType){
+                case "scale":
+                    return 100;
+                default:
+                    return 300;
+            }
+        };
     }
     
 
     FloatingActionButton.prototype.onLoaded = function () {
         _super.prototype.onLoaded.call(this);
 
-        if(swipeLoaded === false){
+        if(this.swipeEventAttached === false){
             var fab = this;
             var viewToAttachTo = this.hideOnSwipeOfView;
             if(viewToAttachTo !== undefined){
                 var swipeItem = this.page.getViewById(viewToAttachTo);
-
+                var animationType = (this.swipeAnimation) ? this.swipeAnimation : "slideDown"
+                
                 if(swipeItem !== undefined){
-                    console.log("Wiring up swipe");
-                    var duration = (this.hideAnimationDuration == undefined) ? 300 : this.hideAnimationDuration;
-                    swipeItem.on("swipe", function (args) { 
+                    var duration = (this.hideAnimationDuration) ? this.hideAnimationDuration : this.getDurationDefault(animationType);
+                    
+                    swipeItem.on("swipe", function (args) {
                         //Swipe up
                         if (args.direction === 4) {
-                            fab.animate({
-                                translate: { x: 0, y: 200 },
-                                opacity: 0,
-                                duration: duration
-                            });
+                            switch(animationType){
+                               case "slideUp":
+                                    fab.animate({ translate: { x: 0, y: -200 }, opacity: 0, duration: duration });
+                                    break;
+                                case "slideDown":
+                                    fab.animate({ translate: { x: 0, y: 200 }, opacity: 0, duration: duration });
+                                    break;
+                                case "slideRight":
+                                    fab.animate({ translate: { x: 200, y: 0 }, opacity: 0, duration: duration });
+                                    break;
+                               case "slideLeft":
+                                    fab.animate({ translate: { x: -200, y: 0 }, opacity: 0, duration: duration });
+                                    break;
+                                case "scale":
+                                    fab.animate({ scale: { x: 0, y: 0 }, duration: duration });
+                                    break;
+                            }
+                            
                         } 
                         //Swipe Down
                         else if (args.direction === 8) {
-                            fab.animate({
-                                translate: { x: 0, y: 0 },
-                                opacity: 1,
-                                duration: duration
-                            });
+                            switch(animationType){
+                                case "slideUp":
+                                    fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
+                                    break;
+                                case "slideDown":
+                                    fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
+                                    break;
+                                case "slideRight":
+                                    fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
+                                    break;
+                                case "slideLeft":
+                                    fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
+                                    break;
+                                case "scale":
+                                    fab.animate({ scale: { x: 1, y: 1 }, duration: duration });
+                                    break;
+                            }
                         };  
                     });
-                    
-                    swipeLoaded = true;
+
+                    this.swipeEventAttached = true;
                 }
             }
         }
