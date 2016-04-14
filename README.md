@@ -11,6 +11,9 @@ XML widget to create the Material Design Floating Action Button for NativeScript
 ![FAB Android Screenshot](screens/android.png)
 ![FAB iOS Screenshot](screens/ios.png)
 
+### Multiple FAB/Swipe Animation Support
+![FAB Animations](screens/animations.gif)
+
 ## Usage
 
 #### XML
@@ -66,7 +69,7 @@ exports.fabTap = function(args) {
 
 | Property   |      Android      |  iOS | Description | Note |
 |------------|-------------------|------|-------------|------|
-| backColor  |         X         | X    | Sets the background color of the button | None
+| backColor  |         X         | X    | Sets the background color of the button | Better set in CSS
 | icon       |         X         | X     | Supports the same image source options that NativeScript images support | Required on android
 | rippleColor|         X         |      | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
 | hideOnSwipeOfView|         X         |   X   | Directs the fab to animate itself in and out on scroll | Pass it the name of the view to monitor for a scroll event example: hideOnSwipeOfView="userListView"
@@ -77,7 +80,7 @@ exports.fabTap = function(args) {
 
 | NativeScript Version | FloatingActionButton Plugin Version |
 |----------------------|-------------------------------------|
-| 1.6                  | 2.+                                 |
+| 1.6+                  | 2.+                                 |
 | 1.5                  | 1.91                                |  
 
 ## iOS Notes

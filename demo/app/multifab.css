@@ -1,0 +1,32 @@
+.fab-button {
+    height: 50;
+    width: 50;
+    margin: 15;
+    color: #FFF;
+    background-color: #ff4081;
+}
+
+.top-left{
+    horizontal-align: left;
+    vertical-align: top;
+}
+
+.top-right{
+    horizontal-align: right;
+    vertical-align: top;
+}
+
+.bottom-left{
+    horizontal-align: left;
+    vertical-align: bottom;
+}
+
+.bottom-right{
+    horizontal-align: right;
+    vertical-align: bottom;
+}
+
+.center{
+    horizontal-align: center;
+    vertical-align: center;
+}

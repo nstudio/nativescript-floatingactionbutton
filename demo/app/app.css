@@ -25,10 +25,11 @@ button {
     background-color: #ff4081;
 }
 
-.options{
+.commands{
+    padding: 10 5;
     background-color: #f0f0f0;
 }
 
-.options Button{
+.commands Button{
     font-size: 14;
 }

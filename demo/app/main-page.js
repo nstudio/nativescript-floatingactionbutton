@@ -2,6 +2,7 @@ var app = require("application");
 var observable = require("data/observable");
 var observableArrayModule = require("data/observable-array");
 var platformModule = require("platform");
+var frameModule = require("ui/frame");
 var color = require("color");
 var fab;
   
@@ -45,6 +46,6 @@ exports.fabTap = function(args){
     viewModel.users.unshift({ name: "Gary"}); 
 }
 
-exports.onAnimateUp = function(args){
-    fab.swipeAnimation = "slideUp";
+exports.goMultiFab = function(args){
+    frameModule.topmost().navigate("multifab");;
 }
