@@ -1,3 +1,6 @@
+[![npm](https://img.shields.io/npm/v/nativescript-floatingactionbutton.svg)](https://www.npmjs.com/package/nativescript-floatingactionbutton)
+[![npm](https://img.shields.io/npm/dt/nativescript-floatingactionbutton.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-floatingactionbutton)
+
 # NativeScript-FloatingActionButton
 XML widget to create the Material Design Floating Action Button for NativeScript apps.
 
