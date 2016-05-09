@@ -1,6 +1,6 @@
 {
   "name": "nativescript-floatingactionbutton",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "A NativeScript plugin to provide an XML widget to implement the Material Design Floating Action Button in NativeScript apps.",
    "main": "fab.js",
   "nativescript": {
@@ -33,6 +33,10 @@
     {
       "name": "Steve McNiven-Scott",
       "url": "https://github.com/sitefinitysteve"
+    }, 
+    {
+      "name": "Nathanael Anderson",
+      "url": "https://github.com/NathanaelA"
     }
   ],
   "license": "Apache-2.0",
