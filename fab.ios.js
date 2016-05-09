@@ -68,6 +68,7 @@ var FloatingActionButtonStyler = (function () {
     // WIDTH\HEIGHT
     FloatingActionButtonStyler.setSizeProperty = function (view, newValue) {
         var fab = view.ios;
+        if (isNaN(newValue)) return;
         fab.bounds.size.width = newValue;
         fab.bounds.size.height = newValue;
 
