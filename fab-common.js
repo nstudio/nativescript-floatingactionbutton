@@ -47,9 +47,8 @@ var FloatingActionButton = (function (_super) {
                     var duration = (this.hideAnimationDuration) ? this.hideAnimationDuration : this.getDurationDefault(animationType);
                     
                     swipeItem.on("pan", function (args) {
-                        var delta = args.deltaY;
                         //Swipe up
-                        if (delta < 0) {
+                        if (args.deltaY < -10) {
                             switch(animationType){
                                case "slideUp":
                                     fab.animate({ translate: { x: 0, y: -200 }, opacity: 0, duration: duration });
@@ -70,7 +69,7 @@ var FloatingActionButton = (function (_super) {
                             
                         } 
                         //Swipe Down
-                        else {
+                        else if (args.deltaY > 0) {
                             switch(animationType){
                                 case "slideUp":
                                     fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
