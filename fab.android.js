@@ -1,13 +1,4 @@
-﻿/**************************************************************************************
- * Made for the {N} community by Brad Martin @BradWayneMartin
- * Thanks to Lazaro Danillo for his contributions - https://github.com/lazaromenezes
- * Thanks to Steve McNiven-Scott for his contributions - https://github.com/sitefinitysteve
- * https://twitter.com/BradWayneMartin
- * https://github.com/bradmartin
- * Pull requests are welcome. Enjoy!
- *************************************************************************************/
-
-var common = require("./fab-common");
+﻿var common = require("./fab-common");
 var style = require("ui/styling/style");
 var utils = require("utils/utils");
 var color = require("color");
