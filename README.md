@@ -100,3 +100,5 @@ exports.fabTap = function(args) {
 
 - Lázaro Danillo [lazaromenezes](https://github.com/lazaromenezes)
 - Steve McNiven-Scott [sitefinitysteve](https://github.com/sitefinitysteve) - iOS
+- Nathanael Anderson [NathanaelA]("https://github.com/NathanaelA)
+- Gabriel Marinho [gabrielbiga](https://github.com/gabrielbiga)
