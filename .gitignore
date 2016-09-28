@@ -206,3 +206,4 @@ nativescript-fab.sln
 
 # Demo application build files
 demo/platforms/*
+demo/lib/*
