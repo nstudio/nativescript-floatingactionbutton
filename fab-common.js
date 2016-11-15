@@ -19,11 +19,11 @@ var FloatingActionButton = (function (_super) {
 
     function FloatingActionButton() {
         _super.call(this);
-        
+
         this.swipeEventAttached = false;
-        
-        this.getDurationDefault = function(animationType){
-            switch(animationType){
+
+        this.getDurationDefault = function (animationType) {
+            switch (animationType) {
                 case "scale":
                     return 100;
                 default:
@@ -31,63 +31,131 @@ var FloatingActionButton = (function (_super) {
             }
         };
     }
-    
+
 
     FloatingActionButton.prototype.onLoaded = function () {
         _super.prototype.onLoaded.call(this);
 
-        if(this.swipeEventAttached === false){
+        if (this.swipeEventAttached === false) {
             var fab = this;
             var viewToAttachTo = this.hideOnSwipeOfView;
-            if(viewToAttachTo !== undefined){
-                var swipeItem = this.page.getViewById(viewToAttachTo);
+            if (viewToAttachTo !== undefined) {
+                var swipeItem = frameModule.topmost().getViewById(viewToAttachTo);
                 var animationType = (this.swipeAnimation) ? this.swipeAnimation : "slideDown"
-                
-                if(swipeItem !== undefined){
+
+                if (swipeItem !== undefined) {
                     var duration = (this.hideAnimationDuration) ? this.hideAnimationDuration : this.getDurationDefault(animationType);
-                    
+
                     swipeItem.on("pan", function (args) {
                         //Swipe up
                         if (args.deltaY < -10) {
-                            switch(animationType){
-                               case "slideUp":
-                                    fab.animate({ translate: { x: 0, y: -200 }, opacity: 0, duration: duration });
-                                    break;
-                                case "slideDown":
-                                    fab.animate({ translate: { x: 0, y: 200 }, opacity: 0, duration: duration });
-                                    break;
-                                case "slideRight":
-                                    fab.animate({ translate: { x: 200, y: 0 }, opacity: 0, duration: duration });
-                                    break;
-                               case "slideLeft":
-                                    fab.animate({ translate: { x: -200, y: 0 }, opacity: 0, duration: duration });
-                                    break;
-                                case "scale":
-                                    fab.animate({ scale: { x: 0, y: 0 }, duration: duration });
-                                    break;
-                            }
-                            
-                        } 
-                        //Swipe Down
-                        else if (args.deltaY > 0) {
-                            switch(animationType){
+                            switch (animationType) {
                                 case "slideUp":
-                                    fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
+                                    fab.animate({
+                                        translate: {
+                                            x: 0,
+                                            y: -200
+                                        },
+                                        opacity: 0,
+                                        duration: duration
+                                    });
                                     break;
                                 case "slideDown":
-                                    fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
+                                    fab.animate({
+                                        translate: {
+                                            x: 0,
+                                            y: 200
+                                        },
+                                        opacity: 0,
+                                        duration: duration
+                                    });
                                     break;
                                 case "slideRight":
-                                    fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
+                                    fab.animate({
+                                        translate: {
+                                            x: 200,
+                                            y: 0
+                                        },
+                                        opacity: 0,
+                                        duration: duration
+                                    });
                                     break;
                                 case "slideLeft":
-                                    fab.animate({ translate: { x: 0, y: 0 }, opacity: 1, duration: duration });
+                                    fab.animate({
+                                        translate: {
+                                            x: -200,
+                                            y: 0
+                                        },
+                                        opacity: 0,
+                                        duration: duration
+                                    });
                                     break;
                                 case "scale":
-                                    fab.animate({ scale: { x: 1, y: 1 }, duration: duration });
+                                    fab.animate({
+                                        scale: {
+                                            x: 0,
+                                            y: 0
+                                        },
+                                        duration: duration
+                                    });
                                     break;
                             }
-                        };  
+
+                        }
+                        //Swipe Down
+                        else if (args.deltaY > 0) {
+                            switch (animationType) {
+                                case "slideUp":
+                                    fab.animate({
+                                        translate: {
+                                            x: 0,
+                                            y: 0
+                                        },
+                                        opacity: 1,
+                                        duration: duration
+                                    });
+                                    break;
+                                case "slideDown":
+                                    fab.animate({
+                                        translate: {
+                                            x: 0,
+                                            y: 0
+                                        },
+                                        opacity: 1,
+                                        duration: duration
+                                    });
+                                    break;
+                                case "slideRight":
+                                    fab.animate({
+                                        translate: {
+                                            x: 0,
+                                            y: 0
+                                        },
+                                        opacity: 1,
+                                        duration: duration
+                                    });
+                                    break;
+                                case "slideLeft":
+                                    fab.animate({
+                                        translate: {
+                                            x: 0,
+                                            y: 0
+                                        },
+                                        opacity: 1,
+                                        duration: duration
+                                    });
+                                    break;
+                                case "scale":
+                                    fab.animate({
+                                        scale: {
+                                            x: 1,
+                                            y: 1
+                                        },
+                                        duration: duration
+                                    });
+                                    break;
+                            }
+                        };
                     });
 
                     this.swipeEventAttached = true;
@@ -126,8 +194,8 @@ var FloatingActionButton = (function (_super) {
     FloatingActionButton.backColorProperty = new dObservable.Property("backColor", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
     FloatingActionButton.iconProperty = new dObservable.Property("icon", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
     FloatingActionButton.rippleColorProperty = new dObservable.Property("rippleColor", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
-    
-    
+
+
     return FloatingActionButton;
 })(view.View);
 
