@@ -46,6 +46,7 @@ PLEASE NOTE: The fab is on the same **row number** as the listview
 
 #### Angular + TypeScript
 `import { registerElement } from "nativescript-angular/element-registry";`
+
 `registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);`
 
 ##### HTML 
@@ -53,7 +54,7 @@ PLEASE NOTE: The fab is on the same **row number** as the listview
 <StackLayout>
     <FAB (tap)="fabTap()" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
 </StackLayout>
-
+```
 
 #### CSS
 Recommended CSS styles.
