@@ -96,7 +96,7 @@ exports.fabTap = function(args) {
 
 | NativeScript Version | FloatingActionButton Plugin Version |
 |----------------------|-------------------------------------|
-| 1.6+                  | 2.+                                 |
+| 2.4                  | 2.+                                 |
 | 1.5                  | 1.91                                |  
 
 ## iOS Notes
