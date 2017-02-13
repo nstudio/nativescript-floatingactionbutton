@@ -61,6 +61,7 @@ Recommended CSS styles.
 ```CSS
 .fab-button {
     height: 70;
+    width: 70; /// this is required on iOS - Android does not require width so you might need to adjust styles 
     margin: 15;
     background-color: #ff4081; 
     horizontal-align: right; 
@@ -95,7 +96,7 @@ exports.fabTap = function(args) {
 
 | NativeScript Version | FloatingActionButton Plugin Version |
 |----------------------|-------------------------------------|
-| 1.6+                  | 2.+                                 |
+| 2.4                  | 2.+                                 |
 | 1.5                  | 1.91                                |  
 
 ## iOS Notes
