@@ -40,7 +40,7 @@ var FloatingActionButton = (function (_super) {
             var fab = this;
             var viewToAttachTo = this.hideOnSwipeOfView;
             if (viewToAttachTo !== undefined) {
-                var swipeItem = frameModule.topmost().getViewById(viewToAttachTo);
+                var swipeItem = this.page.getViewById(viewToAttachTo);
                 var animationType = (this.swipeAnimation) ? this.swipeAnimation : "slideDown"
 
                 if (swipeItem !== undefined) {
