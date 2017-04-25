@@ -7,6 +7,11 @@ XML widget to create the Material Design Floating Action Button for NativeScript
 [Material Design Floating Action Button Spec](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
 
 ## Installation
+
+### NativeScript 2.x
+`tns plugin add nativescript-floatingactionbutton@^2.2.7`
+
+### NativeScript 3+
 `tns plugin add nativescript-floatingactionbutton`
 
 ### Screenshot
