@@ -7,46 +7,44 @@
  * https://github.com/bradmartin
  * Pull requests are welcome. Enjoy!
  *************************************************************************************/
+import * as definitions from "./index";
+import { View, Property } from "ui/core/view";
+import { Color } from "color";
+import { PanGestureEventData } from "ui/gestures";
 
-var view = require("ui/core/view");
-var color = require("color");
-var frameModule = require("ui/frame");
-var dObservable = require("ui/core/dependency-observable");
-var proxy = require("ui/core/proxy");
+export class FloatingActionButtonBase extends View implements definitions.Fab {
 
-var FloatingActionButton = (function (_super) {
-    global.__extends(FloatingActionButton, _super);
+    private swipeEventAttached: boolean = false;
+    public hideOnSwipeOfView: string;
+    public swipeAnimation: "slideUp" | "slideDown" | "slideRight" | "slideLeft" | "scale";
+    public hideAnimationDuration: number;
 
-    function FloatingActionButton() {
-        _super.call(this);
+    public rippleColor: Color;
+    public icon: string;
+    public backColor: Color;
 
-        this.swipeEventAttached = false;
-
-        this.getDurationDefault = function (animationType) {
-            switch (animationType) {
-                case "scale":
-                    return 100;
-                default:
-                    return 300;
-            }
-        };
+    getDurationDefault(animationType: string) {
+        switch (animationType) {
+            case "scale":
+                return 100;
+            default:
+                return 300;
+        }
     }
 
-
-    FloatingActionButton.prototype.onLoaded = function () {
-        _super.prototype.onLoaded.call(this);
+    onLoaded() {
+        super.onLoaded()
 
         if (this.swipeEventAttached === false) {
             var fab = this;
-            var viewToAttachTo = this.hideOnSwipeOfView;
-            if (viewToAttachTo !== undefined) {
-                var swipeItem = frameModule.topmost().getViewById(viewToAttachTo);
+            if (this.hideOnSwipeOfView !== undefined) {
+                var swipeItem = this.page.getViewById(this.hideOnSwipeOfView);
                 var animationType = (this.swipeAnimation) ? this.swipeAnimation : "slideDown"
 
                 if (swipeItem !== undefined) {
                     var duration = (this.hideAnimationDuration) ? this.hideAnimationDuration : this.getDurationDefault(animationType);
 
-                    swipeItem.on("pan", function (args) {
+                    swipeItem.on("pan", (args: PanGestureEventData) => {
                         //Swipe up
                         if (args.deltaY < -10) {
                             switch (animationType) {
@@ -163,40 +161,25 @@ var FloatingActionButton = (function (_super) {
             }
         }
     };
-
-    Object.defineProperty(FloatingActionButton.prototype, "rippleColor", {
-        get: function () {
-            return this._getValue(FloatingActionButton.rippleColorProperty);
-        },
-        set: function (value) {
-            this._setValue(FloatingActionButton.rippleColorProperty, value);
-        }
-    });
-
-    Object.defineProperty(FloatingActionButton.prototype, "backColor", {
-        get: function () {
-            return this._getValue(FloatingActionButton.backColorProperty);
-        },
-        set: function (value) {
-            this._setValue(FloatingActionButton.backColorProperty, value);
-        }
-    });
-
-    Object.defineProperty(FloatingActionButton.prototype, "icon", {
-        get: function () {
-            return this._getValue(FloatingActionButton.iconProperty);
-        },
-        set: function (value) {
-            this._setValue(FloatingActionButton.iconProperty, value);
-        }
-    });
-
-    FloatingActionButton.backColorProperty = new dObservable.Property("backColor", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
-    FloatingActionButton.iconProperty = new dObservable.Property("icon", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
-    FloatingActionButton.rippleColorProperty = new dObservable.Property("rippleColor", "FloatingActionButton", new proxy.PropertyMetadata(0, dObservable.PropertyMetadataSettings.AffectsLayout));
+}
 
 
-    return FloatingActionButton;
-})(view.View);
+export const backColorProperty = new Property<FloatingActionButtonBase, Color>({
+    name: "backColor",
+    equalityComparer: Color.equals,
+    valueConverter: (v) => new Color(v),
+    valueChanged: (fab, oldValue, newValue) => {
+        fab.style.backgroundColor = newValue
+    }
+});
+backColorProperty.register(FloatingActionButtonBase);
 
-exports.Fab = FloatingActionButton;
+export const iconProperty = new Property<FloatingActionButtonBase, string>({
+    name: "icon", affectsLayout: true
+});
+iconProperty.register(FloatingActionButtonBase);
+
+export const rippleColorProperty = new Property<FloatingActionButtonBase, Color>({
+    name: "rippleColor", equalityComparer: Color.equals, valueConverter: (v) => new Color(v)
+});
+rippleColorProperty.register(FloatingActionButtonBase);
