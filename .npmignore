@@ -7,3 +7,5 @@ nativescript-fab.sln
 demo/
 screens/
 
+*.ts
+!*.d.ts

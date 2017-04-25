@@ -1,12 +1,12 @@
 {
   "name": "nativescript-floatingactionbutton",
-  "version": "2.2.7",
+  "version": "3.0.0",
   "description": "A NativeScript plugin for Material Design Floating Action Button.",
-   "main": "fab",
+  "main": "fab",
   "nativescript": {
     "platforms": {
-      "android": "1.5.0",
-      "ios": "1.5.0"
+      "android": "3.0.0",
+      "ios": "3.0.0"
     }
   },
   "repository": {
@@ -34,11 +34,11 @@
     {
       "name": "Steve McNiven-Scott",
       "url": "https://github.com/sitefinitysteve"
-    }, 
+    },
     {
       "name": "Nathanael Anderson",
       "url": "https://github.com/NathanaelA"
-    }, 
+    },
     {
       "name": "Gabriel Marinho",
       "url": "https://github.com/gabrielbiga"
@@ -46,5 +46,16 @@
   ],
   "license": "Apache-2.0",
   "bugs": "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
-  "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton"
+  "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton",
+  "devDependencies": {
+    "tns-core-modules": "^3.0.0 || ^3.0.0-rc.1",
+    "tns-platform-declarations": "^3.0.0 || ^3.0.0-rc.1",
+    "typescript": "^2.2.2"
+  },
+  "peerDependencies": {
+    "tns-core-modules": "^3.0.0 || ^3.0.0-rc.1"
+  },
+  "scripts": {
+    "prepublish": "tsc"
+  }
 }

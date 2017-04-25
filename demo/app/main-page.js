@@ -24,7 +24,7 @@ var users = [
     { name: 'William' },
     { name: 'Franklin' }
 ];
-var viewModel = new observable.Observable({
+var viewModel = observable.fromObject({
     users: new observableArrayModule.ObservableArray(users)
 });
 
