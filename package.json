@@ -13,6 +13,16 @@
     "type": "git",
     "url": "https://github.com/bradmartin/nativescript-floatingactionbutton"
   },
+  "scripts": {
+    "prepublish": "tsc",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "keywords": [
     "NativeScript",
     "native",
@@ -23,7 +33,7 @@
     "android",
     "ios",
     "bradmartin",
-    "Thorum"
+    "nStudio"
   ],
   "author": "Brad Martin <bradwaynemartin@gmail.com> (https://github.com/bradmartin)",
   "contributors": [
@@ -60,14 +70,14 @@
   "bugs": "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
   "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton",
   "devDependencies": {
+    "husky": "^0.13.4",
+    "lint-staged": "^3.6.1",
+    "prettier": "^1.4.4",
     "tns-core-modules": "^3.0.0 || ^3.0.0-rc.1",
     "tns-platform-declarations": "^3.0.0 || ^3.0.0-rc.1",
     "typescript": "^2.2.2"
   },
   "peerDependencies": {
     "tns-core-modules": "^3.0.0 || ^3.0.0-rc.1"
-  },
-  "scripts": {
-    "prepublish": "tsc"
   }
 }
