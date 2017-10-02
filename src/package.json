@@ -113,6 +113,7 @@
     "prettier": "^1.4.4",
     "tns-core-modules": "^3.1.0",
     "tns-platform-declarations": "^3.1.0",
+    "rimraf": "^2.5.0",
     "tslint": "^5.1.0",
     "typescript": "~2.3.0"
   }

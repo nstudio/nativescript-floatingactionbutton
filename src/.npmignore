@@ -10,3 +10,6 @@ node_modules/
 
 *.ts
 !*.d.ts
+*.map
+tsconfig.json
+references.d.ts
