@@ -1,13 +1,20 @@
 {
   "name": "nativescript-floatingactionbutton",
-  "version": "4.0.3",
-  "description": "A NativeScript plugin for Material Design Floating Action Button.",
+  "version": "4.1.0",
+  "description":
+    "A NativeScript plugin for Material Design Floating Action Button.",
   "main": "fab",
   "typings": "index.d.ts",
   "nativescript": {
     "platforms": {
       "android": "3.0.0",
       "ios": "3.0.0"
+    },
+    "plugin": {
+      "nan": true,
+      "pan": true,
+      "core3": "true",
+      "category": "Interface"
     }
   },
   "repository": {
@@ -17,26 +24,35 @@
   "scripts": {
     "tsc": "tsc -skipLibCheck",
     "build": "npm i && tsc",
-    "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
-    "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
-    "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
-    "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
-    "plugin.link": "npm link && cd ../demo && npm link nativescript-floatingactionbutton && cd ../src",
+    "postclone":
+      "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
+    "test.android":
+      "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
+    "test.ios":
+      "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
+    "tslint":
+      "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+    "plugin.link":
+      "npm link && cd ../demo && npm link nativescript-floatingactionbutton && cd ../src",
     "plugin.tscwatch": "npm run tsc -- -w",
-    "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
-    "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
+    "demo.ios":
+      "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
+    "demo.android":
+      "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
     "demo.reset": "cd ../demo && rimraf platforms",
-    "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-floatingactionbutton && tns plugin add ../src",
-    "clean": "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
-    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
+    "plugin.prepare":
+      "npm run tsc && cd ../demo && tns plugin remove nativescript-floatingactionbutton && tns plugin add ../src",
+    "clean":
+      "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
+    "ci.tslint":
+      "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
+    "pre-commit": "npm run lint-staged"
   },
   "lint-staged": {
-    "*.ts": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.ts": ["prettier --write", "git add"]
   },
   "keywords": [
+    "ecosystem:nativescript",
     "NativeScript",
     "native",
     "javascript",
@@ -48,7 +64,11 @@
     "bradmartin",
     "nStudio"
   ],
-  "author": "Brad Martin <bradwaynemartin@gmail.com> (https://github.com/bradmartin)",
+  "author": {
+    "name": "Brad Martin",
+    "url": "https://github.com/bradmartin",
+    "email": "bmartin@nstudio.io"
+  },
   "contributors": [
     {
       "name": "Lázaro Danillo",
@@ -80,7 +100,8 @@
     }
   ],
   "license": "MIT",
-  "bugs": "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
+  "bugs":
+    "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
   "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton",
   "devDependencies": {
     "husky": "^0.13.4",
@@ -88,9 +109,7 @@
     "prettier": "^1.4.4",
     "tns-core-modules": "^3.1.0",
     "tns-platform-declarations": "^3.1.0",
-    "typescript": "^2.2.2"
-  },
-  "peerDependencies": {
-    "tns-core-modules": "^3.0.0 || ^3.0.0-rc.1"
+    "tslint": "^5.1.0",
+    "typescript": "~2.3.0"
   }
 }

@@ -8,7 +8,7 @@ android {
 }
 
 dependencies {
-      def supportVer = "26.1.0";
+      def supportVer = "26.0.0";
 
       if(project.hasProperty("supportVersion")) {
        supportVer = supportVersion
