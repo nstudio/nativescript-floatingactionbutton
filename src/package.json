@@ -14,7 +14,6 @@
     "url": "https://github.com/bradmartin/nativescript-floatingactionbutton"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "plugin.link": "npm link && cd ../demo && npm link nativescript-floatingactionbutton && cd ../src",
     "plugin.tscwatch": "npm run tsc -w",
     "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
