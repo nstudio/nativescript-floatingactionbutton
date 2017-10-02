@@ -53,11 +53,11 @@ XML widget to create the Material Design Floating Action Button for NativeScript
 PLEASE NOTE: The fab is on the same **row number** as the listview 
 ***
 
-#### Angular + TypeScript
-`import { registerElement } from "nativescript-angular/element-registry";`
-
-`registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);`
-
+#### Angular NativeScript
+``` typescript
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
+```
 ##### HTML 
 ```HTML
 <StackLayout>
@@ -94,7 +94,7 @@ exports.fabTap = function(args) {
 
 | Property   |      Android      |  iOS | Description | Note |
 |------------|-------------------|------|-------------|------|
-| backColor  |         X         | X    | Sets the background color of the button | Better set in CSS
+| backgroundColor  |         X         | X    | Sets the background color of the button |
 | icon       |         X         | X     | Supports the same image source options that NativeScript images support | Required on android
 | rippleColor|         X         |      | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None
 | hideOnSwipeOfView|         X         |   X   | Directs the fab to animate itself in and out on scroll | Pass it the name of the view to monitor for a scroll event example: hideOnSwipeOfView="userListView"
@@ -121,6 +121,6 @@ exports.fabTap = function(args) {
 ### Contributors
 
 - Lázaro Danillo [lazaromenezes](https://github.com/lazaromenezes)
-- Steve McNiven-Scott [sitefinitysteve](https://github.com/sitefinitysteve) - iOS
+- Steve McNiven-Scott [sitefinitysteve](https://github.com/sitefinitysteve)
 - Nathanael Anderson [NathanaelA]("https://github.com/NathanaelA)
 - Gabriel Marinho [gabrielbiga](https://github.com/gabrielbiga)
