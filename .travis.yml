@@ -65,6 +65,7 @@ android:
 
 install:
     - npm install -g nativescript
+    - npm install -g tslint
     - tns usage-reporting disable
     - tns error-reporting disable
     
