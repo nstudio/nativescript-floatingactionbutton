@@ -46,7 +46,6 @@
       "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
     "ci.tslint":
       "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
-    "pre-commit": "npm run lint-staged"
   },
   "lint-staged": {
     "*.ts": ["prettier --write", "git add"]
