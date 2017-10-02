@@ -1,0 +1,12 @@
+﻿# generated files
+.vs
+.vs/
+nativescript-fab.sln
+.sln
+*.sln
+demo/
+screens/
+node_modules/
+
+*.ts
+!*.d.ts

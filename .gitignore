@@ -208,4 +208,7 @@ nativescript-fab.sln
 demo/platforms/*
 demo/lib/*
 
+src/*.js
 /*.js
+demo/node_modules/
+node_modules/

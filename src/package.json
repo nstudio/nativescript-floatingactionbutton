@@ -1,0 +1,90 @@
+{
+  "name": "nativescript-floatingactionbutton",
+  "version": "4.0.0",
+  "description": "A NativeScript plugin for Material Design Floating Action Button.",
+  "main": "fab",
+  "nativescript": {
+    "platforms": {
+      "android": "3.0.0",
+      "ios": "3.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bradmartin/nativescript-floatingactionbutton"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "plugin.link": "npm link && cd ../demo && npm link nativescript-floatingactionbutton && cd ../src",
+    "plugin.tscwatch": "npm run tsc -w",
+    "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
+    "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
+    "demo.reset": "cd ../demo && rimraf platforms",
+    "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-floatingactionbuttion && tns plugin add ../src",
+    "clean": "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
+    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "NativeScript",
+    "native",
+    "javascript",
+    "material design",
+    "FAB",
+    "floating-action-button",
+    "android",
+    "ios",
+    "bradmartin",
+    "nStudio"
+  ],
+  "author": "Brad Martin <bradwaynemartin@gmail.com> (https://github.com/bradmartin)",
+  "contributors": [
+    {
+      "name": "Lázaro Danillo",
+      "url": "https://github.com/lazaromenezes"
+    },
+    {
+      "name": "Steve McNiven-Scott",
+      "url": "https://github.com/sitefinitysteve"
+    },
+    {
+      "name": "Nathanael Anderson",
+      "url": "https://github.com/NathanaelA"
+    },
+    {
+      "name": "Gabriel Marinho",
+      "url": "https://github.com/gabrielbiga"
+    },
+    {
+      "name": "Alexander Vakrilov",
+      "url": "https://github.com/vakrilov"
+    },
+    {
+      "name": "Samuel Ikechukwu",
+      "url": "https://github.com/holymp2006"
+    },
+    {
+      "name": "Stanimira Vlaeva",
+      "url": "https://github.com/sis0k0"
+    }
+  ],
+  "license": "Apache-2.0",
+  "bugs": "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
+  "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton",
+  "devDependencies": {
+    "husky": "^0.13.4",
+    "lint-staged": "^3.6.1",
+    "prettier": "^1.4.4",
+    "tns-core-modules": "^3.1.0",
+    "tns-platform-declarations": "^3.1.0",
+    "typescript": "^2.2.2"
+  },
+  "peerDependencies": {
+    "tns-core-modules": "^3.0.0 || ^3.0.0-rc.1"
+  }
+}
