@@ -53,9 +53,16 @@ export class Fab extends FloatingActionButtonBase {
   }
 
   [backColorProperty.setNative](value: Color) {
-    this.nativeView.setBackgroundTintList(
-      android.content.res.ColorStateList.valueOf(value.android)
-    );
+    if (value) {
+      try {
+        this.nativeView.setBackgroundTintList(
+          android.content.res.ColorStateList.valueOf(value.android)
+        );
+      } catch (error) {
+        // do nothing, catch bad color value
+        console.log("bad background-color value: ", error);
+      }
+    }
   }
 
   [backgroundColorProperty.getDefault](): android.content.res.ColorStateList {

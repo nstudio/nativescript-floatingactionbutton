@@ -1,6 +1,6 @@
 {
   "name": "nativescript-floatingactionbutton",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "A NativeScript plugin for Material Design Floating Action Button.",
   "main": "fab",
   "typings": "index.d.ts",
