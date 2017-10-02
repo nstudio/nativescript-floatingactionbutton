@@ -1,47 +1,3 @@
-branches:
-  only: 
-    - master
-matrix:
-  include:
-      - stage: "Lint"
-      language: node_js
-      os: linux
-      node_js: "6"
-      script: "npm run ci.tslint" 
-      - stage: "WebPack"
-      os: osx
-      env:
-        - Platform="iOS"
-      osx_image: xcode8.3
-      language: node_js 
-      node_js: "6"
-      jdk: oraclejdk8
-      script: cd demo && npm run build.plugin && npm i && npm run build-ios-bundle && cd ../demo-angular && npm run build.plugin && npm i && npm run build-ios-bundle
-    - language: android
-      os: linux
-      env:
-        - Platform="Android"
-      jdk: oraclejdk8
-      before_install: nvm install 6.10.3
-      script: cd demo && npm run build.plugin && npm i && npm run build-android-bundle && cd ../demo-angular && npm run build.plugin && npm i && npm run build-android-bundle
-    - stage: "Build"
-      env: 
-        - Android="25"
-      language: android
-      os: linux
-      jdk: oraclejdk8
-      before_install: nvm install 6.10.3
-      script: cd demo && npm run ci.android.build && cd ../demo-angular && npm run ci.android.build
-    - os: osx
-      env: 
-        - iOS="10.3"
-        - Xcode="8.3"
-      osx_image: xcode8.3
-      language: node_js 
-      node_js: "6"
-      jdk: oraclejdk8
-      script: cd demo && npm run ci.ios.build && cd ../demo-angular && npm run ci.ios.build
-
 android:
   components:
     - tools
@@ -49,9 +5,10 @@ android:
     - build-tools-25.0.2
     - android-25
     - extra-android-m2repository
+    - sys-img-armeabi-v7a-android-21
 
 before_cache:
-    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock 
 
 cache:
     directories:
@@ -63,3 +20,59 @@ install:
     - echo no | npm install -g nativescript
     - tns usage-reporting disable
     - tns error-reporting disable
+    - npm install
+    - cd src
+    - npm run setup
+
+script:
+
+
+matrix:
+  include:
+    - stage: "Lint"
+      language: node_js
+      os: linux
+      node_js: "6"
+      script: "npm run ci.tslint" 
+    - stage: "WebPack"
+      os: osx
+      env:
+        - Webpack="iOS"
+      osx_image: xcode8.3
+      language: node_js 
+      node_js: "6"
+      jdk: oraclejdk8
+      before_install:
+        - gem install cocoapods
+        - pod repo update
+      script: cd ../demo && npm run build-ios-bundle
+    - language: android
+      os: linux
+      env:
+        - Webpack="Android"
+      jdk: oraclejdk8
+      before_install: nvm install 6.10.3
+      script: cd ../demo &&  npm run build-android-bundle
+    - stage: "Build"
+      env: 
+        - BuildAndroid="25"
+      language: android
+      os: linux
+      jdk: oraclejdk8
+      before_install: nvm install 6.10.3
+      script:
+        - cd ../demo && tns build android
+    - os: osx
+      env: 
+        - BuildiOS="10.3"
+        - Xcode="8.3"
+      osx_image: xcode8.3
+      language: node_js 
+      node_js: "6"
+      jdk: oraclejdk8
+      before_install:
+        - gem install cocoapods
+        - pod repo update
+      script:
+        - cd ../demo && tns build ios
+    
