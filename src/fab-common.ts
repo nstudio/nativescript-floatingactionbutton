@@ -43,7 +43,7 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
             : this._getDurationDefault(animationType);
 
           swipeItem.on("pan", (args: PanGestureEventData) => {
-            //Swipe up
+            // Swipe up
             if (args.deltaY < -10) {
               switch (animationType) {
                 case "slideUp":
@@ -106,7 +106,7 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                   break;
               }
             } else if (args.deltaY > 0) {
-              //Swipe Down
+              // Swipe Down
               switch (animationType) {
                 case "slideUp":
                   fab.animate({

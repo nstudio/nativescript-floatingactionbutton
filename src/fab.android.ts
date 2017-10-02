@@ -73,7 +73,7 @@ export class Fab extends FloatingActionButtonBase {
   }
 
   [backgroundInternalProperty.setNative](value: any) {
-    //NOOP
+    // NOOP
   }
 
   [rippleColorProperty.setNative](value: Color) {

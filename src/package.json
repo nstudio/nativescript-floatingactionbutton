@@ -1,8 +1,7 @@
 {
   "name": "nativescript-floatingactionbutton",
   "version": "4.1.0",
-  "description":
-    "A NativeScript plugin for Material Design Floating Action Button.",
+  "description": "A NativeScript plugin for Material Design Floating Action Button.",
   "main": "fab",
   "typings": "index.d.ts",
   "nativescript": {
@@ -24,31 +23,24 @@
   "scripts": {
     "tsc": "tsc -skipLibCheck",
     "build": "npm i && tsc",
-    "postclone":
-      "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
-    "test.android":
-      "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
-    "test.ios":
-      "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
-    "tslint":
-      "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
-    "plugin.link":
-      "npm link && cd ../demo && npm link nativescript-floatingactionbutton && cd ../src",
+    "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
+    "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
+    "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
+    "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+    "plugin.link": "npm link && cd ../demo && npm link nativescript-floatingactionbutton && cd ../src",
     "plugin.tscwatch": "npm run tsc -- -w",
-    "demo.ios":
-      "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
-    "demo.android":
-      "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
+    "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
+    "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
     "demo.reset": "cd ../demo && rimraf platforms",
-    "plugin.prepare":
-      "npm run tsc && cd ../demo && tns plugin remove nativescript-floatingactionbutton && tns plugin add ../src",
-    "clean":
-      "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
-    "ci.tslint":
-      "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
+    "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-floatingactionbutton && tns plugin add ../src",
+    "clean": "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
+    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
   },
   "lint-staged": {
-    "*.ts": ["prettier --write", "git add"]
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "keywords": [
     "ecosystem:nativescript",
@@ -99,8 +91,7 @@
     }
   ],
   "license": "MIT",
-  "bugs":
-    "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
+  "bugs": "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
   "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton",
   "devDependencies": {
     "husky": "^0.13.4",

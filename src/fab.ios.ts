@@ -30,12 +30,12 @@ export class Fab extends FloatingActionButtonBase {
     if (ImageSource.isFileOrResourcePath(value)) {
       iconDrawable = ImageSource.fromFileOrResource(value);
 
-      //Set the new one
+      // Set the new one
       if (iconDrawable !== null) {
         newImageView = UIImageView.alloc().initWithImage(iconDrawable.ios);
       }
     } else {
-      //Default image
+      // Default image
       const defaultImage = ImageSource.fromBase64(
         "iVBORw0KGgoAAAANSUhEUgAAAJAAAACQAQAAAADPPd8VAAAAAnRSTlMAAHaTzTgAAAAqSURBVHgBY6AMjIJRYP9n0AuNCo0KMf+HgwPDTmgoRMeo0KgQRWAUjAIABsnZRR7bYyUAAAAASUVORK5CYII="
       );
@@ -44,12 +44,12 @@ export class Fab extends FloatingActionButtonBase {
     }
 
     if (newImageView !== null) {
-      //Kill the old Image, cocoapod doesn't support changing it yet
+      // Kill the old Image, cocoapod doesn't support changing it yet
       const button = this.nativeView.subviews[0];
       const oldBadImageView = button.subviews[0];
       oldBadImageView.removeFromSuperview();
 
-      //Add the new guy
+      // Add the new guy
       button.addSubview(newImageView);
     }
   }
