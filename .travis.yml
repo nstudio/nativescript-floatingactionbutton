@@ -3,12 +3,12 @@ branches:
     - master
 matrix:
   include:
-    - stage: "Lint"
+      - stage: "Lint"
       language: node_js
       os: linux
       node_js: "6"
-      script: cd src && npm run ci.tslint && cd ../demo && npm run ci.tslint
-    - stage: "WebPack"
+      script: "npm run ci.tslint" 
+      - stage: "WebPack"
       os: osx
       env:
         - Platform="iOS"
