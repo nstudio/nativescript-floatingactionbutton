@@ -1,32 +1,35 @@
 .fab-button {
-    height: 50;
-    width: 50;
-    margin: 15;
-    color: #FFF;
-    background-color: #ff4081;
+  height: 50;
+  width: 50;
+  margin: 15;
+  color: #fff;
+  background-color: #ff4081;
 }
 
-.top-left{
-    horizontal-align: left;
-    vertical-align: top;
+.top-left {
+  background-color: red;
+  horizontal-align: left;
+  vertical-align: top;
 }
 
-.top-right{
-    horizontal-align: right;
-    vertical-align: top;
+.top-right {
+  background-color: #336699;
+  horizontal-align: right;
+  vertical-align: top;
 }
 
-.bottom-left{
-    horizontal-align: left;
-    vertical-align: bottom;
+.bottom-left {
+  background-color: #fff000;
+  horizontal-align: left;
+  vertical-align: bottom;
 }
 
-.bottom-right{
-    horizontal-align: right;
-    vertical-align: bottom;
+.bottom-right {
+  horizontal-align: right;
+  vertical-align: bottom;
 }
 
-.center{
-    horizontal-align: center;
-    vertical-align: center;
+.center {
+  horizontal-align: center;
+  vertical-align: center;
 }

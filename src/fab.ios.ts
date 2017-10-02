@@ -1,6 +1,5 @@
 import {
   FloatingActionButtonBase,
-  backColorProperty,
   rippleColorProperty,
   iconProperty
 } from "./fab-common";

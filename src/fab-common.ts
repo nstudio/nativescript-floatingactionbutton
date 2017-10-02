@@ -25,23 +25,14 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
   public hideAnimationDuration: number;
   public rippleColor: Color;
   public icon: string;
-  public backColor: Color;
 
-  constructor() {
-    super();
-    console.log("constructor super");
-  }
-
+  onLa;
   onLoaded() {
     super.onLoaded();
     if (this.swipeEventAttached === false) {
       const fab = this;
-      // maybe try to get the fab view a different way
-      const xFab = topmost().getViewById(fab.id);
       if (this.hideOnSwipeOfView) {
-        const swipeItem = topmost().getViewById(
-          this.hideOnSwipeOfView
-        );
+        const swipeItem = topmost().getViewById(this.hideOnSwipeOfView);
         const animationType = this.swipeAnimation
           ? this.swipeAnimation
           : "slideDown";
@@ -56,15 +47,19 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
             if (args.deltaY < -10) {
               switch (animationType) {
                 case "slideUp":
-                  fab.animate({
-                    target: fab,
-                    translate: {
-                      x: 0,
-                      y: -200
-                    },
-                    opacity: 0,
-                    duration: 400
-                  });
+                  try {
+                    fab.animate({
+                      target: fab,
+                      translate: {
+                        x: 0,
+                        y: -200
+                      },
+                      opacity: 0,
+                      duration: 400
+                    });
+                  } catch (error) {
+                    console.log(error);
+                  }
                   break;
                 case "slideDown":
                   fab.animate({
@@ -186,16 +181,6 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
     }
   }
 }
-
-export const backColorProperty = new Property<FloatingActionButtonBase, Color>({
-  name: "backColor",
-  equalityComparer: Color.equals,
-  valueConverter: v => new Color(v),
-  valueChanged: (fab, oldValue, newValue) => {
-    fab.style.backgroundColor = newValue;
-  }
-});
-backColorProperty.register(FloatingActionButtonBase);
 
 export const iconProperty = new Property<FloatingActionButtonBase, string>({
   name: "icon",

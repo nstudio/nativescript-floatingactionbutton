@@ -1,6 +1,5 @@
 import {
   FloatingActionButtonBase,
-  backColorProperty,
   rippleColorProperty,
   iconProperty
 } from "./fab-common";
@@ -52,19 +51,6 @@ export class Fab extends FloatingActionButtonBase {
     this.nativeView.setId(this._androidViewId);
   }
 
-  [backColorProperty.setNative](value: Color) {
-    if (value) {
-      try {
-        this.nativeView.setBackgroundTintList(
-          android.content.res.ColorStateList.valueOf(value.android)
-        );
-      } catch (error) {
-        // do nothing, catch bad color value
-        console.log("bad background-color value: ", error);
-      }
-    }
-  }
-
   [backgroundColorProperty.getDefault](): android.content.res.ColorStateList {
     return this.nativeView.getBackgroundTintList();
   }
@@ -79,7 +65,11 @@ export class Fab extends FloatingActionButtonBase {
       // Resetting with the default value;
       newValue = value;
     }
-    this.nativeView.setBackgroundTintList(newValue);
+    try {
+      this.nativeView.setBackgroundTintList(newValue);
+    } catch (err) {
+      console.log(`err: `, err);
+    }
   }
 
   [backgroundInternalProperty.setNative](value: any) {
