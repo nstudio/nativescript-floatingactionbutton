@@ -23,7 +23,7 @@ const users = [
   { name: "William" },
   { name: "Franklin" }
 ];
-var viewModel = observable.fromObject({
+const viewModel = observable.fromObject({
   users: new observableArrayModule.ObservableArray(users)
 });
 

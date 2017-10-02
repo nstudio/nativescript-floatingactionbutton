@@ -218,6 +218,7 @@ node_modules/
 
 .vscode
 .idea
+demo/app/.DS_Store
 .DS_Store
 *.js
 *.js.map
