@@ -2,7 +2,11 @@
 [![npm](https://img.shields.io/npm/dt/nativescript-floatingactionbutton.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-floatingactionbutton)
 [![Build Status](https://travis-ci.org/bradmartin/nativescript-floatingactionbutton.svg?branch=master)](https://travis-ci.org/bradmartin/nativescript-floatingactionbutton)
 [![nStudio Plugin](https://img.shields.io/badge/nStudio-Plugin-blue.svg)](http://nstudio.io)
-![twitter-image](https://img.shields.io/twitter/follow/bradwaynemartin.svg)
+[![Twitter Follow][twitter-image]][twitter-url]
+
+[twitter-image]:https://img.shields.io/twitter/follow/bradwaynemartin.svg?style=social&label=Follow%20me
+[twitter-url]:https://twitter.com/bradwaynemartin
+
 
 
 # NativeScript-FloatingActionButton
