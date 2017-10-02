@@ -204,6 +204,8 @@ FakesAssemblies/
 nativescript-fab.sln
 .vscode
 
+.DS_Store
+.npmrc
 # Demo application build files
 demo/platforms/*
 demo/lib/*
