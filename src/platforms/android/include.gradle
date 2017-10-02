@@ -7,8 +7,17 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+}
+
 dependencies {
-      def supportVer = "26.0.0";
+      def supportVer = "26.1.0";
 
       if(project.hasProperty("supportVersion")) {
        supportVer = supportVersion
