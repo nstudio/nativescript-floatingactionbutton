@@ -35,3 +35,4 @@ publish/src
 publish/package
 demo/report/report.html
 demo/report/stats.json
+!demo/webpack.config.js
