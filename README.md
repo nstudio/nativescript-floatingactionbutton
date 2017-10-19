@@ -22,6 +22,9 @@ XML widget to create the Material Design Floating Action Button for NativeScript
 ### NativeScript 3+
 `tns plugin add nativescript-floatingactionbutton`
 
+## Configuration
+No extra configuration is required for the FAB View component.
+
 ### Screenshot
 ---------------
 ![FAB Android Screenshot](screens/android.png)
@@ -33,7 +36,7 @@ XML widget to create the Material Design Floating Action Button for NativeScript
 ## Usage
 
 #### XML
-##### **NOTE** The sample XML here will position the FAB on top of the ListView. There is no need for absolute positioning.
+##### **NOTE** The sample XML here will position the FAB on top of the ListView. There is no need for absolute positioning due to using a GridLayout row/col settings.
 ```XML
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded"
       xmlns:FAB="nativescript-floatingactionbutton">
@@ -94,7 +97,7 @@ exports.fabTap = function(args) {
 
 ***
 
-## Attributes
+## API
 
 | Property   |      Android      |  iOS | Description | Note |
 |------------|-------------------|------|-------------|------|
