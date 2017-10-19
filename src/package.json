@@ -1,6 +1,6 @@
 {
   "name": "nativescript-floatingactionbutton",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description":
     "A NativeScript plugin for Material Design Floating Action Button.",
   "main": "fab",
@@ -107,6 +107,7 @@
   "bugs":
     "https://github.com/bradmartin/nativescript-floatingactionbutton/issues",
   "homepage": "https://github.com/bradmartin/nativescript-floatingactionbutton",
+  "readmeFilename": "README.md",
   "devDependencies": {
     "husky": "^0.13.4",
     "lint-staged": "^3.6.1",
