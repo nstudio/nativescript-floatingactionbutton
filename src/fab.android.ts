@@ -82,6 +82,9 @@ export class Fab extends FloatingActionButtonBase {
 
   [iconProperty.setNative](value: any) {
     let iconDrawable = null;
+    if (!value) {
+      return;
+    }
 
     if (ImageSource.isFileOrResourcePath(value)) {
       iconDrawable = ImageSource.fromFileOrResource(value);
