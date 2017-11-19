@@ -24,7 +24,6 @@ export class Fab extends FloatingActionButtonBase {
   }
 
   public createNativeView() {
-    console.log("createNativeView android ***");
     this._android = new android.support.design.widget.FloatingActionButton(
       this._context
     );
@@ -68,7 +67,7 @@ export class Fab extends FloatingActionButtonBase {
     try {
       this.nativeView.setBackgroundTintList(newValue);
     } catch (err) {
-      console.log(`err: `, err);
+      console.log(`Error setNative backgroundColorProperty: `, err);
     }
   }
 
