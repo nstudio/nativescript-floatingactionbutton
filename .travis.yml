@@ -3,6 +3,7 @@ android:
     - tools
     - platform-tools
     - build-tools-25.0.2
+    - android-23
     - android-25
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-21
@@ -45,14 +46,14 @@ matrix:
       before_install:
         - gem install cocoapods
         - pod repo update
-      script: cd ../demo && npm run build-ios-bundle
+      script: cd ../demo && npm run build-ios-bundle --uglify
     - language: android
       os: linux
       env:
         - Webpack="Android"
       jdk: oraclejdk8
       before_install: nvm install 6.10.3
-      script: cd ../demo &&  npm run build-android-bundle
+      script: cd ../demo &&  npm run build-android-bundle --uglify
     - stage: "Build"
       env: 
         - BuildAndroid="25"
