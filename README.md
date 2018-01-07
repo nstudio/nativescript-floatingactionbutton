@@ -7,6 +7,7 @@
 [twitter-image]:https://img.shields.io/twitter/follow/bradwaynemartin.svg?style=social&label=Follow%20me
 [twitter-url]:https://twitter.com/bradwaynemartin
 
+[![PayPal Donate](https://img.shields.io/badge/Donate-PayPal-ff4081.svg)](https://www.paypal.me/bradwayne88)
 
 
 # NativeScript-FloatingActionButton
