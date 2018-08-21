@@ -36,6 +36,8 @@ No extra configuration is required for the FAB View component.
 
 ## Usage
 
+Download an icon image to use for the fab to your `app/images` folder. Name it something like `ic_add_white.png`.
+
 #### XML
 ##### **NOTE** The sample XML here will position the FAB on top of the ListView. There is no need for absolute positioning due to using a GridLayout row/col settings.
 ```XML
@@ -52,7 +54,7 @@ No extra configuration is required for the FAB View component.
         </list-view>
             <FAB:fab tap="fabTap"
                      row="1"
-                     icon="res://ic_add_white"
+                     [icon]="'~/images/ic_add_white.png'"
                      rippleColor="#f1f1f1"
                      class="fab-button" />
     </grid-layout>
@@ -69,7 +71,7 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 ##### HTML 
 ```HTML
 <StackLayout>
-    <FAB (tap)="fabTap()" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
+    <FAB (tap)="fabTap()" [icon]="'~/images/ic_add_white.png'" rippleColor="#f1f1f1" class="fab-button"></FAB>
 </StackLayout>
 ```
 
