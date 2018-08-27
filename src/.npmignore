@@ -12,4 +12,9 @@ node_modules/
 !*.d.ts
 *.map
 tsconfig.json
+scripts/*
+platforms/android/*
+!platforms/android/include.gradle
+!platforms/android/*.aar
+!platforms/android/*.jar
 references.d.ts
