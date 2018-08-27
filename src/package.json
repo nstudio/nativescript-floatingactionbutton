@@ -45,8 +45,8 @@
       "tslint --config '../tslint.json' '*.ts' --exclude '**/node_modules/**'",
     "tslint.demo":
       "tslint --config '../tslint.json' '../demo/app/*.ts' --exclude '**/node_modules/**'",
-    "ci.tslint": "npm run tslint && npm run tslint.demo",
-    "prepublishOnly": "npm run build",
+      "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
+      "prepublishOnly": "npm run build",
     "development.setup":
       "npm run setup && npm link && cd ../demo && npm link nativescript-floatingactionbutton && cd ../src",
     "generate.typings.ios":
