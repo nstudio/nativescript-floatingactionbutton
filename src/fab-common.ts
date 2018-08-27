@@ -6,7 +6,6 @@
  *************************************************************************************/
 import { Color } from 'tns-core-modules/color';
 import { Property, View } from 'tns-core-modules/ui/core/view';
-import { topmost } from 'tns-core-modules/ui/frame';
 import { PanGestureEventData } from 'tns-core-modules/ui/gestures';
 import * as definitions from './index';
 
@@ -23,13 +22,20 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
 	public rippleColor: Color;
 	public icon: string;
 
-	onLa;
 	onLoaded() {
 		super.onLoaded();
+
 		if (this.swipeEventAttached === false) {
 			const fab = this;
 			if (this.hideOnSwipeOfView) {
-				const swipeItem = topmost().getViewById(this.hideOnSwipeOfView);
+				const parent = this.parent || this.parentNode;
+				const swipeItem = parent.getViewById(this.hideOnSwipeOfView);
+
+				// check if we have the UI to attach animation to
+				if (!swipeItem) {
+					return;
+				}
+
 				const animationType = this.swipeAnimation
 					? this.swipeAnimation
 					: 'slideDown';
