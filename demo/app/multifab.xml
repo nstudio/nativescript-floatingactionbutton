@@ -1,5 +1,4 @@
-<Page 
-    xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" 
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" 
     xmlns:FAB="nativescript-floatingactionbutton">
     <Page.actionBar>
         <ActionBar title="Native FAB" backgroundColor="#3F51B5" color="#fff" />
