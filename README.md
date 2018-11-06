@@ -90,7 +90,7 @@ Vue.registerElement('Fab', () => require('nativescript-floatingactionbutton').Fa
           <label text="{{ name }}" textWrap="true" fontSize="18" margin="20" />
         </list-view.itemTemplate>
       </list-view>
-      <fab tap="fabTap" row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></fab>
+      <fab @tap="fabTap" row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></fab>
     </grid-layout>
   </page>
 </template>
