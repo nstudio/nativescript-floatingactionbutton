@@ -73,6 +73,29 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 </StackLayout>
 ```
 
+#### NativeScript Vue
+```javascript
+import Vue from 'nativescript-vue';
+
+Vue.registerElement('Fab', () => require('nativescript-floatingactionbutton').Fab);
+```
+
+#### Template
+```vue
+<template>
+  <page>
+    <grid-layout rows="auto, *">
+      <list-view row="1" items="{{ users }}">
+        <list-view.itemTemplate>
+          <label text="{{ name }}" textWrap="true" fontSize="18" margin="20" />
+        </list-view.itemTemplate>
+      </list-view>
+      <fab tap="fabTap" row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></fab>
+    </grid-layout>
+  </page>
+</template>
+```
+
 #### CSS
 Recommended CSS styles.
 ```CSS
