@@ -10,14 +10,12 @@ import {
 	rippleColorProperty
 } from './fab-common';
 
-declare var android: any;
-
 export class Fab extends FloatingActionButtonBase {
 	private _androidViewId: number;
-	private _android: any;
+	private _android: android.support.design.widget.FloatingActionButton;
 	public static tapEvent = 'tap';
 
-	get android(): any {
+	get android(): android.support.design.widget.FloatingActionButton {
 		return this.nativeView;
 	}
 
@@ -25,27 +23,18 @@ export class Fab extends FloatingActionButtonBase {
 		this._android = new android.support.design.widget.FloatingActionButton(
 			this._context
 		);
-		const that = new WeakRef(this);
-		this._android.setOnClickListener(
-			new android.view.View.OnClickListener({
-				get owner() {
-					return that.get();
-				},
-
-				onClick: function(v) {
-					if (this.owner) {
-						this.owner._emit('tap');
-					}
-				}
-			})
-		);
-
 		return this._android;
 	}
 
 	public initNativeView() {
 		this._androidViewId = android.view.View.generateViewId();
 		this.nativeView.setId(this._androidViewId);
+		initializeClickListener();
+		const clickListener = new ClickListener(this);
+		this.nativeView.setOnClickListener(clickListener);
+		(<any>this.nativeView).clickListener = clickListener;
+		// setting scale type statically for now - can add configuration options with next release after confirming fixes for other icons sizes
+		this.android.setScaleType(android.widget.ImageView.ScaleType.CENTER);
 	}
 
 	[backgroundColorProperty.getDefault](): android.content.res.ColorStateList {
@@ -111,4 +100,34 @@ export class Fab extends FloatingActionButtonBase {
 			}
 		}
 	}
+}
+
+interface ClickListener {
+	new (owner: FloatingActionButtonBase): android.view.View.OnClickListener;
+}
+
+let ClickListener: ClickListener;
+
+function initializeClickListener(): void {
+	if (ClickListener) {
+		return;
+	}
+
+	@Interfaces([android.view.View.OnClickListener])
+	class ClickListenerImpl extends java.lang.Object
+		implements android.view.View.OnClickListener {
+		constructor(public owner: FloatingActionButtonBase) {
+			super();
+			return global.__native(this);
+		}
+
+		public onClick(v: android.view.View): void {
+			const owner = this.owner;
+			if (owner) {
+				(<any>owner)._emit('tap');
+			}
+		}
+	}
+
+	ClickListener = ClickListenerImpl;
 }
