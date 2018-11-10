@@ -38,9 +38,9 @@ export function pageLoaded(args) {
 	}
 	page.bindingContext = viewModel;
 }
-// exports.pageLoaded = pageLoaded;
 
 export function fabTap(args) {
+	console.log('fab tap event');
 	(viewModel as any).users.unshift({ name: 'Gary' });
 }
 

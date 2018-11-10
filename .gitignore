@@ -2,9 +2,11 @@
 demo/platforms/*
 demo/lib/*
 
+*.DS_Store
+
 src/*.js
 /*.js
-demo/app/*.js
+demo/app/**.js
 demo/node_modules/
 node_modules/
 

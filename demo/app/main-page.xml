@@ -12,7 +12,7 @@
                 <label text="{{ name }}" textWrap="true" fontSize="15" margin="20" />
             </list-view.itemTemplate>
         </list-view>
-        <FAB:fab id="fabButton" row="1" icon="res://nstudio" tap="fabTap" rippleColor="#ffffff" class="fab-button-bottom" hideOnSwipeOfView="userList" swipeAnimation="slideUp" />
+        <FAB:fab id="fabButton" row="1" icon="res://baseline_add_white_24" tap="fabTap" rippleColor="#ffffff" class="fab-button-bottom" hideOnSwipeOfView="userList" swipeAnimation="slideUp" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
     </grid-layout>
 </Page>
