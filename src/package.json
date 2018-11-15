@@ -38,7 +38,8 @@
 		"prepack": "npm run build.native",
 		"precommit": "lint-staged",
 		"development.setup": "npm run setup && npm link && cd ../demo && npm link nativescript-floatingactionbutton && cd ../src",
-		"generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'"
+		"generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'",
+		"make-changelog": "cd ../ && github_changelog_generator -u bradmartin -p nativescript-floatingactionbutton"
 	},
 	"lint-staged": {
 		"*.ts, *.js, *.css, *.scss, *.md": [
