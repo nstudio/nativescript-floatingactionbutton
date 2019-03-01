@@ -1,19 +1,28 @@
-[![npm](https://img.shields.io/npm/v/nativescript-floatingactionbutton.svg)](https://www.npmjs.com/package/nativescript-floatingactionbutton)
-[![npm](https://img.shields.io/npm/dt/nativescript-floatingactionbutton.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-floatingactionbutton)
-[![Build Status](https://travis-ci.org/bradmartin/nativescript-floatingactionbutton.svg?branch=master)](https://travis-ci.org/bradmartin/nativescript-floatingactionbutton)
-[![nStudio Plugin](https://img.shields.io/badge/nStudio-Plugin-blue.svg)](http://nstudio.io)
-[![Twitter Follow][twitter-image]][twitter-url]
+<a align="center" href="https://www.npmjs.com/package/nativescript-floatingactionbutton">
+    <h3 align="center">NativeScript-FloatingActionButton</h3>
+</a>
+<h4 align="center">NativeScript plugin for Material Design Floating Action Button UI component.</h4>
 
-[twitter-image]: https://img.shields.io/twitter/follow/bradwaynemartin.svg?style=social&label=Follow%20me
-[twitter-url]: https://twitter.com/bradwaynemartin
-
-[![PayPal Donate](https://img.shields.io/badge/Donate-PayPal-ff4081.svg)](https://www.paypal.me/bradwayne88)
-
-# NativeScript-FloatingActionButton
-
-XML widget to create the Material Design Floating Action Button for NativeScript apps.
-
-[Material Design Floating Action Button Spec](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
+<p align="center">
+ <a href="https://www.npmjs.com/package/nativescript-floatingactionbutton">
+        <img src="https://img.shields.io/npm/v/nativescript-floatingactionbutton.svg" alt="npm">
+    </a>
+    <a href="https://www.npmjs.com/package/nativescript-floatingactionbutton">
+        <img src="https://img.shields.io/npm/dt/nativescript-floatingactionbutton.svg?label=npm%20downloads" alt="npm">
+    </a>
+    <a href="https://github.com/bradmartin/nativescript-floatingactionbutton/stargazers">
+        <img src="https://img.shields.io/github/stars/bradmartin/nativescript-floatingactionbutton.svg" alt="stars">
+    </a>
+     <a href="https://github.com/bradmartin/nativescript-floatingactionbutton/network">
+        <img src="https://img.shields.io/github/forks/bradmartin/nativescript-floatingactionbutton.svg" alt="forks">
+    </a>
+    <a href="https://github.com/bradmartin/nativescript-floatingactionbutton/blob/master/LICENSE.md">
+        <img src="https://img.shields.io/github/license/bradmartin/nativescript-floatingactionbutton.svg" alt="license">
+    </a>
+    <a href="https://paypal.me/bradwayne88">
+        <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate">
+    </a>
+</p>
 
 ## Installation
 
@@ -32,13 +41,12 @@ XML widget to create the Material Design Floating Action Button for NativeScript
 
 ## Usage
 
-Download an icon image to use for the fab to your `app/images` folder. Name it something like `ic_add_white.png`.
-
-#### XML
+<h4>The icon for the FAB can be a local image in your app or an image/icon from the App_Resources.</h4>
+### Plain NativeScript
 
 ##### **NOTE** The sample XML here will position the FAB on top of the ListView. There is no need for absolute positioning due to using a GridLayout row/col settings.
 
-```XML
+```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded"
       xmlns:FAB="nativescript-floatingactionbutton">
     <ActionBar title="Native FAB" />
@@ -50,7 +58,7 @@ Download an icon image to use for the fab to your `app/images` folder. Name it s
         </list-view>
             <FAB:fab tap="fabTap"
                      row="1"
-                     [icon]="'~/images/ic_add_white.png'"
+                     icon="'~/images/ic_add_white.png'"
                      rippleColor="#f1f1f1"
                      class="fab-button" />
     </grid-layout>
@@ -61,29 +69,31 @@ IMPORTANT NOTE: The fab is on the same **row number** as the listview
 
 ---
 
-#### Angular NativeScript
+### NativeScript Angular
 
 ```typescript
 import { registerElement } from 'nativescript-angular/element-registry';
 registerElement('Fab', () => require('nativescript-floatingactionbutton').Fab);
 ```
 
-##### HTML
+#### HTML
 
 ```HTML
 <StackLayout>
-    <FAB (tap)="fabTap()" [icon]="'~/images/ic_add_white.png'" rippleColor="#f1f1f1" class="fab-button"></FAB>
+    <FAB (tap)="fabTap()" icon="'~/images/ic_add_white.png'" rippleColor="#f1f1f1" class="fab-button"></FAB>
 </StackLayout>
 ```
 
-#### NativeScript Vue
+---
+
+### NativeScript Vue
 
 ```javascript
 import Vue from 'nativescript-vue';
 
 Vue.registerElement(
-	'Fab',
-	() => require('nativescript-floatingactionbutton').Fab
+  'Fab',
+  () => require('nativescript-floatingactionbutton').Fab
 );
 ```
 
@@ -91,24 +101,26 @@ Vue.registerElement(
 
 ```html
 <template>
-	<page>
-		<grid-layout rows="auto, *">
-			<list-view row="1" items="{{ users }}">
-				<list-view.itemTemplate>
-					<label text="{{ name }}" textWrap="true" />
-				</list-view.itemTemplate>
-			</list-view>
-			<fab
-				@tap="fabTap"
-				row="1"
-				icon="res://ic_add_white"
-				rippleColor="#f1f1f1"
-				class="fab-button"
-			></fab>
-		</grid-layout>
-	</page>
+  <page>
+    <grid-layout rows="auto, *">
+      <list-view row="1" items="{{ users }}">
+        <list-view.itemTemplate>
+          <label text="{{ name }}" textWrap="true" />
+        </list-view.itemTemplate>
+      </list-view>
+      <fab
+        @tap="fabTap"
+        row="1"
+        icon="res://ic_add_white"
+        rippleColor="#f1f1f1"
+        class="fab-button"
+      ></fab>
+    </grid-layout>
+  </page>
 </template>
 ```
+
+---
 
 #### CSS
 
@@ -116,22 +128,12 @@ Recommended CSS styles.
 
 ```css
 .fab-button {
-	height: 70;
-	width: 70; /// this is required on iOS - Android does not require width so you might need to adjust styles
-	margin: 15;
-	background-color: #ff4081;
-	horizontal-align: right;
-	vertical-align: bottom;
-}
-```
-
----
-
-#### JS
-
-```JS
-exports.fabTap = function(args) {
-    console.log('tapped');
+  height: 70;
+  width: 70; /// this is required on iOS - Android does not require width so you might need to adjust styles
+  margin: 15;
+  background-color: #ff4081;
+  horizontal-align: right;
+  vertical-align: bottom;
 }
 ```
 

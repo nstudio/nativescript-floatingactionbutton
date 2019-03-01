@@ -1,4 +1,4 @@
-The MIT License (MIT) - do whatever you want with this - just don't be a bitch about it.
+The MIT License (MIT) - do whatever you want with this - just don't complain without helping.
 
 nativescript-floatingactionbutton
 Copyright (c) 2017, Brad Martin
