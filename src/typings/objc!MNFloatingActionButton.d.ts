@@ -1,33 +1,43 @@
-
 declare class MNFloatingActionButton extends UIControl {
+  static alloc(): MNFloatingActionButton; // inherited from NSObject
 
-	static alloc(): MNFloatingActionButton; // inherited from NSObject
+  static appearance(): MNFloatingActionButton; // inherited from UIAppearance
 
-	static appearance(): MNFloatingActionButton; // inherited from UIAppearance
+  static appearanceForTraitCollection(
+    trait: UITraitCollection
+  ): MNFloatingActionButton; // inherited from UIAppearance
 
-	static appearanceForTraitCollection(trait: UITraitCollection): MNFloatingActionButton; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedIn(
+    trait: UITraitCollection,
+    ContainerClass: typeof NSObject
+  ): MNFloatingActionButton; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedIn(trait: UITraitCollection, ContainerClass: typeof NSObject): MNFloatingActionButton; // inherited from UIAppearance
+  static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(
+    trait: UITraitCollection,
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MNFloatingActionButton; // inherited from UIAppearance
 
-	static appearanceForTraitCollectionWhenContainedInInstancesOfClasses(trait: UITraitCollection, containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MNFloatingActionButton; // inherited from UIAppearance
+  static appearanceWhenContainedIn(
+    ContainerClass: typeof NSObject
+  ): MNFloatingActionButton; // inherited from UIAppearance
 
-	static appearanceWhenContainedIn(ContainerClass: typeof NSObject): MNFloatingActionButton; // inherited from UIAppearance
+  static appearanceWhenContainedInInstancesOfClasses(
+    containerTypes: NSArray<typeof NSObject> | typeof NSObject[]
+  ): MNFloatingActionButton; // inherited from UIAppearance
 
-	static appearanceWhenContainedInInstancesOfClasses(containerTypes: NSArray<typeof NSObject> | typeof NSObject[]): MNFloatingActionButton; // inherited from UIAppearance
+  static new(): MNFloatingActionButton; // inherited from NSObject
 
-	static new(): MNFloatingActionButton; // inherited from NSObject
+  animationDuration: number;
 
-	animationDuration: number;
+  animationScale: number;
 
-	animationScale: number;
+  centerImage: UIImage;
 
-	centerImage: UIImage;
+  shadowColor: UIColor;
 
-	shadowColor: UIColor;
+  shadowOpacity: number;
 
-	shadowOpacity: number;
-
-	shadowRadius: number;
+  shadowRadius: number;
 }
 
 declare var MNFloatingActionButtonVersionNumber: number;

@@ -1,25 +1,25 @@
 {
-	"compilerOptions": {
-		"target": "es5",
-		"module": "commonjs",
-		"declaration": false,
-		"removeComments": true,
-		"noLib": false,
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"skipLibCheck": true,
-		"lib": ["es6", "dom"],
-		"sourceMap": true,
-		"pretty": true,
-		"allowUnreachableCode": false,
-		"allowUnusedLabels": false,
-		"noEmitHelpers": true,
-		"noEmitOnError": false,
-		"noImplicitAny": false,
-		"noImplicitReturns": true,
-		"noImplicitUseStrict": false,
-		"noFallthroughCasesInSwitch": true
-	},
-	"exclude": ["node_modules"],
-	"compileOnSave": false
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "pretty": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noEmitHelpers": true,
+    "noEmitOnError": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "exclude": ["node_modules"],
+  "compileOnSave": false
 }
