@@ -42,9 +42,8 @@
 ## Usage
 
 <h4>The icon for the FAB can be a local image in your app or an image/icon from the App_Resources.</h4>
-### Plain NativeScript
 
-##### **NOTE** The sample XML here will position the FAB on top of the ListView. There is no need for absolute positioning due to using a GridLayout row/col settings.
+### Plain NativeScript
 
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded"
@@ -64,8 +63,6 @@
     </grid-layout>
 </Page>
 ```
-
-IMPORTANT NOTE: The fab is on the same **row number** as the listview
 
 ---
 
