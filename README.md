@@ -16,12 +16,6 @@
     <a href="https://github.com/bradmartin/nativescript-floatingactionbutton/stargazers">
         <img src="https://img.shields.io/github/stars/bradmartin/nativescript-floatingactionbutton.svg" alt="stars">
     </a>
-     <a href="https://github.com/bradmartin/nativescript-floatingactionbutton/network">
-        <img src="https://img.shields.io/github/forks/bradmartin/nativescript-floatingactionbutton.svg" alt="forks">
-    </a>
-    <a href="https://github.com/bradmartin/nativescript-floatingactionbutton/blob/master/LICENSE.md">
-        <img src="https://img.shields.io/github/license/bradmartin/nativescript-floatingactionbutton.svg" alt="license">
-    </a>
     <a href="https://paypal.me/bradwayne88">
         <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate">
     </a>
