@@ -1,28 +1,29 @@
 import { Color } from 'tns-core-modules/color';
 import * as ImageSource from 'tns-core-modules/image-source';
-import {
-  backgroundColorProperty,
-  backgroundInternalProperty
-} from 'tns-core-modules/ui/core/view';
-import {
-  FloatingActionButtonBase,
-  iconProperty,
-  rippleColorProperty
-} from './fab-common';
+import { backgroundColorProperty, backgroundInternalProperty } from 'tns-core-modules/ui/core/view';
+import { FloatingActionButtonBase, iconProperty, rippleColorProperty } from './fab-common';
+
+declare let global: any;
+
+const FABNamespace = useAndroidX()
+  ? com.google.android.material.floatingactionbutton
+  : (android.support as any).design.widget;
+
+function useAndroidX() {
+  return global.androidx && com.google.android.material;
+}
 
 export class Fab extends FloatingActionButtonBase {
   private _androidViewId: number;
-  private _android: android.support.design.widget.FloatingActionButton;
+  private _android: com.google.android.material.floatingactionbutton.FloatingActionButton;
   public static tapEvent = 'tap';
 
-  get android(): android.support.design.widget.FloatingActionButton {
+  get android(): com.google.android.material.floatingactionbutton.FloatingActionButton {
     return this.nativeView;
   }
 
   public createNativeView() {
-    this._android = new android.support.design.widget.FloatingActionButton(
-      this._context
-    );
+    this._android = new FABNamespace.FloatingActionButton(this._context);
     return this._android;
   }
 
@@ -78,7 +79,9 @@ export class Fab extends FloatingActionButtonBase {
         this.nativeView.setImageBitmap(iconDrawable.android);
       } else {
         console.log(
-          'The icon: ' + value + ' was not found. Check your XML icon property.'
+          'The icon: ' +
+            value +
+            ' was not found. Check your icon property value. Be sure to rebuild the project after adding images.'
         );
       }
     } else {
@@ -95,7 +98,9 @@ export class Fab extends FloatingActionButtonBase {
         this.nativeView.setImageDrawable(iconDrawable);
       } else {
         console.log(
-          'The icon: ' + value + ' was not found. Check your XML icon property.'
+          'The icon: ' +
+            value +
+            ' was not found. Check your icon property value. Be sure to rebuild the project after adding images.'
         );
       }
     }
