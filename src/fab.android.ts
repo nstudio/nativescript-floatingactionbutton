@@ -3,6 +3,16 @@ import * as ImageSource from 'tns-core-modules/image-source';
 import { backgroundColorProperty, backgroundInternalProperty } from 'tns-core-modules/ui/core/view';
 import { FloatingActionButtonBase, iconProperty, rippleColorProperty } from './fab-common';
 
+declare let global: any;
+
+const FABNamespace = useAndroidX()
+  ? com.google.android.material.floatingactionbutton
+  : (android.support as any).design.widget;
+
+function useAndroidX() {
+  return global.androidx && com.google.android.material;
+}
+
 export class Fab extends FloatingActionButtonBase {
   private _androidViewId: number;
   private _android: com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,9 +23,7 @@ export class Fab extends FloatingActionButtonBase {
   }
 
   public createNativeView() {
-    this._android = new com.google.android.material.floatingactionbutton.FloatingActionButton(
-      this._context
-    );
+    this._android = new FABNamespace.FloatingActionButton(this._context);
     return this._android;
   }
 
