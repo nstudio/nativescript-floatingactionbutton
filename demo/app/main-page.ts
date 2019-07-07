@@ -1,8 +1,8 @@
 import * as app from 'tns-core-modules/application';
 import { Color } from 'tns-core-modules/color';
-import { fromObject, EventData } from 'tns-core-modules/data/observable';
+import { EventData, fromObject } from 'tns-core-modules/data/observable';
 import { ObservableArray } from 'tns-core-modules/data/observable-array';
-import { isAndroid, device } from 'tns-core-modules/platform';
+import { device, isAndroid } from 'tns-core-modules/platform';
 import { Button } from 'tns-core-modules/ui/button';
 import { Page } from 'tns-core-modules/ui/page';
 

@@ -13,11 +13,5 @@ allprojects {
 }
 
 dependencies {
-      def supportVer = "28.0.0";
-
-      if(project.hasProperty("supportVersion")) {
-       supportVer = supportVersion
-      }
-
-     implementation "com.android.support:design:$supportVer"
+     implementation "com.google.android.material:material:1.0.0-rc01"
 }
