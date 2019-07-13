@@ -1,8 +1,6 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" 
     xmlns:FAB="@nstudio/nativescript-floatingactionbutton">
-    <Page.actionBar>
-        <ActionBar title="Native FAB" backgroundColor="#3F51B5" color="#fff" />
-    </Page.actionBar>
+    <ActionBar title="FAB Demo"/>
     <grid-layout height="100%" width="100%" id="userList" rows="*">
         <FAB:fab id="fabButtonTopLeft" row="0" icon="res://baseline_add_white_24" tap="animate" rippleColor="#ffffff" class="fab-button top-left" hideOnSwipeOfView="userList" swipeAnimation="slideUp" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
