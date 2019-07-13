@@ -4,7 +4,9 @@ import { EventData, fromObject } from 'tns-core-modules/data/observable';
 import { ObservableArray } from 'tns-core-modules/data/observable-array';
 import { device, isAndroid } from 'tns-core-modules/platform';
 import { Button } from 'tns-core-modules/ui/button';
+import { confirm } from 'tns-core-modules/ui/dialogs';
 import { Page } from 'tns-core-modules/ui/page';
+import { openUrl } from 'tns-core-modules/utils/utils';
 
 const users = [
   { name: 'Billy Bob' },
@@ -37,6 +39,19 @@ export function pageLoaded(args) {
   }
 
   page.bindingContext = viewModel;
+}
+
+export function nStudioIconTap() {
+  confirm({
+    message:
+      'nStudio, LLC. specializes in custom software applications ranging from mobile, web, desktop, server and more. Would you like to visit nstudio.io?',
+    okButtonText: 'Yes',
+    cancelButtonText: 'Close'
+  }).then(result => {
+    if (result) {
+      openUrl('https://nstudio.io');
+    }
+  });
 }
 
 export function fabTap(args: EventData) {

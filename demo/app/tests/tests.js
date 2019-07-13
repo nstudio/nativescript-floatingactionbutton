@@ -1,7 +1,7 @@
 describe('fab class', function() {
   it('can be instantiated', function() {
     var testFab;
-    var Fab = require('nativescript-floatingactionbutton').Fab;
+    var Fab = require('@nstudio/nativescript-floatingactionbutton').Fab;
     if (Fab) {
       testFab = new Fab();
     }

@@ -4,26 +4,23 @@
 <h4 align="center">NativeScript plugin for Material Design Floating Action Button UI component.</h4>
 
 <p align="center">
- <a href="https://www.npmjs.com/package/nativescript-floatingactionbutton">
-        <img src="https://img.shields.io/npm/v/nativescript-floatingactionbutton.svg" alt="npm">
+ <a href="https://www.npmjs.com/package/@nstudio/nativescript-floatingactionbutton">
+        <img src="https://img.shields.io/npm/v/@nstudio/nativescript-floatingactionbutton.svg" alt="npm">
     </a>
-    <a href="https://www.npmjs.com/package/nativescript-floatingactionbutton">
-        <img src="https://img.shields.io/npm/dt/nativescript-floatingactionbutton.svg?label=npm%20downloads" alt="npm">
+    <a href="https://www.npmjs.com/package/@nstudio/nativescript-floatingactionbutton">
+        <img src="https://img.shields.io/npm/dt/@nstudio/nativescript-floatingactionbutton.svg?label=npm%20downloads" alt="npm">
     </a>
-     <a href="https://travis-ci.org/bradmartin/nativescript-floatingactionbutton">
-        <img src="https://travis-ci.org/bradmartin/nativescript-floatingactionbutton.svg?branch=master" alt="travis build">
+     <a href="https://travis-ci.org/nstudio/nativescript-floatingactionbutton">
+        <img src="https://travis-ci.org/nstudio/nativescript-floatingactionbutton.svg?branch=master" alt="travis build">
     </a>
-    <a href="https://github.com/bradmartin/nativescript-floatingactionbutton/stargazers">
-        <img src="https://img.shields.io/github/stars/bradmartin/nativescript-floatingactionbutton.svg" alt="stars">
-    </a>
-    <a href="https://paypal.me/bradwayne88">
-        <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate">
+    <a href="https://github.com/nstudio/nativescript-floatingactionbutton/stargazers">
+        <img src="https://img.shields.io/github/stars/nstudio/nativescript-floatingactionbutton.svg" alt="stars">
     </a>
 </p>
 
 ## Installation
 
-`tns plugin add nativescript-floatingactionbutton`
+`tns plugin add @nstudio/nativescript-floatingactionbutton`
 
 ### Screenshot
 
@@ -44,7 +41,7 @@
 
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded"
-      xmlns:FAB="nativescript-floatingactionbutton">
+      xmlns:FAB="@nstudio/nativescript-floatingactionbutton">
     <ActionBar title="Native FAB" />
     <grid-layout rows="auto, *">
         <list-view row="1" items="{{ users }}">
@@ -67,7 +64,10 @@
 
 ```typescript
 import { registerElement } from 'nativescript-angular/element-registry';
-registerElement('Fab', () => require('nativescript-floatingactionbutton').Fab);
+registerElement(
+  'Fab',
+  () => require('@nstudio/nativescript-floatingactionbutton').Fab
+);
 ```
 
 #### HTML
@@ -87,7 +87,7 @@ import Vue from 'nativescript-vue';
 
 Vue.registerElement(
   'Fab',
-  () => require('nativescript-floatingactionbutton').Fab
+  () => require('@nstudio/nativescript-floatingactionbutton').Fab
 );
 ```
 

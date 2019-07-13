@@ -1,7 +1,14 @@
 import { Color } from 'tns-core-modules/color';
 import * as ImageSource from 'tns-core-modules/image-source';
-import { backgroundColorProperty, backgroundInternalProperty } from 'tns-core-modules/ui/core/view';
-import { FloatingActionButtonBase, iconProperty, rippleColorProperty } from './fab-common';
+import {
+  backgroundColorProperty,
+  backgroundInternalProperty
+} from 'tns-core-modules/ui/core/view';
+import {
+  FloatingActionButtonBase,
+  iconProperty,
+  rippleColorProperty
+} from './fab-common';
 
 declare let global: any;
 
@@ -10,7 +17,12 @@ const FABNamespace = useAndroidX()
   : (android.support as any).design.widget;
 
 function useAndroidX() {
-  return global.androidx && com.google.android.material;
+  return (
+    global.androidx &&
+    com.google &&
+    com.google.android &&
+    com.google.android.material
+  );
 }
 
 export class Fab extends FloatingActionButtonBase {

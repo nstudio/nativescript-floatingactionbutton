@@ -1,18 +1,21 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" 
-    xmlns:FAB="nativescript-floatingactionbutton">
-    <Page.actionBar>
-        <ActionBar title="Native FAB" backgroundColor="#3F51B5" color="#fff" />
-    </Page.actionBar>
-    <grid-layout rows="auto,*" height="100%" width="100%">
-        <StackLayout row="0" orientation="horizontal" class="commands">
+    xmlns:FAB="@nstudio/nativescript-floatingactionbutton">
+    <ActionBar title="FAB Demo" icon="">
+        <ActionBar.actionItems>
+            <ActionItem icon="res://nstudio" tap="nStudioIconTap" ios.position="right" />
+        </ActionBar.actionItems>
+    </ActionBar>
+    <grid-layout rows="auto, auto,*" height="100%" width="100%">
+        <Label row="0" text="Made with ❤️ by nStudio" class="title" textWrap="true" />
+        <StackLayout row="1" orientation="horizontal" class="commands">
             <Button text="MultiFab" tap="goMultiFab" />
         </StackLayout>
-        <list-view id="userList" row="1" items="{{ users }}">
+        <list-view id="userList" row="2" items="{{ users }}">
             <list-view.itemTemplate>
                 <label text="{{ name }}" textWrap="true" fontSize="15" margin="20" />
             </list-view.itemTemplate>
         </list-view>
-        <FAB:fab id="fabButton" row="1" icon="res://baseline_add_white_24" tap="fabTap" rippleColor="#ffffff" class="fab-button-bottom" hideOnSwipeOfView="userList" swipeAnimation="slideUp" />
+        <FAB:fab id="fabButton" row="2" icon="res://baseline_add_white_24" tap="fabTap" rippleColor="#ffffff" class="fab-button-bottom" hideOnSwipeOfView="userList" swipeAnimation="slideUp" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
     </grid-layout>
 </Page>

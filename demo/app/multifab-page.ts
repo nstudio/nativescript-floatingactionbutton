@@ -1,8 +1,8 @@
+import { Fab } from '@nstudio/nativescript-floatingactionbutton';
 import * as app from 'tns-core-modules/application';
 import { Color } from 'tns-core-modules/color';
-import { isAndroid, device } from 'tns-core-modules/platform';
+import { device, isAndroid } from 'tns-core-modules/platform';
 import { topmost } from 'tns-core-modules/ui/frame';
-import { Fab } from 'nativescript-floatingactionbutton';
 
 export function pageLoaded(args) {
   // Change statusbar color on Lollipop
