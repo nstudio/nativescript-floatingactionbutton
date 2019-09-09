@@ -1,5 +1,9 @@
 import * as ImageSource from 'tns-core-modules/image-source';
-import { FloatingActionButtonBase, iconProperty } from './fab-common';
+import {
+  FloatingActionButtonBase,
+  iconProperty,
+  textProperty,
+} from './fab-common';
 
 export class Fab extends FloatingActionButtonBase {
   public nativeView: UIView;
@@ -38,6 +42,11 @@ export class Fab extends FloatingActionButtonBase {
       ) as ImageSource.ImageSource;
     }
     this.setImage(iconDrawable);
+  }
+
+  [textProperty.setNative](value: string) {
+    const image = this.getImageFromText(value);
+    this.setImage(image);
   }
 
   public onLayout(
