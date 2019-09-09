@@ -191,6 +191,12 @@ export const iconProperty = new Property<FloatingActionButtonBase, string>({
 });
 iconProperty.register(FloatingActionButtonBase);
 
+export const textProperty = new Property<FloatingActionButtonBase, string>({
+  name: 'text',
+  affectsLayout: true
+});
+textProperty.register(FloatingActionButtonBase);
+
 export const rippleColorProperty = new Property<
   FloatingActionButtonBase,
   Color

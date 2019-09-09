@@ -4,9 +4,11 @@ import {
   backgroundColorProperty,
   backgroundInternalProperty
 } from 'tns-core-modules/ui/core/view';
+import { Font, FontStyle, FontWeight } from 'tns-core-modules/ui/styling/font';
 import {
   FloatingActionButtonBase,
   iconProperty,
+  textProperty,
   rippleColorProperty
 } from './fab-common';
 
@@ -116,6 +118,30 @@ export class Fab extends FloatingActionButtonBase {
         );
       }
     }
+  }
+
+  [textProperty.setNative](value: string) {
+    const paint = new android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG);
+    const color = this.style.color || new Color('#FFFFFF');
+    paint.setColor(color.android);
+    if (this.style.fontFamily) {
+      const nsFont = new Font(this.style.fontFamily, 0, FontStyle.NORMAL, FontWeight.LIGHT);
+      paint.setTypeface(nsFont.getAndroidTypeface());
+    }
+    const FONT_SIZE_FACTOR = 3;
+    paint.setTextSize((this.style.fontSize || 32) * FONT_SIZE_FACTOR);
+    paint.setTextAlign(android.graphics.Paint.Align.LEFT);
+    const baseline = -paint.ascent();
+    const width = paint.measureText(value);
+    const height = baseline + paint.descent();
+    const image = android.graphics.Bitmap.createBitmap(
+      width,
+      height,
+      android.graphics.Bitmap.Config.ARGB_8888,
+    );
+    const canvas = new android.graphics.Canvas(image);
+    canvas.drawText(value, 0, baseline, paint);
+    this.nativeView.setImageBitmap(image);
   }
 }
 
