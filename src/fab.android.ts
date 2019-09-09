@@ -7,6 +7,7 @@ import {
 import {
   FloatingActionButtonBase,
   iconProperty,
+  textProperty,
   rippleColorProperty
 } from './fab-common';
 
@@ -116,6 +117,11 @@ export class Fab extends FloatingActionButtonBase {
         );
       }
     }
+  }
+
+  [textProperty.setNative](value: string) {
+    const image = this.getImageFromText(value);
+    this.nativeView.setImageBitmap(image.android);
   }
 }
 

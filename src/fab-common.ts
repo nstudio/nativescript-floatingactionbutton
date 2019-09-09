@@ -5,8 +5,10 @@
  * Pull requests are welcome. Enjoy!
  *************************************************************************************/
 import { Color } from 'tns-core-modules/color';
+import { ImageSource } from 'tns-core-modules/image-source';
 import { Property, View } from 'tns-core-modules/ui/core/view';
 import { PanGestureEventData } from 'tns-core-modules/ui/gestures';
+import { Font, FontStyle, FontWeight } from 'tns-core-modules/ui/styling/font';
 import * as definitions from './index';
 
 export class FloatingActionButtonBase extends View implements definitions.Fab {
@@ -183,6 +185,19 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
         return 400;
     }
   }
+
+  protected getImageFromText(value: string): ImageSource {
+    const font = new Font(
+      this.style.fontFamily || 'normal',
+      this.style.fontSize || 16,
+      this.style.fontStyle || FontStyle.NORMAL,
+      this.style.fontWeight || FontWeight.LIGHT,
+    );
+    const color = this.style.color || new Color('#FFFFFF');
+    const source = new ImageSource();
+    source.loadFromFontIconCode(value, font, color);
+    return source;
+  }
 }
 
 export const iconProperty = new Property<FloatingActionButtonBase, string>({
@@ -190,6 +205,12 @@ export const iconProperty = new Property<FloatingActionButtonBase, string>({
   affectsLayout: true
 });
 iconProperty.register(FloatingActionButtonBase);
+
+export const textProperty = new Property<FloatingActionButtonBase, string>({
+  name: 'text',
+  affectsLayout: true
+});
+textProperty.register(FloatingActionButtonBase);
 
 export const rippleColorProperty = new Property<
   FloatingActionButtonBase,

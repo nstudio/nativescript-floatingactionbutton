@@ -139,6 +139,7 @@ Recommended CSS styles.
 | --------------------- | ------- | --- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
 | backgroundColor       | X       | X   | Sets the background color of the button                                        |
 | icon                  | X       | X   | Supports the same image source options that NativeScript images support        | Required on android                                                                                  |
+| text                  | X       | X   | Allows to use text instead of image                                            | Can be styled with `font-*` and `color` CSS properties                                               |
 | rippleColor           | X       |     | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None                                                                                                 |
 | hideOnSwipeOfView     | X       | X   | Directs the fab to animate itself in and out on scroll                         | Pass it the name of the view to monitor for a scroll event example: hideOnSwipeOfView="userListView" |
 | hideAnimationDuration | X       | X   | How many milliseconds it takes for the button to hide.                         | Default if not set: 300ms                                                                            |
