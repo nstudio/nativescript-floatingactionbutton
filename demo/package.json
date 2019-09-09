@@ -1,29 +1,23 @@
 {
   "nativescript": {
-    "id": "org.nativescript.floatingactionbutton",
-    "tns-android": {
-      "version": "6.0.0"
-    },
-    "tns-ios": {
-      "version": "6.0.0"
-    }
+    "id": "org.nativescript.floatingactionbutton"
   },
   "dependencies": {
     "@nstudio/nativescript-floatingactionbutton": "file:../src",
     "nativescript-theme-core": "^1.0.6",
-    "nativescript-unit-test-runner": "0.6.4",
-    "tns-core-modules": "6.0.1"
+    "nativescript-unit-test-runner": "0.7.0",
+    "tns-core-modules": "6.1.0"
   },
   "devDependencies": {
-    "jasmine-core": "3.3.0",
-    "karma": "4.1.0",
+    "jasmine-core": "3.4.0",
+    "karma": "4.3.0",
     "karma-jasmine": "2.0.1",
     "karma-nativescript-launcher": "0.4.0",
-    "nativescript-dev-webpack": "1.0.0",
-    "tns-platform-declarations": "6.0.1",
-    "tslint": "~5.18.0",
-    "typescript": "3.4.1",
-    "karma-webpack": "3.0.5"
+    "nativescript-dev-webpack": "1.2.0",
+    "tns-platform-declarations": "6.1.0",
+    "tslint": "~5.19.0",
+    "typescript": "3.5.3",
+    "karma-webpack": "4.0.2"
   },
   "scripts": {
     "build.plugin": "cd ../src && npm run build",

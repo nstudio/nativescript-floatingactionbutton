@@ -1,9 +1,5 @@
 import * as ImageSource from 'tns-core-modules/image-source';
-import {
-  FloatingActionButtonBase,
-  iconProperty,
-  textProperty,
-} from './fab-common';
+import { FloatingActionButtonBase, iconProperty, textProperty } from './fab-common';
 
 export class Fab extends FloatingActionButtonBase {
   public nativeView: UIView;

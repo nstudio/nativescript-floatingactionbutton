@@ -1,15 +1,7 @@
 import { Color } from 'tns-core-modules/color';
 import * as ImageSource from 'tns-core-modules/image-source';
-import {
-  backgroundColorProperty,
-  backgroundInternalProperty
-} from 'tns-core-modules/ui/core/view';
-import {
-  FloatingActionButtonBase,
-  iconProperty,
-  textProperty,
-  rippleColorProperty
-} from './fab-common';
+import { backgroundColorProperty, backgroundInternalProperty } from 'tns-core-modules/ui/core/view';
+import { FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
 
 declare let global: any;
 

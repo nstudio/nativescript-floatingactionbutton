@@ -191,7 +191,7 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
       this.style.fontFamily || 'normal',
       this.style.fontSize || 16,
       this.style.fontStyle || FontStyle.NORMAL,
-      this.style.fontWeight || FontWeight.LIGHT,
+      this.style.fontWeight || FontWeight.LIGHT
     );
     const color = this.style.color || new Color('#FFFFFF');
     const source = new ImageSource();
