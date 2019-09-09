@@ -11,28 +11,10 @@ export class Fab extends FloatingActionButtonBase {
     this.nativeView = btn;
   }
 
-  [iconProperty.setNative](value: any) {
-    let iconDrawable = null;
-    let newImageView = null;
-    if (ImageSource.isFileOrResourcePath(value)) {
-      iconDrawable = ImageSource.fromFileOrResource(value);
-
-      // Set the new one
-      if (iconDrawable !== null) {
-        newImageView = UIImageView.alloc().initWithImage(
-          iconDrawable.ios
-        ) as UIImageView;
-      }
-    } else {
-      // Default image
-      const defaultImage = ImageSource.fromBase64(
-        'iVBORw0KGgoAAAANSUhEUgAAAJAAAACQAQAAAADPPd8VAAAAAnRSTlMAAHaTzTgAAAAqSURBVHgBY6AMjIJRYP9n0AuNCo0KMf+HgwPDTmgoRMeo0KgQRWAUjAIABsnZRR7bYyUAAAAASUVORK5CYII='
-      ) as ImageSource.ImageSource;
-
-      newImageView = UIImageView.alloc().initWithImage(
-        defaultImage.ios
-      ) as UIImageView;
-    }
+  private setImage(iconDrawable: ImageSource.ImageSource) {
+    const newImageView = UIImageView.alloc().initWithImage(
+      iconDrawable.ios
+    ) as UIImageView;
 
     if (newImageView !== null) {
       // Kill the old Image, cocoapod doesn't support changing it yet
@@ -43,6 +25,19 @@ export class Fab extends FloatingActionButtonBase {
       // Add the new image to the button
       button.addSubview(newImageView);
     }
+  }
+
+  [iconProperty.setNative](value: any) {
+    let iconDrawable = null;
+    if (ImageSource.isFileOrResourcePath(value)) {
+      iconDrawable = ImageSource.fromFileOrResource(value);
+    } else {
+      // Default image
+      iconDrawable = ImageSource.fromBase64(
+        'iVBORw0KGgoAAAANSUhEUgAAAJAAAACQAQAAAADPPd8VAAAAAnRSTlMAAHaTzTgAAAAqSURBVHgBY6AMjIJRYP9n0AuNCo0KMf+HgwPDTmgoRMeo0KgQRWAUjAIABsnZRR7bYyUAAAAASUVORK5CYII='
+      ) as ImageSource.ImageSource;
+    }
+    this.setImage(iconDrawable);
   }
 
   public onLayout(
