@@ -13,9 +13,6 @@
     <a href="https://www.npmjs.com/package/@nstudio/nativescript-floatingactionbutton">
         <img src="https://img.shields.io/npm/dt/@nstudio/nativescript-floatingactionbutton.svg?label=npm%20downloads" alt="npm">
     </a>
-     <a href="https://travis-ci.org/nstudio/nativescript-floatingactionbutton">
-        <img src="https://travis-ci.org/nstudio/nativescript-floatingactionbutton.svg?branch=master" alt="travis build">
-    </a>
     <a href="https://github.com/nstudio/nativescript-floatingactionbutton/stargazers">
         <img src="https://img.shields.io/github/stars/nstudio/nativescript-floatingactionbutton.svg" alt="stars">
     </a>
