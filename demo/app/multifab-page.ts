@@ -1,7 +1,6 @@
+import { Color, Frame, isAndroid } from '@nativescript/core';
 import * as app from '@nativescript/core/application';
-import { Color } from '@nativescript/core/color';
-import { device, isAndroid } from '@nativescript/core/platform';
-import { topmost } from '@nativescript/core/ui/frame';
+import { device } from '@nativescript/core/platform';
 import { Fab } from '@nstudio/nativescript-floatingactionbutton';
 
 export function pageLoaded(args) {
@@ -16,7 +15,7 @@ export function fabTap(args) {
   console.log('fab tapped', args.object);
   console.log('navigating back to main-page in 1000ms');
   setTimeout(() => {
-    topmost().goBack();
+    Frame.topmost().goBack();
   }, 1000);
 }
 
@@ -32,6 +31,6 @@ export function animate(args) {
     })
     .then(() => {
       console.log('navigating back to main-page');
-      topmost().goBack();
+      Frame.topmost().goBack();
     });
 }

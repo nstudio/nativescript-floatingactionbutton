@@ -1,6 +1,9 @@
 {
   "nativescript": {
-    "id": "org.nativescript.floatingactionbutton"
+    "id": "org.nativescript.floatingactionbutton",
+    "tns-android": {
+      "version": "6.3.1"
+    }
   },
   "dependencies": {
     "@nstudio/nativescript-floatingactionbutton": "file:../src",

@@ -1,4 +1,4 @@
-import * as ImageSource from 'tns-core-modules/image-source';
+import * as ImageSource from '@nativescript/core/image-source';
 import { FloatingActionButtonBase, iconProperty, textProperty } from './fab-common';
 
 export class Fab extends FloatingActionButtonBase {

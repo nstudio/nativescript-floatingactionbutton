@@ -1,5 +1,5 @@
-import { Color } from 'tns-core-modules/color';
-import { View } from 'tns-core-modules/ui/core/view';
+import { Color } from '@nativescript/core/color';
+import { View } from '@nativescript/core/ui/core/view';
 
 export declare class Fab extends View {
   public hideOnSwipeOfView: string;

@@ -4,11 +4,11 @@
  * https://github.com/bradmartin
  * Pull requests are welcome. Enjoy!
  *************************************************************************************/
-import { Color } from 'tns-core-modules/color';
-import { ImageSource } from 'tns-core-modules/image-source';
-import { Property, View } from 'tns-core-modules/ui/core/view';
-import { PanGestureEventData } from 'tns-core-modules/ui/gestures';
-import { Font, FontStyle, FontWeight } from 'tns-core-modules/ui/styling/font';
+import { Color } from '@nativescript/core/color';
+import { ImageSource } from '@nativescript/core/image-source';
+import { Property, View } from '@nativescript/core/ui/core/view';
+import { PanGestureEventData } from '@nativescript/core/ui/gestures';
+import { Font, FontStyle, FontWeight } from '@nativescript/core/ui/styling/font';
 import * as definitions from './index';
 
 export class FloatingActionButtonBase extends View implements definitions.Fab {

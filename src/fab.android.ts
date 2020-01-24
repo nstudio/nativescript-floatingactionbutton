@@ -1,6 +1,6 @@
-import { Color } from 'tns-core-modules/color';
-import * as ImageSource from 'tns-core-modules/image-source';
-import { backgroundColorProperty, backgroundInternalProperty } from 'tns-core-modules/ui/core/view';
+import { Color } from '@nativescript/core';
+import { ImageSource, isFileOrResourcePath } from '@nativescript/core/image-source';
+import { backgroundColorProperty, backgroundInternalProperty } from '@nativescript/core/ui/core/view';
 import { FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
 
 declare let global: any;
@@ -78,8 +78,8 @@ export class Fab extends FloatingActionButtonBase {
       return;
     }
 
-    if (ImageSource.isFileOrResourcePath(value)) {
-      iconDrawable = ImageSource.fromFileOrResource(value);
+    if (isFileOrResourcePath(value)) {
+      iconDrawable = ImageSource.fromFileOrResourceSync(value);
       if (iconDrawable) {
         this.nativeView.setImageBitmap(iconDrawable.android);
       } else {
