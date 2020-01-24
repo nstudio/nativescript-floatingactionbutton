@@ -4,7 +4,10 @@
 <h4 align="center">NativeScript plugin for Material Design Floating Action Button UI component.</h4>
 
 <p align="center">
- <a href="https://www.npmjs.com/package/@nstudio/nativescript-floatingactionbutton">
+    <a href="https://www.npmjs.com/package/@nstudio/nativescript-floatingactionbutton">
+        <img src="https://github.com/nstudio/nativescript-floatingactionbutton/workflows/Build%20CI/badge.svg" alt="Action Build">
+    </a>
+    <a href="https://www.npmjs.com/package/@nstudio/nativescript-floatingactionbutton">
         <img src="https://img.shields.io/npm/v/@nstudio/nativescript-floatingactionbutton.svg" alt="npm">
     </a>
     <a href="https://www.npmjs.com/package/@nstudio/nativescript-floatingactionbutton">
