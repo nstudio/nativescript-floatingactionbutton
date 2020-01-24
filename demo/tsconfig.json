@@ -2,16 +2,16 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
     "noEmitHelpers": true,
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "lib": ["es6", "dom"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["app/*"]
     }
   },
-  "exclude": ["node_modules", "platforms"]
+  "exclude": ["node_modules", "platforms", "../src/node_modules"]
 }

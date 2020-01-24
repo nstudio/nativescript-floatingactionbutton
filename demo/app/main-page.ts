@@ -1,12 +1,12 @@
-import * as app from 'tns-core-modules/application';
-import { Color } from 'tns-core-modules/color';
-import { EventData, fromObject } from 'tns-core-modules/data/observable';
-import { ObservableArray } from 'tns-core-modules/data/observable-array';
-import { device, isAndroid } from 'tns-core-modules/platform';
-import { Button } from 'tns-core-modules/ui/button';
-import { confirm } from 'tns-core-modules/ui/dialogs';
-import { Page } from 'tns-core-modules/ui/page';
-import { openUrl } from 'tns-core-modules/utils/utils';
+import * as app from '@nativescript/core/application';
+import { Color } from '@nativescript/core/color';
+import { EventData, fromObject } from '@nativescript/core/data/observable';
+import { ObservableArray } from '@nativescript/core/data/observable-array';
+import { device, isAndroid } from '@nativescript/core/platform';
+import { Button } from '@nativescript/core/ui/button';
+import { confirm } from '@nativescript/core/ui/dialogs';
+import { Page } from '@nativescript/core/ui/page';
+import { openUrl } from '@nativescript/core/utils/utils';
 
 const users = [
   { name: 'Billy Bob' },

@@ -25,9 +25,9 @@
     "build": "npm i && tsc",
     "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\" --exclude \"*demo*/platforms/**\"",
     "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
-    "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
-    "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
-    "setup": "npm run setup && cd ../demo && cd ../src",
+    "demo.ios": "npm run setup && cd ../demo && tns run ios",
+    "demo.android": "npm run setup && cd ../demo && tns run android",
+    "setup": "npm i && tsc",
     "generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'",
     "make-changelog": "cd ../ && github_changelog_generator -u nstudio -p nativescript-floatingactionbutton"
   },
@@ -64,13 +64,13 @@
   "homepage": "https://github.com/nstudio/nativescript-floatingactionbutton",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "husky": "^3.0.5",
-    "lint-staged": "^9.2.5",
-    "prettier": "^1.18.2",
-    "tns-core-modules": "~6.1.0",
-    "tns-platform-declarations": "~6.1.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.2",
+    "prettier": "^1.19.1",
+    "tns-core-modules": "^6.3.2",
+    "tns-platform-declarations": "^6.3.2",
     "rimraf": "^2.6.3",
-    "tslint": "~5.19.0",
-    "typescript": "~3.5.3"
+    "tslint": "~6.0.0",
+    "typescript": "~3.7.4"
   }
 }
