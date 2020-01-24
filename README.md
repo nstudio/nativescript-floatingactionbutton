@@ -23,7 +23,13 @@
 
 ## Installation
 
+### Nativescript 6.3+
+
 `tns plugin add @nstudio/nativescript-floatingactionbutton`
+
+### NativeScript lower than 6.3
+
+`tns plugin add @nstudio/nativescript-floatingactionbutton@1.1.0`
 
 ### Screenshot
 
