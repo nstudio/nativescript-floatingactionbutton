@@ -25,7 +25,7 @@ jobs:
       - name: Setup Android
         run: |
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
-          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test -k 'system-images;android-27;google_apis;x86' --force
           $ANDROID_HOME/emulator/emulator -list-avds
           $ANDROID_HOME/platform-tools/adb devices
       - name: Android Test
