@@ -22,20 +22,18 @@ jobs:
       - name: Build Vanilla Android Demo App
         run: npm run ci.vanilla.android.build
 
-      # - name: Install Android sdkmanager
-      #   run: |
-      #     wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip
-      #     sudo unzip -d $ANDROID_HOME android-sdk.zip > /dev/null
-      # - name: Install required Android tools
-      #   run: |
-      #     echo "y" | sudo $ANDROID_HOME/tools/bin/sdkmanager "ndk;${ANDROID_NDK}" > /dev/null
-      # - name: Android Test
-      #   run: |
-      #     echo no | android create avd --force -n test -b armeabi-v7a
-      #     emulator -avd test -no-audio -no-window &
-      #     android-wait-for-emulator
-      #     cd src && npm i && npm run tsc && cd ../demo && tns build android
-      #     tns test android --justlaunch
+      - name: Setup Android
+        run: |
+          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-27;google_apis;x86'
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n xamarin_android_emulator -k 'system-images;android-27;google_apis;x86' --force
+          $ANDROID_HOME/emulator/emulator -list-avds
+          $ANDROID_HOME/platform-tools/adb devices
+      - name: Android Test
+        run: |
+          emulator -avd test -no-audio -no-window &
+          android-wait-for-emulator
+          cd src && npm i && npm run tsc && cd ../demo && tns build android
+          tns test android --justlaunch
 
   job2:
     name: iOS Builds & Test
