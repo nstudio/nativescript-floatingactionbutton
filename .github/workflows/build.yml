@@ -30,8 +30,7 @@ jobs:
           $ANDROID_HOME/platform-tools/adb devices
       - name: Android Test
         run: |
-          emulator -avd test -no-audio -no-window &
-          android-wait-for-emulator
+          $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window &
           cd src && npm i && npm run tsc && cd ../demo && tns build android
           tns test android --justlaunch
 
