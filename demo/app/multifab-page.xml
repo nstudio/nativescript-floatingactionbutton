@@ -6,7 +6,7 @@
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
         <FAB:fab id="fabButtonTopRight" row="0" icon="res://icon" tap="fabTap" rippleColor="#ffffff" class="fab-button top-right" hideOnSwipeOfView="userList" swipeAnimation="slideRight" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
-        <FAB:fab id="fabButtonBottomLeft" row="0" icon="res://baseline_add_white_24" tap="fabTap" rippleColor="#ffffff" class="bottom-left fab-button" hideOnSwipeOfView="userList" swipeAnimation="slideLeft" />
+        <FAB:fab id="fabButtonBottomLeft" row="0" icon="~/images/fire.jpg" tap="fabTap" rippleColor="#ffffff" class="bottom-left fab-button" hideOnSwipeOfView="userList" swipeAnimation="slideLeft" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
         <FAB:fab id="fabButtonBottomRight" row="0" icon="res://baseline_add_white_24" tap="fabTap" rippleColor="#ffffff" class="fab-button bottom-right" hideOnSwipeOfView="userList" swipeAnimation="slideDown" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->

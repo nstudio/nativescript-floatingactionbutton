@@ -9,19 +9,18 @@
     "@nstudio/nativescript-floatingactionbutton": "file:../src",
     "nativescript-theme-core": "^1.0.6",
     "nativescript-unit-test-runner": "0.7.0",
-    "@nativescript/core": "^6.3.2"
+    "@nativescript/core": "^6.5.1"
   },
   "devDependencies": {
     "jasmine-core": "^2.5.2",
     "karma": "4.1.0",
     "karma-jasmine": "2.0.1",
     "karma-nativescript-launcher": "^0.4.0",
-    "nativescript-css-loader": "~0.26.1",
-    "nativescript-dev-webpack": "~1.4.1",
-    "tns-platform-declarations": "^6.3.2",
+    "nativescript-dev-webpack": "~1.5.1",
+    "tns-platform-declarations": "^6.5.1",
     "karma-webpack": "3.0.5",
     "tslint": "^6.0.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "build.plugin": "cd ../src && npm run build",
