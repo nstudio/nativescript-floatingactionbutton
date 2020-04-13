@@ -137,6 +137,16 @@ Recommended CSS styles.
 }
 ```
 
+## Use Icon Fonts
+
+First you need to setup icon fonts as described in [NativeScript documentation](https://docs.nativescript.org/ui/components/icon-fonts).
+
+After this, you can use icon fonts on FAB by specifiying the unicode as text and add the `fas`/`far` class:
+
+```
+<FAB:fab text="&#xf02a;" class="fab-button fas" />
+```
+
 ---
 
 ## API
