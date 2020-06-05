@@ -64,13 +64,13 @@
   "homepage": "https://github.com/nstudio/nativescript-floatingactionbutton",
   "readmeFilename": "README.md",
   "devDependencies": {
+    "@nativescript/core": "^6.5.1",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.2",
     "prettier": "^1.19.1",
-    "@nativescript/core": "^6.3.2",
-    "tns-platform-declarations": "^6.3.2",
     "rimraf": "^2.6.3",
+    "tns-platform-declarations": "^6.5.1",
     "tslint": "~6.0.0",
-    "typescript": "~3.9.3"
+    "typescript": "^3.8.3"
   }
 }
