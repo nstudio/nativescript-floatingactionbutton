@@ -41,7 +41,7 @@ export class Fab extends FloatingActionButtonBase {
     this.nativeView.setOnClickListener(clickListener);
     (<any>this.nativeView).clickListener = clickListener;
     // setting scale type statically for now - can add configuration options with next release after confirming fixes for other icons sizes
-    this.android.setScaleType(android.widget.ImageView.ScaleType.CENTER);
+    this.nativeView.setScaleType(android.widget.ImageView.ScaleType.CENTER);
   }
 
   [backgroundColorProperty.getDefault](): android.content.res.ColorStateList {
