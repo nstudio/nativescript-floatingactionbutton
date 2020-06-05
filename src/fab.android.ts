@@ -2,7 +2,7 @@ import { Color } from '@nativescript/core';
 import { ImageSource } from '@nativescript/core/image-source';
 import { isFileOrResourcePath } from '@nativescript/core/utils/utils';
 import { backgroundColorProperty, backgroundInternalProperty } from '@nativescript/core/ui/core/view';
-import { FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
+import { FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty, androidScaleTypeProperty, AndroidScaleType } from './fab-common';
 
 declare let global: any;
 
@@ -40,7 +40,7 @@ export class Fab extends FloatingActionButtonBase {
     const clickListener = new ClickListener(this);
     this.nativeView.setOnClickListener(clickListener);
     (<any>this.nativeView).clickListener = clickListener;
-    // setting scale type statically for now - can add configuration options with next release after confirming fixes for other icons sizes
+
     this.nativeView.setScaleType(android.widget.ImageView.ScaleType.CENTER);
   }
 
@@ -115,6 +115,36 @@ export class Fab extends FloatingActionButtonBase {
   [textProperty.setNative](value: string) {
     const image = this.getImageFromText(value);
     this.nativeView.setImageBitmap(image.android);
+  }
+
+  [androidScaleTypeProperty.setNative](value: AndroidScaleType) {
+    let scaleType = android.widget.ImageView.ScaleType.CENTER;
+
+    switch (value) {
+      case "centerCrop":
+        scaleType = android.widget.ImageView.ScaleType.CENTER_CROP;
+        break;
+      case "centerInside":
+        scaleType = android.widget.ImageView.ScaleType.CENTER_INSIDE;
+        break;
+      case "fitCenter":
+        scaleType = android.widget.ImageView.ScaleType.FIT_CENTER;
+        break;
+      case "fitEnd":
+        scaleType = android.widget.ImageView.ScaleType.FIT_END;
+        break;
+      case "fitStart":
+        scaleType = android.widget.ImageView.ScaleType.FIT_START;
+        break;
+      case "fitXY":
+        scaleType = android.widget.ImageView.ScaleType.FIT_XY;
+        break;
+      case "matrix":
+        scaleType = android.widget.ImageView.ScaleType.MATRIX;
+        break;
+    }
+
+    this.nativeView.setScaleType(scaleType);
   }
 }
 
