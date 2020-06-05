@@ -1,4 +1,5 @@
 import * as ImageSource from '@nativescript/core/image-source';
+import { isFileOrResourcePath } from '@nativescript/core/utils/utils';
 import { FloatingActionButtonBase, iconProperty, textProperty } from './fab-common';
 
 export class Fab extends FloatingActionButtonBase {
@@ -29,7 +30,7 @@ export class Fab extends FloatingActionButtonBase {
 
   [iconProperty.setNative](value: any) {
     let iconDrawable = null;
-    if (ImageSource.isFileOrResourcePath(value)) {
+    if (isFileOrResourcePath(value)) {
       iconDrawable = ImageSource.fromFileOrResource(value);
     } else {
       // Default image
