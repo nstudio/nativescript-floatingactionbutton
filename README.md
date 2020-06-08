@@ -160,6 +160,7 @@ After this, you can use icon fonts on FAB by specifiying the unicode as text and
 | hideOnSwipeOfView     | X       | X   | Directs the fab to animate itself in and out on scroll                         | Pass it the name of the view to monitor for a scroll event example: hideOnSwipeOfView="userListView" |
 | hideAnimationDuration | X       | X   | How many milliseconds it takes for the button to hide.                         | Default if not set: 300ms                                                                            |
 | swipeAnimation        | X       | X   | slideDown, slideUp, slideLeft, slideRight, scale                               | Default is slideDown                                                                                 |
+| androidScaleType      | X       |     | center, centerCrop, centerInside, fitCenter, fitEnd, fitStart, fitXY, matrix<br> for more details see [Android-Docs](https://developer.android.com/reference/android/widget/ImageView.ScaleType)    | Default is center
 
 ## iOS Notes
 

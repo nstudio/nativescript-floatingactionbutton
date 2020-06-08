@@ -8,7 +8,7 @@
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
         <FAB:fab id="fabButtonBottomLeft" row="0" icon="~/images/fire.jpg" tap="fabTap" rippleColor="#ffffff" class="bottom-left fab-button" hideOnSwipeOfView="userList" swipeAnimation="slideLeft" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
-        <FAB:fab id="fabButtonBottomRight" row="0" icon="res://baseline_add_white_24" tap="fabTap" rippleColor="#ffffff" class="fab-button bottom-right" hideOnSwipeOfView="userList" swipeAnimation="slideDown" />
+        <FAB:fab id="fabButtonBottomRight" row="0" text="&#xf304;" androidScaleType="centerInside" tap="fabTap" rippleColor="#ffffff" class="fab-button bottom-right fa-solid" hideOnSwipeOfView="userList" swipeAnimation="slideDown" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
         <FAB:fab id="fabButtonCenter" row="0" icon="res://icon" tap="fabTap" rippleColor="#ffffff" class="fab-button center" hideOnSwipeOfView="userList" swipeAnimation="scale" />
         <!-- slideDown, slideUp, slideRight, slideLeft, scale -->
