@@ -1,8 +1,8 @@
 import { Color } from '@nativescript/core';
 import { ImageSource } from '@nativescript/core/image-source';
 import { backgroundColorProperty, backgroundInternalProperty } from '@nativescript/core/ui/core/view';
-import { AndroidScaleType, androidScaleTypeProperty, FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
 import { isFileOrResourcePath } from "@nativescript/core/utils/utils";
+import { AndroidScaleType, androidScaleTypeProperty, FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
 
 declare let global: any;
 
@@ -120,23 +120,23 @@ export class Fab extends FloatingActionButtonBase {
   [androidScaleTypeProperty.setNative](value: AndroidScaleType) {
     let scaleType = android.widget.ImageView.ScaleType.CENTER;
 
-    switch (value) {
-      case "centerCrop":
+    switch (value.trim().toLowerCase()) {
+      case "centercrop":
         scaleType = android.widget.ImageView.ScaleType.CENTER_CROP;
         break;
-      case "centerInside":
+      case "centerinside":
         scaleType = android.widget.ImageView.ScaleType.CENTER_INSIDE;
         break;
-      case "fitCenter":
+      case "fitcenter":
         scaleType = android.widget.ImageView.ScaleType.FIT_CENTER;
         break;
-      case "fitEnd":
+      case "fitend":
         scaleType = android.widget.ImageView.ScaleType.FIT_END;
         break;
-      case "fitStart":
+      case "fitstart":
         scaleType = android.widget.ImageView.ScaleType.FIT_START;
         break;
-      case "fitXY":
+      case "fitxy":
         scaleType = android.widget.ImageView.ScaleType.FIT_XY;
         break;
       case "matrix":
