@@ -1,6 +1,6 @@
 {
   "name": "@nstudio/nativescript-floatingactionbutton",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A NativeScript plugin for Material Design Floating Action Button.",
   "main": "fab",
   "typings": "index.d.ts",
@@ -64,11 +64,11 @@
   "homepage": "https://github.com/nstudio/nativescript-floatingactionbutton",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "husky": "^4.2.1",
-    "lint-staged": "^10.0.2",
-    "prettier": "^1.19.1",
-    "@nativescript/core": "^6.3.2",
-    "tns-platform-declarations": "^6.3.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.9",
+    "prettier": "^2.0.5",
+    "@nativescript/core": "^6.5.4",
+    "tns-platform-declarations": "^6.5.4",
     "rimraf": "^2.6.3",
     "tslint": "~6.0.0",
     "typescript": "~3.9.3"
