@@ -1,7 +1,8 @@
 import { Color } from '@nativescript/core';
-import { ImageSource, isFileOrResourcePath } from '@nativescript/core/image-source';
+import { ImageSource } from '@nativescript/core/image-source';
 import { backgroundColorProperty, backgroundInternalProperty } from '@nativescript/core/ui/core/view';
 import { FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
+import { isFileOrResourcePath } from "@nativescript/core/utils/utils";
 
 declare let global: any;
 

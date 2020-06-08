@@ -1,4 +1,5 @@
-import * as ImageSource from '@nativescript/core/image-source';
+import { ImageSource } from '@nativescript/core/image-source';
+import { isFileOrResourcePath } from '@nativescript/core/utils/utils';
 import { FloatingActionButtonBase, iconProperty, textProperty } from './fab-common';
 
 export class Fab extends FloatingActionButtonBase {
@@ -11,7 +12,7 @@ export class Fab extends FloatingActionButtonBase {
     this.nativeView = btn;
   }
 
-  private setImage(iconDrawable: ImageSource.ImageSource) {
+  private setImage(iconDrawable: ImageSource) {
     const newImageView = UIImageView.alloc().initWithImage(
       iconDrawable.ios
     ) as UIImageView;
@@ -29,13 +30,13 @@ export class Fab extends FloatingActionButtonBase {
 
   [iconProperty.setNative](value: any) {
     let iconDrawable = null;
-    if (ImageSource.isFileOrResourcePath(value)) {
-      iconDrawable = ImageSource.fromFileOrResource(value);
+    if (isFileOrResourcePath(value)) {
+      iconDrawable = ImageSource.fromFileOrResourceSync(value);
     } else {
       // Default image
-      iconDrawable = ImageSource.fromBase64(
+      iconDrawable = ImageSource.fromBase64Sync(
         'iVBORw0KGgoAAAANSUhEUgAAAJAAAACQAQAAAADPPd8VAAAAAnRSTlMAAHaTzTgAAAAqSURBVHgBY6AMjIJRYP9n0AuNCo0KMf+HgwPDTmgoRMeo0KgQRWAUjAIABsnZRR7bYyUAAAAASUVORK5CYII='
-      ) as ImageSource.ImageSource;
+      ) as ImageSource;
     }
     this.setImage(iconDrawable);
   }
