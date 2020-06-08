@@ -210,12 +210,17 @@ export const textProperty = new Property<FloatingActionButtonBase, string>({
 });
 textProperty.register(FloatingActionButtonBase);
 
-export const rippleColorProperty = new Property<
-  FloatingActionButtonBase,
-  Color
->({
+export const rippleColorProperty = new Property<FloatingActionButtonBase, Color>({
   name: 'rippleColor',
   equalityComparer: Color.equals,
   valueConverter: v => new Color(v)
 });
 rippleColorProperty.register(FloatingActionButtonBase);
+
+export type AndroidScaleType = "center" | "centerCrop" | "centerInside" | "fitCenter" | "fitEnd" | "fitStart" | "fitXY" | "matrix";
+export const androidScaleTypeProperty = new Property<FloatingActionButtonBase, AndroidScaleType>({
+  name: 'androidScaleType',
+  defaultValue: 'center',
+  affectsLayout: true
+});
+androidScaleTypeProperty.register(FloatingActionButtonBase);
