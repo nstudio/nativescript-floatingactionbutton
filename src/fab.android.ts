@@ -142,6 +142,7 @@ export class Fab extends FloatingActionButtonBase {
       case "matrix":
         scaleType = android.widget.ImageView.ScaleType.MATRIX;
         break;
+
     }
 
     this.nativeView.setScaleType(scaleType);
