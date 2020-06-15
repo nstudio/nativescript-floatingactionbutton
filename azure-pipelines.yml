@@ -15,7 +15,7 @@ steps:
 
 - script: |
     npm run ci.base.setup
-    npm run pip.install
+    npm run ci.pip.install
   displayName: 'Base Setup for CLI'
 
 - script: |
