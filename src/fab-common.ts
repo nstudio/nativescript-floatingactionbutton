@@ -1,14 +1,12 @@
-/**************************************************************************************
- * Made for the {N} community by Brad Martin @BradWayneMartin
- * https://twitter.com/BradWayneMartin
- * https://github.com/bradmartin
- * Pull requests are welcome. Enjoy!
- *************************************************************************************/
-import { Color } from '@nativescript/core/color';
-import { ImageSource } from '@nativescript/core/image-source';
-import { Property, View } from '@nativescript/core/ui/core/view';
-import { PanGestureEventData } from '@nativescript/core/ui/gestures';
-import { Font, FontStyle, FontWeight } from '@nativescript/core/ui/styling/font';
+import {
+  Color,
+  Font,
+  ImageSource,
+  PanGestureEventData,
+  Property,
+  View
+} from '@nativescript/core';
+import { FontStyle, FontWeight } from '@nativescript/core/ui/styling/font';
 import * as definitions from './index';
 
 export class FloatingActionButtonBase extends View implements definitions.Fab {
@@ -57,10 +55,10 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                       target: fab,
                       translate: {
                         x: 0,
-                        y: -200
+                        y: -200,
                       },
                       opacity: 0,
-                      duration: 400
+                      duration: 400,
                     });
                   } catch (error) {
                     console.log(error);
@@ -71,10 +69,10 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     translate: {
                       x: 0,
-                      y: 200
+                      y: 200,
                     },
                     opacity: 0,
-                    duration: duration
+                    duration: duration,
                   });
                   break;
                 case 'slideRight':
@@ -82,10 +80,10 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     translate: {
                       x: 200,
-                      y: 0
+                      y: 0,
                     },
                     opacity: 0,
-                    duration: duration
+                    duration: duration,
                   });
                   break;
                 case 'slideLeft':
@@ -93,10 +91,10 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     translate: {
                       x: -200,
-                      y: 0
+                      y: 0,
                     },
                     opacity: 0,
-                    duration: duration
+                    duration: duration,
                   });
                   break;
                 case 'scale':
@@ -104,9 +102,9 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     scale: {
                       x: 0,
-                      y: 0
+                      y: 0,
                     },
-                    duration: duration
+                    duration: duration,
                   });
                   break;
               }
@@ -118,10 +116,10 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     translate: {
                       x: 0,
-                      y: 0
+                      y: 0,
                     },
                     opacity: 1,
-                    duration: duration
+                    duration: duration,
                   });
                   break;
                 case 'slideDown':
@@ -129,10 +127,10 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     translate: {
                       x: 0,
-                      y: 0
+                      y: 0,
                     },
                     opacity: 1,
-                    duration: duration
+                    duration: duration,
                   });
                   break;
                 case 'slideRight':
@@ -140,10 +138,10 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     translate: {
                       x: 0,
-                      y: 0
+                      y: 0,
                     },
                     opacity: 1,
-                    duration: duration
+                    duration: duration,
                   });
                   break;
                 case 'slideLeft':
@@ -151,10 +149,10 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     translate: {
                       x: 0,
-                      y: 0
+                      y: 0,
                     },
                     opacity: 1,
-                    duration: duration
+                    duration: duration,
                   });
                   break;
                 case 'scale':
@@ -162,9 +160,9 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
                     target: fab,
                     scale: {
                       x: 1,
-                      y: 1
+                      y: 1,
                     },
-                    duration: duration
+                    duration: duration,
                   });
                   break;
               }
@@ -200,27 +198,41 @@ export class FloatingActionButtonBase extends View implements definitions.Fab {
 
 export const iconProperty = new Property<FloatingActionButtonBase, string>({
   name: 'icon',
-  affectsLayout: true
+  affectsLayout: true,
 });
 iconProperty.register(FloatingActionButtonBase);
 
 export const textProperty = new Property<FloatingActionButtonBase, string>({
   name: 'text',
-  affectsLayout: true
+  affectsLayout: true,
 });
 textProperty.register(FloatingActionButtonBase);
 
-export const rippleColorProperty = new Property<FloatingActionButtonBase, Color>({
+export const rippleColorProperty = new Property<
+  FloatingActionButtonBase,
+  Color
+>({
   name: 'rippleColor',
   equalityComparer: Color.equals,
-  valueConverter: v => new Color(v)
+  valueConverter: (v) => new Color(v),
 });
 rippleColorProperty.register(FloatingActionButtonBase);
 
-export type AndroidScaleType = "center" | "centerCrop" | "centerInside" | "fitCenter" | "fitEnd" | "fitStart" | "fitXY" | "matrix";
-export const androidScaleTypeProperty = new Property<FloatingActionButtonBase, AndroidScaleType>({
+export type AndroidScaleType =
+  | 'center'
+  | 'centerCrop'
+  | 'centerInside'
+  | 'fitCenter'
+  | 'fitEnd'
+  | 'fitStart'
+  | 'fitXY'
+  | 'matrix';
+export const androidScaleTypeProperty = new Property<
+  FloatingActionButtonBase,
+  AndroidScaleType
+>({
   name: 'androidScaleType',
   defaultValue: 'center',
-  affectsLayout: true
+  affectsLayout: true,
 });
 androidScaleTypeProperty.register(FloatingActionButtonBase);

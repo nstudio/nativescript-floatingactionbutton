@@ -1,5 +1,4 @@
-import { Color } from '@nativescript/core/color';
-import { View } from '@nativescript/core/ui/core/view';
+import { Color, View } from '@nativescript/core';
 
 export declare class Fab extends View {
   public hideOnSwipeOfView: string;

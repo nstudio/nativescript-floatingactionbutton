@@ -1,8 +1,18 @@
-import { Color } from '@nativescript/core';
-import { ImageSource } from '@nativescript/core/image-source';
-import { backgroundColorProperty, backgroundInternalProperty } from '@nativescript/core/ui/styling/style-properties';
-import { isFileOrResourcePath } from "@nativescript/core/utils/utils";
-import { AndroidScaleType, androidScaleTypeProperty, FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
+import {
+  backgroundColorProperty,
+  backgroundInternalProperty,
+  Color,
+  ImageSource,
+  Utils
+} from '@nativescript/core';
+import {
+  AndroidScaleType,
+  androidScaleTypeProperty,
+  FloatingActionButtonBase,
+  iconProperty,
+  rippleColorProperty,
+  textProperty
+} from './fab-common';
 
 declare let global: any;
 
@@ -79,7 +89,7 @@ export class Fab extends FloatingActionButtonBase {
       return;
     }
 
-    if (isFileOrResourcePath(value)) {
+    if (Utils.isFileOrResourcePath(value)) {
       iconDrawable = ImageSource.fromFileOrResourceSync(value);
       if (iconDrawable) {
         this.nativeView.setImageBitmap(iconDrawable.android);
@@ -121,28 +131,27 @@ export class Fab extends FloatingActionButtonBase {
     let scaleType = android.widget.ImageView.ScaleType.CENTER;
 
     switch (value.trim().toLowerCase()) {
-      case "centercrop":
+      case 'centercrop':
         scaleType = android.widget.ImageView.ScaleType.CENTER_CROP;
         break;
-      case "centerinside":
+      case 'centerinside':
         scaleType = android.widget.ImageView.ScaleType.CENTER_INSIDE;
         break;
-      case "fitcenter":
+      case 'fitcenter':
         scaleType = android.widget.ImageView.ScaleType.FIT_CENTER;
         break;
-      case "fitend":
+      case 'fitend':
         scaleType = android.widget.ImageView.ScaleType.FIT_END;
         break;
-      case "fitstart":
+      case 'fitstart':
         scaleType = android.widget.ImageView.ScaleType.FIT_START;
         break;
-      case "fitxy":
+      case 'fitxy':
         scaleType = android.widget.ImageView.ScaleType.FIT_XY;
         break;
-      case "matrix":
+      case 'matrix':
         scaleType = android.widget.ImageView.ScaleType.MATRIX;
         break;
-
     }
 
     this.nativeView.setScaleType(scaleType);
@@ -161,7 +170,8 @@ function initializeClickListener(): void {
   }
 
   @Interfaces([android.view.View.OnClickListener])
-  class ClickListenerImpl extends java.lang.Object
+  class ClickListenerImpl
+    extends java.lang.Object
     implements android.view.View.OnClickListener {
     constructor(public owner: FloatingActionButtonBase) {
       super();

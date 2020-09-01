@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "node",
     "declaration": false,
     "removeComments": true,
     "noLib": false,
@@ -10,6 +11,8 @@
     "skipLibCheck": true,
     "lib": ["es6", "dom"],
     "sourceMap": true,
+    "rootDir": ".",
+    "baseUrl": ".",
     "pretty": false,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

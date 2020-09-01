@@ -1,12 +1,16 @@
-import * as app from '@nativescript/core/application';
-import { Color } from '@nativescript/core/color';
-import { EventData, fromObject } from '@nativescript/core/data/observable';
-import { ObservableArray } from '@nativescript/core/data/observable-array';
-import { device, isAndroid } from '@nativescript/core/platform';
-import { Button } from '@nativescript/core/ui/button';
-import { confirm } from '@nativescript/core/ui/dialogs';
-import { Page } from '@nativescript/core/ui/page';
-import { openUrl } from '@nativescript/core/utils/utils';
+import {
+  Application,
+  Button,
+  Color,
+  Device,
+  Dialogs,
+  EventData,
+  fromObject,
+  isAndroid,
+  ObservableArray,
+  Page,
+  Utils
+} from '@nativescript/core';
 
 const users = [
   { name: 'Billy Bob' },
@@ -24,17 +28,17 @@ const users = [
   { name: 'Lance' },
   { name: 'Johnson' },
   { name: 'William' },
-  { name: 'Franklin' }
+  { name: 'Franklin' },
 ];
 const viewModel = fromObject({
-  users: new ObservableArray(users)
+  users: new ObservableArray(users),
 });
 
 export function pageLoaded(args) {
   const page = args.object;
   // Change statusbar color on Lollipop
-  if (isAndroid && device.sdkVersion >= '21') {
-    const window = app.android.startActivity.getWindow();
+  if (isAndroid && Device.sdkVersion >= '21') {
+    const window = Application.android.startActivity.getWindow();
     window.setStatusBarColor(new Color('#303F9F').android);
   }
 
@@ -42,14 +46,14 @@ export function pageLoaded(args) {
 }
 
 export function nStudioIconTap() {
-  confirm({
+  Dialogs.confirm({
     message:
       'nStudio, LLC. specializes in custom software applications ranging from mobile, web, desktop, server and more. Would you like to visit nstudio.io?',
     okButtonText: 'Yes',
-    cancelButtonText: 'Close'
-  }).then(result => {
+    cancelButtonText: 'Close',
+  }).then((result) => {
     if (result) {
-      openUrl('https://nstudio.io');
+      Utils.openUrl('https://nstudio.io');
     }
   });
 }
