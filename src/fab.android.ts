@@ -1,6 +1,6 @@
 import { Color } from '@nativescript/core';
 import { ImageSource } from '@nativescript/core/image-source';
-import { backgroundColorProperty, backgroundInternalProperty } from '@nativescript/core/ui/core/view';
+import { backgroundColorProperty, backgroundInternalProperty } from '@nativescript/core/ui/styling/style-properties';
 import { isFileOrResourcePath } from "@nativescript/core/utils/utils";
 import { AndroidScaleType, androidScaleTypeProperty, FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
 
