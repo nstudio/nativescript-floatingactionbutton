@@ -1,17 +1,10 @@
 import { NativeScriptConfig } from '@nativescript/core';
 
 export default {
-  id: 'io.nstudio.floatingactionbuttondemo',
-  main: 'app.js',
+  id: 'org.nativescript.floatingactionbutton',
   appResourcesPath: 'App_Resources',
-  webpackConfigPath: 'webpack.config.js',
-  ios: {
-    discardUncaughtJsExceptions: true,
-  },
   android: {
-    discardUncaughtJsExceptions: true,
-    v8Flags: '--nolazy --expose_gc',
-    markingMode: 'none',
-    suppressCallJSMethodExceptions: false,
-  },
+    v8Flags: '--expose_gc',
+    markingMode: 'none'
+  }
 } as NativeScriptConfig;

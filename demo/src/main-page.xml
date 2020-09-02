@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" 
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatedTo="pageLoaded" 
     xmlns:FAB="@nstudio/nativescript-floatingactionbutton">
     <ActionBar title="FAB Demo" icon="">
         <ActionBar.actionItems>
