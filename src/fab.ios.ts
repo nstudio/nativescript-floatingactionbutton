@@ -1,9 +1,12 @@
-import { ImageSource } from '@nativescript/core/image-source';
-import { isFileOrResourcePath } from '@nativescript/core/utils/utils';
-import { FloatingActionButtonBase, iconProperty, textProperty } from './fab-common';
+import { ImageSource, Utils } from '@nativescript/core';
+import {
+  FloatingActionButtonBase,
+  iconProperty,
+  textProperty
+} from './fab-common';
 
 export class Fab extends FloatingActionButtonBase {
-  public nativeView: UIView;
+  nativeView: UIView;
 
   constructor() {
     super();
@@ -30,7 +33,7 @@ export class Fab extends FloatingActionButtonBase {
 
   [iconProperty.setNative](value: any) {
     let iconDrawable = null;
-    if (isFileOrResourcePath(value)) {
+    if (Utils.isFileOrResourcePath(value)) {
       iconDrawable = ImageSource.fromFileOrResourceSync(value);
     } else {
       // Default image
@@ -46,12 +49,7 @@ export class Fab extends FloatingActionButtonBase {
     this.setImage(image);
   }
 
-  public onLayout(
-    left: number,
-    top: number,
-    right: number,
-    bottom: number
-  ): void {
+  onLayout(left: number, top: number, right: number, bottom: number): void {
     super.onLayout(left, top, right, bottom);
     this._centerIcon();
   }

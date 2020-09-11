@@ -13,20 +13,17 @@
     <a href="https://www.npmjs.com/package/@nstudio/nativescript-floatingactionbutton">
         <img src="https://img.shields.io/npm/dt/@nstudio/nativescript-floatingactionbutton.svg?label=npm%20downloads" alt="npm">
     </a>
-    <a href="https://github.com/nstudio/nativescript-floatingactionbutton/stargazers">
-        <img src="https://img.shields.io/github/stars/nstudio/nativescript-floatingactionbutton.svg" alt="stars">
-    </a>
 </p>
 
 ## Installation
 
-### Nativescript 6.3+
+### Nativescript 7+:
 
-`tns plugin add @nstudio/nativescript-floatingactionbutton`
+`ns plugin add @nstudio/nativescript-floatingactionbutton`
 
-### NativeScript lower than 6.3
+### NativeScript lower than 7:
 
-`tns plugin add @nstudio/nativescript-floatingactionbutton@1.1.0`
+`tns plugin add @nstudio/nativescript-floatingactionbutton@2.1.0`
 
 ### Screenshot
 
@@ -57,7 +54,7 @@
         </list-view>
             <FAB:fab tap="fabTap"
                      row="1"
-                     icon="'~/images/ic_add_white.png'"
+                     icon="'~/assets/ic_add_white.png'"
                      rippleColor="#f1f1f1"
                      class="fab-button" />
     </grid-layout>
@@ -80,7 +77,7 @@ registerElement(
 
 ```HTML
 <StackLayout>
-    <FAB (tap)="fabTap()" icon="'~/images/ic_add_white.png'" rippleColor="#f1f1f1" class="fab-button"></FAB>
+    <FAB (tap)="fabTap()" icon="'~/assets/ic_add_white.png'" rippleColor="#f1f1f1" class="fab-button"></FAB>
 </StackLayout>
 ```
 
@@ -151,16 +148,16 @@ After this, you can use icon fonts on FAB by specifiying the unicode as text and
 
 ## API
 
-| Property              | Android | iOS | Description                                                                    | Note                                                                                                 |
-| --------------------- | ------- | --- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| backgroundColor       | X       | X   | Sets the background color of the button                                        |
-| icon                  | X       | X   | Supports the same image source options that NativeScript images support        | Required on android                                                                                  |
-| text                  | X       | X   | Allows to use text instead of image                                            | Can be styled with `font-*` and `color` CSS properties                                               |
-| rippleColor           | X       |     | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices | None                                                                                                 |
-| hideOnSwipeOfView     | X       | X   | Directs the fab to animate itself in and out on scroll                         | Pass it the name of the view to monitor for a scroll event example: hideOnSwipeOfView="userListView" |
-| hideAnimationDuration | X       | X   | How many milliseconds it takes for the button to hide.                         | Default if not set: 300ms                                                                            |
-| swipeAnimation        | X       | X   | slideDown, slideUp, slideLeft, slideRight, scale                               | Default is slideDown                                                                                 |
-| androidScaleType      | X       |     | center, centerCrop, centerInside, fitCenter, fitEnd, fitStart, fitXY, matrix<br> for more details see [Android-Docs](https://developer.android.com/reference/android/widget/ImageView.ScaleType)    | Default is center
+| Property              | Android | iOS | Description                                                                                                                                                                                      | Note                                                                                                 |
+| --------------------- | ------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| backgroundColor       | X       | X   | Sets the background color of the button                                                                                                                                                          |
+| icon                  | X       | X   | Supports the same image source options that NativeScript images support                                                                                                                          | Required on android                                                                                  |
+| text                  | X       | X   | Allows to use text instead of image                                                                                                                                                              | Can be styled with `font-*` and `color` CSS properties                                               |
+| rippleColor           | X       |     | Ripple color on lollipop devices, it will fill the FAB on pre-lollipop devices                                                                                                                   | None                                                                                                 |
+| hideOnSwipeOfView     | X       | X   | Directs the fab to animate itself in and out on scroll                                                                                                                                           | Pass it the name of the view to monitor for a scroll event example: hideOnSwipeOfView="userListView" |
+| hideAnimationDuration | X       | X   | How many milliseconds it takes for the button to hide.                                                                                                                                           | Default if not set: 300ms                                                                            |
+| swipeAnimation        | X       | X   | slideDown, slideUp, slideLeft, slideRight, scale                                                                                                                                                 | Default is slideDown                                                                                 |
+| androidScaleType      | X       |     | center, centerCrop, centerInside, fitCenter, fitEnd, fitStart, fitXY, matrix<br> for more details see [Android-Docs](https://developer.android.com/reference/android/widget/ImageView.ScaleType) | Default is center                                                                                    |
 
 ## iOS Notes
 

@@ -1,2 +1,2 @@
-import * as app from '@nativescript/core/application';
-app.run({ moduleName: 'app-root' });
+import { Application } from '@nativescript/core';
+Application.run({ moduleName: 'app-root' });

@@ -1,8 +1,18 @@
-import { Color } from '@nativescript/core';
-import { ImageSource } from '@nativescript/core/image-source';
-import { backgroundColorProperty, backgroundInternalProperty } from '@nativescript/core/ui/styling/style-properties';
-import { isFileOrResourcePath } from "@nativescript/core/utils/utils";
-import { AndroidScaleType, androidScaleTypeProperty, FloatingActionButtonBase, iconProperty, rippleColorProperty, textProperty } from './fab-common';
+import {
+  backgroundColorProperty,
+  backgroundInternalProperty,
+  Color,
+  ImageSource,
+  Utils
+} from '@nativescript/core';
+import {
+  AndroidScaleType,
+  androidScaleTypeProperty,
+  FloatingActionButtonBase,
+  iconProperty,
+  rippleColorProperty,
+  textProperty
+} from './fab-common';
 
 declare let global: any;
 
@@ -22,22 +32,21 @@ function useAndroidX() {
 export class Fab extends FloatingActionButtonBase {
   private _androidViewId: number;
   private _android: com.google.android.material.floatingactionbutton.FloatingActionButton;
-  public static tapEvent = 'tap';
+  static tapEvent = 'tap';
 
-  get android(): com.google.android.material.floatingactionbutton.FloatingActionButton {
-    return this.nativeView;
-  }
+  // get android(): com.google.android.material.floatingactionbutton.FloatingActionButton {
+  //   return this.nativeView;
+  // }
 
-  public createNativeView() {
+  createNativeView() {
     this._android = new FABNamespace.FloatingActionButton(this._context);
     return this._android;
   }
 
-  public initNativeView() {
+  initNativeView() {
     this._androidViewId = android.view.View.generateViewId();
     this.nativeView.setId(this._androidViewId);
-    initializeClickListener();
-    const clickListener = new ClickListener(this);
+    const clickListener = new ClickListenerImpl(this);
     this.nativeView.setOnClickListener(clickListener);
     (<any>this.nativeView).clickListener = clickListener;
 
@@ -79,7 +88,7 @@ export class Fab extends FloatingActionButtonBase {
       return;
     }
 
-    if (isFileOrResourcePath(value)) {
+    if (Utils.isFileOrResourcePath(value)) {
       iconDrawable = ImageSource.fromFileOrResourceSync(value);
       if (iconDrawable) {
         this.nativeView.setImageBitmap(iconDrawable.android);
@@ -121,28 +130,27 @@ export class Fab extends FloatingActionButtonBase {
     let scaleType = android.widget.ImageView.ScaleType.CENTER;
 
     switch (value.trim().toLowerCase()) {
-      case "centercrop":
+      case 'centercrop':
         scaleType = android.widget.ImageView.ScaleType.CENTER_CROP;
         break;
-      case "centerinside":
+      case 'centerinside':
         scaleType = android.widget.ImageView.ScaleType.CENTER_INSIDE;
         break;
-      case "fitcenter":
+      case 'fitcenter':
         scaleType = android.widget.ImageView.ScaleType.FIT_CENTER;
         break;
-      case "fitend":
+      case 'fitend':
         scaleType = android.widget.ImageView.ScaleType.FIT_END;
         break;
-      case "fitstart":
+      case 'fitstart':
         scaleType = android.widget.ImageView.ScaleType.FIT_START;
         break;
-      case "fitxy":
+      case 'fitxy':
         scaleType = android.widget.ImageView.ScaleType.FIT_XY;
         break;
-      case "matrix":
+      case 'matrix':
         scaleType = android.widget.ImageView.ScaleType.MATRIX;
         break;
-
     }
 
     this.nativeView.setScaleType(scaleType);
@@ -153,28 +161,20 @@ interface ClickListener {
   new (owner: FloatingActionButtonBase): android.view.View.OnClickListener;
 }
 
-let ClickListener: ClickListener;
-
-function initializeClickListener(): void {
-  if (ClickListener) {
-    return;
+@NativeClass()
+@Interfaces([android.view.View.OnClickListener])
+class ClickListenerImpl
+  extends java.lang.Object
+  implements android.view.View.OnClickListener {
+  constructor(public owner: FloatingActionButtonBase) {
+    super();
+    return global.__native(this);
   }
 
-  @Interfaces([android.view.View.OnClickListener])
-  class ClickListenerImpl extends java.lang.Object
-    implements android.view.View.OnClickListener {
-    constructor(public owner: FloatingActionButtonBase) {
-      super();
-      return global.__native(this);
-    }
-
-    public onClick(v: android.view.View): void {
-      const owner = this.owner;
-      if (owner) {
-        (<any>owner)._emit('tap');
-      }
+  onClick(v: android.view.View): void {
+    const owner = this.owner;
+    if (owner) {
+      (<any>owner)._emit('tap');
     }
   }
-
-  ClickListener = ClickListenerImpl;
 }
