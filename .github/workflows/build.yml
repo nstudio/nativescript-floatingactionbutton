@@ -5,7 +5,7 @@ on: [push]
 
 jobs:
   job1:
-    name: Android Builds & Test
+    name: Android Build
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
@@ -38,7 +38,7 @@ jobs:
       #     tns test android --justlaunch
 
   job2:
-    name: iOS Builds & Test
+    name: iOS Build
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
@@ -48,8 +48,3 @@ jobs:
 
       - name: Build Vanilla iOS Demo App
         run: npm run ci.vanilla.ios.build
-
-      - name: iOS Test
-        run: |
-          cd src && npm i && npm run tsc && cd ../demo && tns build ios
-          tns test ios --justlaunch
