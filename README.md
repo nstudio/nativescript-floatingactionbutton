@@ -165,6 +165,16 @@ After this, you can use icon fonts on FAB by specifiying the unicode as text and
 - Width\Height are requried properties
 - icon is a required property, if left as empty string default will be shown
 
+### Running Demo Apps
+
+```bash
+npm run demo.android
+
+// or
+
+npm run demo.ios
+```
+
 ### [Changelog](./CHANGELOG.md)
 
 ### Contributors
