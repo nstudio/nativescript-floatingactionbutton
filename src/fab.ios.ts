@@ -16,18 +16,20 @@ export class Fab extends FloatingActionButtonBase {
   }
 
   private setImage(iconDrawable: ImageSource) {
-    const newImageView = UIImageView.alloc().initWithImage(
-      iconDrawable.ios
-    ) as UIImageView;
-
-    if (newImageView !== null) {
-      // Kill the old Image, cocoapod doesn't support changing it yet
-      const button = this.nativeView.subviews[0] as MNFloatingActionButton;
-      const oldBadImageView = button.subviews[0]; // this should be the image view inside the MNFloatingActionButton
-      oldBadImageView.removeFromSuperview();
-
-      // Add the new image to the button
-      button.addSubview(newImageView);
+    if (iconDrawable) {
+      const newImageView = UIImageView.alloc().initWithImage(
+        iconDrawable.ios
+      ) as UIImageView;
+  
+      if (newImageView !== null) {
+        // Kill the old Image, cocoapod doesn't support changing it yet
+        const button = this.nativeView.subviews[0] as MNFloatingActionButton;
+        const oldBadImageView = button.subviews[0]; // this should be the image view inside the MNFloatingActionButton
+        oldBadImageView.removeFromSuperview();
+  
+        // Add the new image to the button
+        button.addSubview(newImageView);
+      }
     }
   }
 

@@ -123,7 +123,9 @@ export class Fab extends FloatingActionButtonBase {
 
   [textProperty.setNative](value: string) {
     const image = this.getImageFromText(value);
-    this.nativeView.setImageBitmap(image.android);
+    if (image) {
+      this.nativeView.setImageBitmap(image.android);
+    }
   }
 
   [androidScaleTypeProperty.setNative](value: AndroidScaleType) {

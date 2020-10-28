@@ -27,7 +27,7 @@
     "demo.ios": "npm run build && cd ../demo && tns run ios",
     "demo.android": "npm run build && cd ../demo && tns run android",
     "clean.demo": "cd ../demo && ns clean",
-    "clean.src": "rimraf node_modules package-lock.json",
+    "clean.src": "npx rimraf node_modules package-lock.json",
     "generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'",
     "make-changelog": "cd ../ && github_changelog_generator -u nstudio -p nativescript-floatingactionbutton"
   },
@@ -74,6 +74,6 @@
     "ts-node": "^9.0.0",
     "ts-patch": "^1.3.0",
     "tslint": "~6.1.3",
-    "typescript": "~3.9.7"
+    "typescript": "~4.0.0"
   }
 }
