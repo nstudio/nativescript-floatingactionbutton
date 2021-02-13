@@ -77,7 +77,7 @@ registerElement(
 
 ```HTML
 <StackLayout>
-    <FAB (tap)="fabTap()" icon="'~/assets/ic_add_white.png'" rippleColor="#f1f1f1" class="fab-button"></FAB>
+    <FAB (tap)="fabTap()" icon="~/assets/ic_add_white.png" rippleColor="#f1f1f1" class="fab-button"></FAB>
 </StackLayout>
 ```
 
