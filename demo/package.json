@@ -10,7 +10,7 @@
     "@nativescript/types": "~7.0.3",
     "@nativescript/webpack": "~3.0.4",
     "jasmine-core": "^2.5.2",
-    "karma": "4.1.0",
+    "karma": "6.4.1",
     "karma-jasmine": "2.0.1",
     "karma-nativescript-launcher": "^0.4.0",
     "karma-webpack": "3.0.5",
