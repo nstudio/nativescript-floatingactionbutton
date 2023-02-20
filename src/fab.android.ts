@@ -78,6 +78,22 @@ export class Fab extends FloatingActionButtonBase {
     // NOOP
   }
 
+  [colorProperty.setNative](value) {
+    let newValue;
+    if (value instanceof Color) {
+        newValue = android.content.res.ColorStateList.valueOf(value.android);
+    }
+    else {
+        newValue = value;
+    }
+    try {
+        this.nativeView.setSupportImageTintList(newValue);
+    }
+    catch (err) {
+        console.log(`Error setNative colorProperty: `, err);
+    }
+  }
+
   [rippleColorProperty.setNative](value: Color) {
     this.nativeView.setRippleColor(value.android);
   }
