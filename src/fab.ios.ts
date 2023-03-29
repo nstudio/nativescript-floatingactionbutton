@@ -23,8 +23,8 @@ export class Fab extends FloatingActionButtonBase {
 
       if (newImageView !== null) {
         // Kill the old Image, cocoapod doesn't support changing it yet
-        const button = this.nativeView.subviews[0] as MNFloatingActionButton;
-        const oldBadImageView = button.subviews[0]; // this should be the image view inside the MNFloatingActionButton
+        const button = this.nativeView.subviews.objectAtIndex(0) as MNFloatingActionButton;
+        const oldBadImageView = button.subviews.objectAtIndex(0); // this should be the image view inside the MNFloatingActionButton
         oldBadImageView.removeFromSuperview();
 
         // Add the new image to the button
@@ -61,8 +61,8 @@ export class Fab extends FloatingActionButtonBase {
     const width = frame.size.width as number;
     const height = frame.size.height as number;
 
-    const button = this.nativeView.subviews[0] as MNFloatingActionButton;
-    const imageView = <UIImageView>button.subviews[0]; // should be the image view inside the MNFloatingActionButton
+    const button = this.nativeView.subviews.objectAtIndex(0) as MNFloatingActionButton;
+    const imageView = <UIImageView>button.subviews.objectAtIndex(0); // should be the image view inside the MNFloatingActionButton
 
     imageView.contentMode = UIViewContentMode.ScaleAspectFit;
     imageView.frame = CGRectMake(0, 0, width / 2, height / 2);
