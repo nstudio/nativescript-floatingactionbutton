@@ -236,3 +236,8 @@ export const androidScaleTypeProperty = new Property<
   affectsLayout: true,
 });
 androidScaleTypeProperty.register(FloatingActionButtonBase);
+export const colorProperty = new Property({
+  name: 'color',
+  valueConverter: (v) => new Color(v),
+});
+colorProperty.register(FloatingActionButtonBase);
